@@ -1,22 +1,22 @@
 {
-  "name": "@playkit-js/playkit-js",
+  "name": "@playchi-js/playchi-js",
   "version": "0.84.8",
   "keywords": [
-    "kaltura",
+    "tasvirchi",
     "player",
     "html5 player"
   ],
-  "homepage": "https://github.com/kaltura/playkit-js",
+  "homepage": "https://github.com/tasvirchi/playchi-js",
   "bugs": {
-    "url": "https://github.com/kaltura/playkit-js/issues"
+    "url": "https://github.com/tasvirchi/playchi-js/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kaltura/playkit-js"
+    "url": "https://github.com/tasvirchi/playchi-js"
   },
   "license": "AGPL-3.0",
-  "main": "./dist/playkit.js",
-  "types": "./dist/playkit-js.d.ts",
+  "main": "./dist/playchi.js",
+  "types": "./dist/playchi-js.d.ts",
   "files": [
     "dist/**/*",
     "src/**/*",
@@ -56,7 +56,7 @@
     "@babel/preset-typescript": "^7.22.15",
     "@babel/runtime": "^7.23.1",
     "@microsoft/api-extractor": "^7.38.0",
-    "@playkit-js/browserslist-config": "1.0.8",
+    "@playchi-js/browserslist-config": "1.0.8",
     "@types/chai": "^4.3.3",
     "@types/mocha": "^9.1.1",
     "@types/sinon": "^10.0.20",
@@ -90,9 +90,9 @@
     "webpack-dev-server": "^4.15.1"
   },
   "browserslist": [
-    "extends @playkit-js/browserslist-config"
+    "extends @playchi-js/browserslist-config"
   ],
   "kcc": {
-    "name": "playkit"
+    "name": "playchi"
   }
 }

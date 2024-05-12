@@ -4,12 +4,12 @@ import AudioTrack from '../../src/track/audio-track';
 import TextTrack from '../../src/track/text-track';
 import FakeEventTarget from '../../src/event/fake-event-target';
 import {ThumbnailInfo} from '../../src/thumbnail/thumbnail-info';
-import {ImageTrack} from '../../src/playkit';
+import {ImageTrack} from '../../src/playchi';
 
 declare interface IEngineStatic {
   id: string;
-  createEngine(source: PKMediaSourceObject, config: Object, playerId: string): IEngine;
-  canPlaySource(source: PKMediaSourceObject, preferNative: boolean, drmConfig: PKDrmConfigObject): boolean;
+  createEngine(source: PCMediaSourceObject, config: Object, playerId: string): IEngine;
+  canPlaySource(source: PCMediaSourceObject, preferNative: boolean, drmConfig: PCDrmConfigObject): boolean;
   runCapabilities(): void;
   getCapabilities(): Promise<Object>;
   setCapabilities(capabilities: {[name: string]: any}): void;
@@ -18,7 +18,7 @@ declare interface IEngineStatic {
 }
 
 declare interface IEngine extends FakeEventTarget {
-  restore(source: PKMediaSourceObject, config: Object): void;
+  restore(source: PCMediaSourceObject, config: Object): void;
   destroy(): void;
   attach(): void;
   detach(): void;
@@ -36,7 +36,7 @@ declare interface IEngine extends FakeEventTarget {
   hideTextTrack(): void;
   enableAdaptiveBitrate(): void;
   isAdaptiveBitrateEnabled(): boolean;
-  applyABRRestriction(restrictions: PKABRRestrictionObject): void;
+  applyABRRestriction(restrictions: PCABRRestrictionObject): void;
   seekToLiveEdge(): void;
   getStartTimeOfDvrWindow(): number;
   isLive(): boolean;
@@ -48,7 +48,7 @@ declare interface IEngine extends FakeEventTarget {
   isOnLiveEdge(): boolean;
   addTextTrack(kind: string, label?: string, language?: string): ?TextTrack;
   getNativeTextTracks(): Array<TextTrack>;
-  getDrmInfo(): ?PKDrmDataObject;
+  getDrmInfo(): ?PCDrmDataObject;
   +id: string;
   currentTime: number;
   +duration: number;

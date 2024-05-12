@@ -1,3 +1,3 @@
-export type PKMediaSourceCapabilities = {
+export type PCMediaSourceCapabilities = {
   [fpsControl: string]: boolean
 };

@@ -1,4 +1,4 @@
-export type PKThumbnailVttCue = {
+export type PCThumbnailVttCue = {
   startTime: number,
   endTime: number,
   imgUrl: string,

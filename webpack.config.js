@@ -4,7 +4,7 @@ const packageData = require('./package.json');
 
 module.exports = (env, { mode }) => {
   return {
-    entry: './src/playkit.ts',
+    entry: './src/playchi.ts',
     devtool: 'source-map',
     module: {
       rules: [
@@ -37,11 +37,11 @@ module.exports = (env, { mode }) => {
       extensions: ['.ts', '.js']
     },
     output: {
-      filename: 'playkit.js',
+      filename: 'playchi.js',
       path: path.resolve(__dirname, 'dist'),
       library: {
         umdNamedDefine: true,
-        name: ['playkit', 'core'],
+        name: ['playchi', 'core'],
         type: 'umd'
       },
       clean: true

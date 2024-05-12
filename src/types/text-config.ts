@@ -1,12 +1,12 @@
-import {PKTextStyleObject} from './text-style';
-import {PKTextTrackDisplaySettingObject} from './text-track-display-setting';
+import {PCTextStyleObject} from './text-style';
+import {PCTextTrackDisplaySettingObject} from './text-track-display-setting';
 
-export interface PKTextConfigObject {
+export interface PCTextConfigObject {
   enableCEA708Captions: boolean;
   useShakaTextTrackDisplay: boolean;
   useNativeTextTrack: boolean;
-  textTrackDisplaySetting: PKTextTrackDisplaySettingObject;
-  textStyle: PKTextStyleObject;
+  textTrackDisplaySetting: PCTextTrackDisplaySettingObject;
+  textStyle: PCTextStyleObject;
   forceCenter: boolean;
   captionsTextTrack1Label: string;
   captionsTextTrack1LanguageCode: string;

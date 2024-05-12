@@ -2,7 +2,7 @@ import {CustomEventType, Html5EventType} from '../../../../event/event-type';
 import Track from '../../../../track/track';
 import VideoTrack from '../../../../track/video-track';
 import AudioTrack from '../../../../track/audio-track';
-import PKTextTrack from '../../../../track/text-track';
+import PCTextTrack from '../../../../track/text-track';
 import {RequestType} from '../../../../enums/request-type';
 import BaseMediaSourceAdapter from '../base-media-source-adapter';
 import {getSuitableSourceForResolution} from '../../../../utils/resolution';
@@ -15,7 +15,7 @@ import defaultConfig from './native-adapter-default-config.json';
 import type {FairPlayDrmConfigType} from './fairplay-drm-handler';
 import {FairPlayDrmHandler} from './fairplay-drm-handler';
 import {IDrmProtocol} from '../../../../types';
-import {PKABRRestrictionObject, PKDrmConfigObject, PKDrmDataObject, PKMediaSourceObject, PKRequestObject, PKVideoDimensionsObject} from '../../../../types';
+import {PCABRRestrictionObject, PCDrmConfigObject, PCDrmDataObject, PCMediaSourceObject, PCRequestObject, PCVideoDimensionsObject} from '../../../../types';
 import {IMediaSourceAdapter} from '../../../../types';
 
 const BACK_TO_FOCUS_TIMEOUT: number = 1000;
@@ -81,10 +81,10 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   private _drmHandler: FairPlayDrmHandler | undefined;
   /**
    * The original progressive sources
-   * @member {Array<PKMediaSourceObject>} - _progressiveSources
+   * @member {Array<PCMediaSourceObject>} - _progressiveSources
    * @private
    */
-  private _progressiveSources: Array<PKMediaSourceObject>;
+  private _progressiveSources: Array<PCMediaSourceObject>;
   /**
    * The player tracks.
    * @member {Array<Track>} - _playerTracks
@@ -111,10 +111,10 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   private _heartbeatTimeoutId: number | undefined;
   /**
    * video dimensions for native check if video track change and which video dimensions is the selected track
-   * @member {?PKVideoDimensionsObject} - video dimensions
+   * @member {?PCVideoDimensionsObject} - video dimensions
    * @private
    */
-  private _videoDimensions: PKVideoDimensionsObject | undefined;
+  private _videoDimensions: PCVideoDimensionsObject | undefined;
 
   private _loadPromiseReject: ((error: Error) => any) | undefined;
 
@@ -180,11 +180,11 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
    * Checks if NativeAdapter can play a given drm data.
    * @function canPlayDrm
    * @param {Array<Object>} drmData - The drm data to check.
-   * @param {PKDrmConfigObject} drmConfig - The drm config.
+   * @param {PCDrmConfigObject} drmConfig - The drm config.
    * @returns {boolean} - Whether the native adapter can play a specific drm data.
    * @static
    */
-  public static canPlayDrm(drmData: Array<PKDrmDataObject>, drmConfig: PKDrmConfigObject): boolean {
+  public static canPlayDrm(drmData: Array<PCDrmDataObject>, drmConfig: PCDrmConfigObject): boolean {
     NativeAdapter._drmProtocol = null;
     for (const drmProtocol of NativeAdapter._drmProtocols) {
       if (drmProtocol.isConfigured(drmData, drmConfig)) {
@@ -206,12 +206,12 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
    * Factory method to create media source adapter.
    * @function createAdapter
    * @param {HTMLVideoElement} videoElement - The video element that the media source adapter work with.
-   * @param {PKMediaSourceObject} source - The source Object.
+   * @param {PCMediaSourceObject} source - The source Object.
    * @param {Object} config - The player configuration.
    * @returns {IMediaSourceAdapter} - New instance of the run time media source adapter.
    * @static
    */
-  public static createAdapter(videoElement: HTMLVideoElement, source: PKMediaSourceObject, config: any): IMediaSourceAdapter {
+  public static createAdapter(videoElement: HTMLVideoElement, source: PCMediaSourceObject, config: any): IMediaSourceAdapter {
     NativeAdapter._logger.debug('createAdapter');
     const adapterConfig: any = {
       displayTextTrack: false,
@@ -251,10 +251,10 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   /**
    * @constructor
    * @param {HTMLVideoElement} videoElement - The video element which bind to NativeAdapter
-   * @param {PKMediaSourceObject} source - The source object
+   * @param {PCMediaSourceObject} source - The source object
    * @param {Object} config - The player configuration
    */
-  constructor(videoElement: HTMLVideoElement, source: PKMediaSourceObject, config: any) {
+  constructor(videoElement: HTMLVideoElement, source: PCMediaSourceObject, config: any) {
     super(videoElement, source, config);
     NativeAdapter._logger.debug('Creating adapter');
     this._config = Utils.Object.mergeDeep({}, defaultConfig, this._config);
@@ -388,8 +388,8 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   private _handleDecodeError(error: MediaError): void {
     NativeAdapter._logger.debug('handleDecodeError', error);
     const prevCurrTime = this._videoElement.currentTime;
-    const prevActiveAudioTrack = this._getActivePKAudioTrack();
-    const prevActiveTextTrack = this._getActivePKTextTrack();
+    const prevActiveAudioTrack = this._getActivePCAudioTrack();
+    const prevActiveTextTrack = this._getActivePCTextTrack();
     this._videoElement.load();
     this._eventManager.listenOnce(this._videoElement, Html5EventType.PLAYING, () => {
       this._mediaErrorRecoveryAttempts = 0;
@@ -450,17 +450,17 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   }
 
   private _setSrc(): Promise<void> {
-    const pkRequest: PKRequestObject = {url: this._sourceObj ? this._sourceObj.url : '', body: null, headers: {}};
+    const pcRequest: PCRequestObject = {url: this._sourceObj ? this._sourceObj.url : '', body: null, headers: {}};
     let requestFilterPromise;
     if (typeof Utils.Object.getPropertyPath(this._config, 'network.requestFilter') === 'function') {
       try {
         NativeAdapter._logger.debug('Apply request filter');
-        requestFilterPromise = this._config.network.requestFilter(RequestType.MANIFEST, pkRequest);
+        requestFilterPromise = this._config.network.requestFilter(RequestType.MANIFEST, pcRequest);
       } catch (error) {
         requestFilterPromise = Promise.reject(error);
       }
     }
-    requestFilterPromise = requestFilterPromise || Promise.resolve(pkRequest);
+    requestFilterPromise = requestFilterPromise || Promise.resolve(pcRequest);
     requestFilterPromise
       .then(updatedRequest => {
         if (this._config.useSourceTag) {
@@ -784,33 +784,33 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   /**
    * Get the parsed text tracks
    * @function _getParsedTextTracks
-   * @returns {Array<PKTextTrack>} - The parsed text tracks
+   * @returns {Array<PCTextTrack>} - The parsed text tracks
    * @private
    */
-  private _getParsedTextTracks(): Array<PKTextTrack> {
+  private _getParsedTextTracks(): Array<PCTextTrack> {
     const captionsTextTrackLabels = [this._config.captionsTextTrack1Label, this._config.captionsTextTrack2Label];
     const captionsTextTrackLanguageCodes = [this._config.captionsTextTrack1LanguageCode, this._config.captionsTextTrack2LanguageCode];
     const textTracks = this._videoElement.textTracks;
-    const parsedTracks: PKTextTrack[] = [];
+    const parsedTracks: PCTextTrack[] = [];
     if (textTracks) {
       for (let i = 0; i < textTracks.length; i++) {
-        if (!PKTextTrack.isExternalTrack(textTracks[i])) {
+        if (!PCTextTrack.isExternalTrack(textTracks[i])) {
           const settings = {
             kind: textTracks[i].kind,
-            active: textTracks[i].mode === PKTextTrack.MODE.SHOWING,
+            active: textTracks[i].mode === PCTextTrack.MODE.SHOWING,
             label: textTracks[i].label,
             language: textTracks[i].language,
             available: true
           };
-          if (settings.kind === PKTextTrack.KIND.SUBTITLES) {
-            const newTrack: PKTextTrack = new PKTextTrack(settings);
+          if (settings.kind === PCTextTrack.KIND.SUBTITLES) {
+            const newTrack: PCTextTrack = new PCTextTrack(settings);
             parsedTracks.push(newTrack);
             this._nativeTextTracksMap[newTrack.index] = textTracks[i];
-          } else if (settings.kind === PKTextTrack.KIND.CAPTIONS && this._config.enableCEA708Captions) {
+          } else if (settings.kind === PCTextTrack.KIND.CAPTIONS && this._config.enableCEA708Captions) {
             settings.label = settings.label || captionsTextTrackLabels.shift();
             settings.language = settings.language || captionsTextTrackLanguageCodes.shift();
             settings.available = this._captionsHidden;
-            const newTrack: PKTextTrack = new PKTextTrack(settings);
+            const newTrack: PCTextTrack = new PCTextTrack(settings);
             parsedTracks.push(newTrack);
             this._nativeTextTracksMap[newTrack.index] = textTracks[i];
           }
@@ -825,15 +825,15 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   }
 
   private _maybeShow708Captions(): void {
-    const captions = Array.from(this._videoElement.textTracks).filter(track => track.kind === PKTextTrack.KIND.CAPTIONS);
-    const activeCaption = captions.find(track => track.mode === PKTextTrack.MODE.SHOWING || track.mode === PKTextTrack.MODE.HIDDEN);
+    const captions = Array.from(this._videoElement.textTracks).filter(track => track.kind === PCTextTrack.KIND.CAPTIONS);
+    const activeCaption = captions.find(track => track.mode === PCTextTrack.MODE.SHOWING || track.mode === PCTextTrack.MODE.HIDDEN);
     const textTrack = activeCaption || captions[0];
     if (textTrack) {
-      textTrack.mode = PKTextTrack.MODE.HIDDEN;
+      textTrack.mode = PCTextTrack.MODE.HIDDEN;
       this._captionsHidden = true;
       this._eventManager.listenOnce(textTrack, 'cuechange', () => {
-        const textTracks = this._getPKTextTracks();
-        textTracks.forEach(track => (track.available = true) && (track.mode = PKTextTrack.MODE.DISABLED));
+        const textTracks = this._getPCTextTracks();
+        textTracks.forEach(track => (track.available = true) && (track.mode = PCTextTrack.MODE.DISABLED));
         this._trigger(CustomEventType.TRACKS_CHANGED, {tracks: this._playerTracks});
       });
     }
@@ -956,14 +956,14 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
     }
   }
 
-  private _getPKAudioTracks(): Array<AudioTrack> {
+  private _getPCAudioTracks(): Array<AudioTrack> {
     const audioTracks = this._playerTracks.filter(track => track instanceof AudioTrack);
     return audioTracks;
   }
 
-  private _getActivePKAudioTrack(): AudioTrack | undefined {
-    const pkAudioTracks = this._getPKAudioTracks();
-    return pkAudioTracks.find(track => track.active === true);
+  private _getActivePCAudioTrack(): AudioTrack | undefined {
+    const pcAudioTracks = this._getPCAudioTracks();
+    return pcAudioTracks.find(track => track.active === true);
   }
 
   /**
@@ -984,14 +984,14 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
       return -1;
     };
     const vidIndex = getActiveVidAudioTrackIndex();
-    const activeAudioTrack = this._getActivePKAudioTrack();
-    const pkIndex = activeAudioTrack ? activeAudioTrack.index : -1;
-    if (vidIndex !== pkIndex) {
-      const audioTracks = this._getPKAudioTracks();
-      const pkAudioTrack = audioTracks.find(track => track.index === vidIndex);
-      if (pkAudioTrack) {
-        NativeAdapter._logger.debug('Native selection of track, update the player audio track (' + pkIndex + ' -> ' + vidIndex + ')');
-        this._onTrackChanged(pkAudioTrack);
+    const activeAudioTrack = this._getActivePCAudioTrack();
+    const pcIndex = activeAudioTrack ? activeAudioTrack.index : -1;
+    if (vidIndex !== pcIndex) {
+      const audioTracks = this._getPCAudioTracks();
+      const pcAudioTrack = audioTracks.find(track => track.index === vidIndex);
+      if (pcAudioTrack) {
+        NativeAdapter._logger.debug('Native selection of track, update the player audio track (' + pcIndex + ' -> ' + vidIndex + ')');
+        this._onTrackChanged(pcAudioTrack);
       }
     }
   }
@@ -999,12 +999,12 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   /**
    * Select a text track
    * @function selectTextTrack
-   * @param {PKTextTrack} textTrack - The playkit text track
+   * @param {PCTextTrack} textTrack - The playchi text track
    * @returns {void}
    * @public
    */
-  public selectTextTrack(textTrack: PKTextTrack): void {
-    if (textTrack instanceof PKTextTrack && PKTextTrack.isNativeTextTrack(textTrack)) {
+  public selectTextTrack(textTrack: PCTextTrack): void {
+    if (textTrack instanceof PCTextTrack && PCTextTrack.isNativeTextTrack(textTrack)) {
       this._removeNativeTextTrackChangeListener();
       const selectedTrack = this._nativeTextTracksMap[textTrack.index];
       if (selectedTrack) {
@@ -1038,13 +1038,13 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
     }
   }
 
-  private _getPKTextTracks(): Array<PKTextTrack> {
-    return this._playerTracks.filter(track => track instanceof PKTextTrack) as PKTextTrack[];
+  private _getPCTextTracks(): Array<PCTextTrack> {
+    return this._playerTracks.filter(track => track instanceof PCTextTrack) as PCTextTrack[];
   }
 
-  private _getActivePKTextTrack(): PKTextTrack | undefined {
-    const pkTextTracks = this._getPKTextTracks();
-    return pkTextTracks.find(track => track.active === true);
+  private _getActivePCTextTrack(): PCTextTrack | undefined {
+    const pcTextTracks = this._getPCTextTracks();
+    return pcTextTracks.find(track => track.active === true);
   }
 
   /**
@@ -1053,8 +1053,8 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
    * @returns {void}
    */
   private _onNativeTextTrackChange(): void {
-    const pkTextTracks = this._getPKTextTracks();
-    const pkOffTrack = pkTextTracks.find(track => track.language === 'off');
+    const pcTextTracks = this._getPCTextTracks();
+    const pcOffTrack = pcTextTracks.find(track => track.language === 'off');
     const getActiveVidTextTrackIndex = (): number => {
       for (const textTrackId in this._nativeTextTracksMap) {
         if (this._getDisplayTextTrackModeString() === this._nativeTextTracksMap[textTrackId].mode) {
@@ -1064,24 +1064,24 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
       return -1;
     };
     const vidIndex: number = getActiveVidTextTrackIndex();
-    const activePKtextTrack = this._getActivePKTextTrack();
-    const pkIndex = activePKtextTrack ? activePKtextTrack.index : -1;
-    if (vidIndex !== pkIndex) {
+    const activePCtextTrack = this._getActivePCTextTrack();
+    const pcIndex = activePCtextTrack ? activePCtextTrack.index : -1;
+    if (vidIndex !== pcIndex) {
       // In case no text track with 'showing' mode
       // we need to set the off track
       if (vidIndex === -1) {
-        if (pkOffTrack) {
-          NativeAdapter._logger.debug('Native selection of track, update the player text track (' + pkIndex + ' -> off)');
-          this._onTrackChanged(pkOffTrack);
+        if (pcOffTrack) {
+          NativeAdapter._logger.debug('Native selection of track, update the player text track (' + pcIndex + ' -> off)');
+          this._onTrackChanged(pcOffTrack);
         }
       } else {
         // In case the text track on the video element is
         // different then the text track of the player
         // we need to set the correct one
-        const pkTextTrack = pkTextTracks.find(track => track.index === vidIndex);
-        if (pkTextTrack) {
-          NativeAdapter._logger.debug('Native selection of track, update the player text track (' + pkIndex + ' -> ' + vidIndex + ')');
-          this._onTrackChanged(pkTextTrack);
+        const pcTextTrack = pcTextTracks.find(track => track.index === vidIndex);
+        if (pcTextTrack) {
+          NativeAdapter._logger.debug('Native selection of track, update the player text track (' + pcIndex + ' -> ' + vidIndex + ')');
+          this._onTrackChanged(pcTextTrack);
         }
       }
     }
@@ -1095,7 +1095,7 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
    * @private
    */
   private _getDisplayTextTrackModeString(): string {
-    return this._config.displayTextTrack ? PKTextTrack.MODE.SHOWING : PKTextTrack.MODE.HIDDEN;
+    return this._config.displayTextTrack ? PCTextTrack.MODE.SHOWING : PCTextTrack.MODE.HIDDEN;
   }
 
   /**
@@ -1154,11 +1154,11 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   /**
    * Apply ABR restriction
    * @function applyABRRestriction
-   * @param {PKABRRestrictionObject} restrictions - abr restrictions config
+   * @param {PCABRRestrictionObject} restrictions - abr restrictions config
    * @returns {void}
    * @public
    */
-  public applyABRRestriction(restrictions: PKABRRestrictionObject): void {
+  public applyABRRestriction(restrictions: PCABRRestrictionObject): void {
     Utils.Object.createPropertyPath(this._config, 'abr.restrictions', restrictions);
     this._maybeApplyAbrRestrictions(restrictions);
   }
@@ -1166,10 +1166,10 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
   /**
    * apply ABR restrictions
    * @private
-   * @param {PKABRRestrictionObject} restrictions - abt config object
+   * @param {PCABRRestrictionObject} restrictions - abt config object
    * @returns {void}
    */
-  private _maybeApplyAbrRestrictions(restrictions: PKABRRestrictionObject): void {
+  private _maybeApplyAbrRestrictions(restrictions: PCABRRestrictionObject): void {
     if (this._isProgressivePlayback()) {
       const videoTracks = this._playerTracks.filter(track => track instanceof VideoTrack);
       const availableTracks = filterTracksByRestriction(videoTracks as VideoTrack[], restrictions);
@@ -1337,7 +1337,7 @@ export default class NativeAdapter extends BaseMediaSourceAdapter {
     }, intervalTime);
   }
 
-  public getDrmInfo(): PKDrmDataObject | null {
+  public getDrmInfo(): PCDrmDataObject | null {
     return this._drmHandler ? this._drmHandler!.getDrmInfo() : null;
   }
 }

@@ -1,5 +1,5 @@
 import {AdEventType} from '../ads/ad-event-type';
-import {PKEventTypes} from '../types';
+import {PCEventTypes} from '../types';
 
 const Html5EventType = {
   /**
@@ -269,6 +269,6 @@ const CustomEventType = {
   SOURCE_URL_SWITCHED: 'sourceurlswitched'
 } as const;
 
-const EventType: PKEventTypes = { ...Html5EventType, ...CustomEventType, ...AdEventType};
+const EventType: PCEventTypes = { ...Html5EventType, ...CustomEventType, ...AdEventType};
 
 export {EventType, Html5EventType, CustomEventType};

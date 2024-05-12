@@ -7,7 +7,7 @@ import FakeEvent from '../../src/event/fake-event';
 declare interface IEngineDecorator {
   +active: boolean;
   dispatchEvent(event: FakeEvent): boolean;
-  +restore?: (source: PKMediaSourceObject, config: Object) => void;
+  +restore?: (source: PCMediaSourceObject, config: Object) => void;
   +reset?: () => void;
   +destroy?: () => void;
   +attach?: () => void;

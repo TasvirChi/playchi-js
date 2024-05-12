@@ -45,7 +45,7 @@ function getLogger(name?: string): ILogger {
 /**
  * get the log level
  * @param {?string} name - the logger name
- * @returns {PKLogLevelObject} - the log level
+ * @returns {PCLogLevelObject} - the log level
  */
 function getLogLevel(name?: string): ILogLevel {
   return getLogger(name).getLevel();
@@ -53,7 +53,7 @@ function getLogLevel(name?: string): ILogLevel {
 
 /**
  * sets the logger level
- * @param {PKLogLevelObject} level - the log level
+ * @param {PCLogLevelObject} level - the log level
  * @param {?string} name - the logger name
  * @returns {void}
  */

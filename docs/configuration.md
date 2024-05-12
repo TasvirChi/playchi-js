@@ -6,23 +6,23 @@ Configuration parameters could be provided upon instantiation of the player inst
 var config = {
   // Configuration here
 };
-var player = playkit.core.loadPlayer(config);
+var player = playchi.core.loadPlayer(config);
 ```
 
 #### Configuration Structure
 
 ```js
 {
-  log: PKLogConfigObject,
-  text: PKTextConfigObject,
-  playback: PKPlaybackConfigObject,
-  streaming: PKStreamingConfigObject,
-  session: PKSessionConfigObject,
-  network: PKNetworkConfigObject,
-  customLabels: PKCustomLabelsConfigObject,
-  abr: PKAbrConfigObject,
-  drm: PKDrmConfigObject,
-  dimensions: PKDimensionsConfig
+  log: PCLogConfigObject,
+  text: PCTextConfigObject,
+  playback: PCPlaybackConfigObject,
+  streaming: PCStreamingConfigObject,
+  session: PCSessionConfigObject,
+  network: PCNetworkConfigObject,
+  customLabels: PCCustomLabelsConfigObject,
+  abr: PCAbrConfigObject,
+  drm: PCDrmConfigObject,
+  dimensions: PCDimensionsConfig
 }
 ```
 
@@ -107,7 +107,7 @@ var config = {
 
 > ### config.log
 >
-> ##### Type: `PKLogConfigObject`
+> ##### Type: `PCLogConfigObject`
 >
 > ```js
 > {
@@ -149,30 +149,30 @@ var config = {
 
 > ### sources
 >
-> ##### Type: `PKSourcesConfigObject`
+> ##### Type: `PCSourcesConfigObject`
 >
 > ```js
 > {
->  dash: Array<PKMediaSourceObject>,
->  hls: Array<PKMediaSourceObject>,
->  progressive: Array<PKMediaSourceObject>,
->  options: PKMediaSourceOptionsObject,
+>  dash: Array<PCMediaSourceObject>,
+>  hls: Array<PCMediaSourceObject>,
+>  progressive: Array<PCMediaSourceObject>,
+>  options: PCMediaSourceOptionsObject,
 >  type: string,
 >  dvr: boolean,
 >  vr?: Object,
->  metadata: PKMetadataConfigObject,
+>  metadata: PCMetadataConfigObject,
 >  id?: string,
 >  poster?: string,
 >  duration?: number,
->  captions?: Array<PKExternalCaptionObject>,
->  thumbnails?: PKExternalThumbnailsConfig,
+>  captions?: Array<PCExternalCaptionObject>,
+>  thumbnails?: PCExternalThumbnailsConfig,
 >  startTime?: number
 >  seekFrom?: number
 >  clipTo?: number
 > }
 > ```
 >
-> > ##### Type `PKMediaSourceObject`
+> > ##### Type `PCMediaSourceObject`
 > >
 > > ```js
 > > {
@@ -182,11 +182,11 @@ var config = {
 > >  bandwidth: number, // optional
 > >  width: number, // optional
 > >  height: number, // optional
-> >  drmData: Array<PKDrmDataObject> // optional
+> >  drmData: Array<PCDrmDataObject> // optional
 > > }
 > > ```
 > >
-> > ##### Type `PKDrmDataObject`
+> > ##### Type `PCDrmDataObject`
 > >
 > > ```js
 > > {
@@ -196,7 +196,7 @@ var config = {
 > > }
 > > ```
 > >
-> > ##### Type `PKMediaSourceOptionsObject`
+> > ##### Type `PCMediaSourceOptionsObject`
 > >
 > > ```js
 > > {
@@ -206,7 +206,7 @@ var config = {
 > > }
 > > ```
 > >
-> > ##### Type `PKMetadataConfigObject`
+> > ##### Type `PCMetadataConfigObject`
 > >
 > > ```js
 > > {
@@ -215,7 +215,7 @@ var config = {
 > > }
 > > ```
 > >
-> > ##### Type `PKExternalCaptionObject`
+> > ##### Type `PCExternalCaptionObject`
 > >
 > > ```js
 > > {
@@ -244,7 +244,7 @@ var config = {
 >
 > > ### sources.hls
 > >
-> > ##### Type: `Array<PKMediaSourceObject>`
+> > ##### Type: `Array<PCMediaSourceObject>`
 > >
 > > ##### Default: `[]`
 > >
@@ -267,7 +267,7 @@ var config = {
 > >
 > > ### sources.dash
 > >
-> > ##### Type: `Array<PKMediaSourceObject>`
+> > ##### Type: `Array<PCMediaSourceObject>`
 > >
 > > ##### Default: `[]`
 > >
@@ -290,7 +290,7 @@ var config = {
 > >
 > > ### sources.progressive
 > >
-> > ##### Type: `Array<PKMediaSourceObject>`
+> > ##### Type: `Array<PCMediaSourceObject>`
 > >
 > > ##### Default: `[]`
 > >
@@ -313,7 +313,7 @@ var config = {
 > >
 > > ### sources.options
 > >
-> > ##### Type: `PKMediaSourceOptionsObject`
+> > ##### Type: `PCMediaSourceOptionsObject`
 > >
 > > ##### Default:
 > >
@@ -383,7 +383,7 @@ var config = {
 > >
 > > ### sources.metadata
 > >
-> > ##### Type: `PKMetadataConfigObject`
+> > ##### Type: `PCMetadataConfigObject`
 > >
 > > ##### Default: `{}`
 > >
@@ -443,7 +443,7 @@ var config = {
 > >
 > > ### sources.captions
 > >
-> > ##### Type: `Array<PKExternalCaptionObject>`
+> > ##### Type: `Array<PCExternalCaptionObject>`
 > >
 > > ##### Default: `-`
 > >
@@ -471,7 +471,7 @@ var config = {
 > >
 > > ### sources.thumbnails
 > >
-> > ##### Type: `PKExternalThumbnailsConfig`
+> > ##### Type: `PCExternalThumbnailsConfig`
 > >
 > > ##### Default: `-`
 > >
@@ -506,7 +506,7 @@ var config = {
 > >
 > > > Note. `startTime` affects the ad playback, e.g. `startTime: 10` will skip ads scheduled until 10.
 > > > <br>To force playing ads scheduled before `startTime`, need to configure the ads plugin.
-> > > <br>For example with [IMA](https://github.com/kaltura/playkit-js-ima/blob/master/docs/api.md) plugin, set `adsRenderingSettings: {playAdsAfterTime: -1}`.
+> > > <br>For example with [IMA](https://github.com/tasvirchi/playchi-js-ima/blob/master/docs/api.md) plugin, set `adsRenderingSettings: {playAdsAfterTime: -1}`.
 > >
 > > ##
 > >
@@ -538,14 +538,14 @@ var config = {
 >
 > ### config.text
 >
-> ##### Type: `PKTextConfigObject`
+> ##### Type: `PCTextConfigObject`
 >
 > ```js
 > {
 >  useNativeTextTrack: boolean,
 >  enableCEA708Captions: boolean,
 >  forceCenter: boolean,
->  textTrackDisplaySetting: PKTextTrackDisplaySettingObject,
+>  textTrackDisplaySetting: PCTextTrackDisplaySettingObject,
 >  textStyle: TextStyle,
 >  captionsTextTrack1Label: string,
 >  captionsTextTrack1LanguageCode: string,
@@ -604,7 +604,7 @@ var config = {
 >
 > > ### config.text.textTrackDisplaySetting
 > >
-> > ##### Type: `PKTextTrackDisplaySettingObject`
+> > ##### Type: `PCTextTrackDisplaySettingObject`
 > >
 > > ##### Default: `null`
 > >
@@ -775,7 +775,7 @@ var config = {
 >
 > ### config.playback
 >
-> ##### Type: `PKPlaybackConfigObject`
+> ##### Type: `PCPlaybackConfigObject`
 >
 > ```js
 > {
@@ -788,15 +788,15 @@ var config = {
 >  playsinline: boolean,
 >  crossOrigin: string,
 >  preload: string,
->  autoplay: PKAutoPlayTypes,
+>  autoplay: PCAutoPlayTypes,
 >  loop: boolean,
 >  autopause: boolean,
 >  allowMutedAutoPlay: boolean,
 >  muted: boolean,
 >  pictureInPicture: boolean,
->  options: PKPlaybackOptionsObject,
->  streamPriority: Array<PKStreamPriorityObject>,
->  preferNative: PKPreferNativeConfigObject,
+>  options: PCPlaybackOptionsObject,
+>  streamPriority: Array<PCStreamPriorityObject>,
+>  preferNative: PCPreferNativeConfigObject,
 >  inBrowserFullscreen: boolean,
 >  playAdsWithMSE: boolean,
 >  screenLockOrientionMode: string
@@ -1124,7 +1124,7 @@ var config = {
 >
 > > ### config.playback.options
 > >
-> > ##### Type: `PKPlaybackOptionsObject`
+> > ##### Type: `PCPlaybackOptionsObject`
 > >
 > > ```js
 > > {
@@ -1155,7 +1155,7 @@ var config = {
 >
 > > ### config.playback.preferNative
 > >
-> > ##### Type: `PKPreferNativeConfig`
+> > ##### Type: `PCPreferNativeConfig`
 > >
 > > ```js
 > > {
@@ -1239,9 +1239,9 @@ var config = {
 >
 > > ### config.playback.streamPriority
 > >
-> > ##### Type: `Array<PKStreamPriorityObject`
+> > ##### Type: `Array<PCStreamPriorityObject`
 > >
-> > > ##### Type `PKStreamPriorityObject`
+> > > ##### Type `PCStreamPriorityObject`
 > > >
 > > > ```js
 > > > {
@@ -1282,7 +1282,7 @@ var config = {
 
 > ### config.streaming
 >
-> ##### Type: `PKStreamingConfigObject`
+> ##### Type: `PCStreamingConfigObject`
 >
 > ```js
 > {
@@ -1345,12 +1345,12 @@ var config = {
 
 > ### config.session
 >
-> ##### Type: `PKSessionConfigObject`
+> ##### Type: `PCSessionConfigObject`
 >
 > ```js
 > {
 >  id: string,
->  ks: string,
+>  ts: string,
 >  partnerId: number,
 >  uiConfId: number
 > }
@@ -1372,7 +1372,7 @@ var config = {
 > >
 > > ##
 > >
-> > ### config.session.ks
+> > ### config.session.ts
 > >
 > > ##### Type: `string`
 > >
@@ -1404,7 +1404,7 @@ var config = {
 
 > ### config.network
 >
-> ##### Type: `PKNetworkConfigObject`
+> ##### Type: `PCNetworkConfigObject`
 >
 > ```js
 > {
@@ -1421,7 +1421,7 @@ var config = {
 > >
 > > ### config.network.requestFilter
 > >
-> > ##### Type: `function(type: PKRequestType, request: PKRequestObject): (void | Promise<PKRequestObject>)`
+> > ##### Type: `function(type: PCRequestType, request: PCRequestObject): (void | Promise<PCRequestObject>)`
 > >
 > > ##### Default: `-`
 > >
@@ -1429,7 +1429,7 @@ var config = {
 > >
 > > ##
 > >
-> > > ##### Type: PKRequestType
+> > > ##### Type: PCRequestType
 > > >
 > > > ```js
 > > > {
@@ -1441,7 +1441,7 @@ var config = {
 > > >
 > > > ##
 > > >
-> > > ##### Type: PKRequestObject
+> > > ##### Type: PCRequestObject
 > > >
 > > > ```js
 > > > {
@@ -1453,7 +1453,7 @@ var config = {
 > > >
 > > > ##
 > > >
-> > > > ##### `PKRequestObject.url`
+> > > > ##### `PCRequestObject.url`
 > > > >
 > > > > ##### Type: `string`
 > > > >
@@ -1461,7 +1461,7 @@ var config = {
 > > > >
 > > > > ##
 > > > >
-> > > > ##### `PKRequestObject.body`
+> > > > ##### `PCRequestObject.body`
 > > > >
 > > > > ##### Type: `string || ArrayBuffer`
 > > > >
@@ -1469,7 +1469,7 @@ var config = {
 > > > >
 > > > > ##
 > > > >
-> > > > ##### `PKRequestObject.headers`
+> > > > ##### `PCRequestObject.headers`
 > > > >
 > > > > ##### Type: `{ [header: string] : string }`
 > > > >
@@ -1483,7 +1483,7 @@ var config = {
 > > var config = {
 > >   network: {
 > >     requestFilter: function (type, request) {
-> >       if (type === KalturaPlayer.core.RequestType.LICENSE) {
+> >       if (type === TasvirchiPlayer.core.RequestType.LICENSE) {
 > >         request.headers['customData'] = CUSTOM_DATA;
 > >       }
 > >     }
@@ -1495,7 +1495,7 @@ var config = {
 > > var config = {
 > >   network: {
 > >     requestFilter: function (type, request) {
-> >       if (type === KalturaPlayer.core.RequestType.LICENSE) {
+> >       if (type === TasvirchiPlayer.core.RequestType.LICENSE) {
 > >         return new Promise(function (resolve) {
 > >           request.headers['customData'] = CUSTOM_DATA;
 > >           resolve(request);
@@ -1510,7 +1510,7 @@ var config = {
 > >
 > > ### config.network.responseFilter
 > >
-> > ##### Type: `function(type: PKRequestType, request: PKResponseObject): (void | Promise<PKResponseObject>)`
+> > ##### Type: `function(type: PCRequestType, request: PCResponseObject): (void | Promise<PCResponseObject>)`
 > >
 > > ##### Default: `-`
 > >
@@ -1518,7 +1518,7 @@ var config = {
 > >
 > > ##
 > >
-> > > ##### Type: PKRequestType
+> > > ##### Type: PCRequestType
 > > >
 > > > ```js
 > > > {
@@ -1530,7 +1530,7 @@ var config = {
 > > >
 > > > ##
 > > >
-> > > ##### Type: PKResponseObject
+> > > ##### Type: PCResponseObject
 > > >
 > > > ```js
 > > > {
@@ -1543,7 +1543,7 @@ var config = {
 > > >
 > > > ##
 > > >
-> > > > ##### `PKResponseObject.url`
+> > > > ##### `PCResponseObject.url`
 > > > >
 > > > > ##### Type: `string`
 > > > >
@@ -1551,7 +1551,7 @@ var config = {
 > > > >
 > > > > ##
 > > > >
-> > > > ##### `PKResponseObject.originalUrl`
+> > > > ##### `PCResponseObject.originalUrl`
 > > > >
 > > > > ##### Type: `string`
 > > > >
@@ -1559,7 +1559,7 @@ var config = {
 > > > >
 > > > > ##
 > > > >
-> > > > ##### `PKResponseObject.data`
+> > > > ##### `PCResponseObject.data`
 > > > >
 > > > > ##### Type: `ArrayBuffer`
 > > > >
@@ -1567,7 +1567,7 @@ var config = {
 > > > >
 > > > > ##
 > > > >
-> > > > ##### `PKResponseObject.headers`
+> > > > ##### `PCResponseObject.headers`
 > > > >
 > > > > ##### Type: `{ [header: string] : string }`
 > > > >
@@ -1581,7 +1581,7 @@ var config = {
 > > var config = {
 > >   network: {
 > >     responseFilter: function (type, response) {
-> >       if (type === KalturaPlayer.core.RequestType.LICENSE) {
+> >       if (type === TasvirchiPlayer.core.RequestType.LICENSE) {
 > >         response.data = MANIPULATED_DATA;
 > >       }
 > >     }
@@ -1593,7 +1593,7 @@ var config = {
 > > var config = {
 > >   network: {
 > >     responseFilter: function (type, response) {
-> >       if (type === KalturaPlayer.core.RequestType.LICENSE) {
+> >       if (type === TasvirchiPlayer.core.RequestType.LICENSE) {
 > >         return new Promise(function (resolve) {
 > >           response.data = MANIPULATED_DATA;
 > >           resolve(response);
@@ -1616,7 +1616,7 @@ var config = {
 >
 > ### config.customLabels
 >
-> ##### Type: `PKCustomLabelsConfigObject`
+> ##### Type: `PCCustomLabelsConfigObject`
 >
 > ```js
 > {
@@ -1661,7 +1661,7 @@ var config = {
 
 > ### config.abr
 >
-> ##### Type: `PKAbrConfigObject`
+> ##### Type: `PCAbrConfigObject`
 >
 > ```js
 > {
@@ -1764,7 +1764,7 @@ var config = {
 > >
 > > ### config.abr.restrictions
 > >
-> > ##### Type: `PKABRRestrictionObject`
+> > ##### Type: `PCABRRestrictionObject`
 > >
 > > ##### Default: `{}`
 > >
@@ -1834,7 +1834,7 @@ var config = {
 
 > ### config.drm
 >
-> ##### Type: `PKDrmConfigObject`
+> ##### Type: `PCDrmConfigObject`
 >
 > ```js
 > {
@@ -1856,7 +1856,7 @@ var config = {
 
 > ### config.dimensions
 >
-> ##### Type: `PKDimensionsConfig`
+> ##### Type: `PCDimensionsConfig`
 >
 > ```js
 > {

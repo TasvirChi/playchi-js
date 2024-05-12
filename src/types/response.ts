@@ -1,4 +1,4 @@
-export type PKResponseObject = {
+export type PCResponseObject = {
   url: string,
   originalUrl: string,
   data: ArrayBuffer | ArrayBufferView;

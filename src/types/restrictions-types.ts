@@ -1,4 +1,4 @@
-export type PKABRRestrictionObject = {
+export type PCABRRestrictionObject = {
   minHeight: number,
   maxHeight: number,
   minWidth: number,

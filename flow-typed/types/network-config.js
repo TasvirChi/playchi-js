@@ -1,5 +1,5 @@
 // @flow
-declare type PKNetworkConfigObject = {
+declare type PCNetworkConfigObject = {
   requestFilter?: Function,
   responseFilter?: Function,
   maxStaleLevelReloads: number

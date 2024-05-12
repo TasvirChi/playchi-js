@@ -1,6 +1,6 @@
-import {PKRequestType} from '../types';
+import {PCRequestType} from '../types';
 
-const RequestType: PKRequestType = {
+const RequestType: PCRequestType = {
   MANIFEST: 0,
   SEGMENT: 1,
   LICENSE: 2

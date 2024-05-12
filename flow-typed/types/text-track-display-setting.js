@@ -1,5 +1,5 @@
 // @flow
-declare type PKTextTrackDisplaySettingObject = {
+declare type PCTextTrackDisplaySettingObject = {
   line: string | number,
   lineAlign: string,
   align: string,

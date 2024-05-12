@@ -1,6 +1,6 @@
-import {PKOrientationType} from '../types';
+import {PCOrientationType} from '../types';
 
-const ScreenOrientationType: PKOrientationType = {
+const ScreenOrientationType: PCOrientationType = {
   NONE: 'none',
   ANY: 'any',
   NATURAL: 'natural',

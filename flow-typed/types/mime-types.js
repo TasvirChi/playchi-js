@@ -1,2 +1,2 @@
 // @flow
-declare type PKMimeTypes = {[mime: string]: Array<string>};
+declare type PCMimeTypes = {[mime: string]: Array<string>};

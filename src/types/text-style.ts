@@ -2,7 +2,7 @@ export type FontSizeOptions = '50%' | '75%' | '100%' | '200%' | '300%' | '400%';
 export type FontAlignmentOptions = 'default' | 'left' | 'center' | 'right';
 export type FontScaleOptions = -2 | -1 | 0 | 2 | 3 | 4;
 /**
- * @typedef {Object} PKTextStyleObject
+ * @typedef {Object} PCTextStyleObject
  * @property {"50%" | "75%" | "100%" | "200%" | "300%" | "400%"} fontSize='100%' - Percentage unit relative to the parent element's font size.
  * @property {-2 | -1 | 0 | 2 | 3 | 4} fontScale=0 - - Integer number representing the scaling factor relative to the parent element's font size.
  * @property {string} fontFamily='sans-serif'
@@ -12,7 +12,7 @@ export type FontScaleOptions = -2 | -1 | 0 | 2 | 3 | 4;
  * @property {[number, number, number]} backgroundColor=[0, 0, 0] - Color in RGB format.
  * @property {number} backgroundOpacity=1
  */
-export type PKTextStyleObject = {
+export type PCTextStyleObject = {
   fontSize: FontSizeOptions;
   textAlign: FontAlignmentOptions;
   fontScale: FontScaleOptions;

@@ -1,11 +1,11 @@
-import {PKDrmDataObject} from './drm-data';
+import {PCDrmDataObject} from './drm-data';
 
-export type PKMediaSourceObject = {
+export type PCMediaSourceObject = {
   mimetype: string,
   url: string,
   id?: string,
   bandwidth: number,
   width: number,
   height: number,
-  drmData?: Array<PKDrmDataObject>
+  drmData?: Array<PCDrmDataObject>
 };

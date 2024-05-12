@@ -1,5 +1,5 @@
 // @flow
-declare type PKDrmDataObject = {
+declare type PCDrmDataObject = {
   licenseUrl: string,
   scheme: string,
   certificate?: string

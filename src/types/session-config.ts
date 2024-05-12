@@ -1,6 +1,6 @@
-export type PKSessionConfigObject = {
+export type PCSessionConfigObject = {
   id?: string,
-  ks?: string,
+  ts?: string,
   isAnonymous?: boolean,
   partnerId?: number,
   uiConfId?: number

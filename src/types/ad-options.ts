@@ -1,4 +1,4 @@
-export type PKAdOptions = {
+export type PCAdOptions = {
   system?: string,
   url?: string,
   contentType?: string,

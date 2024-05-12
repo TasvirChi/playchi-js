@@ -1,4 +1,4 @@
 // @flow
-declare type PKExternalThumbnailsConfig = {
+declare type PCExternalThumbnailsConfig = {
   vttUrl: string
 };

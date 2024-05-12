@@ -6,7 +6,7 @@
  * font size.
  * @type {number}
  */
-import { FontScaleOptions, FontSizeOptions, PKTextStyleObject, FontAlignmentOptions } from '../types';
+import { FontScaleOptions, FontSizeOptions, PCTextStyleObject, FontAlignmentOptions } from '../types';
 
 const IMPLICIT_SCALE_PERCENTAGE: number = 0.25;
 
@@ -164,7 +164,7 @@ class TextStyle {
     return 'rgba(' + color.concat(opacity).join(',') + ')';
   }
 
-  public static fromJson(setting: PKTextStyleObject): TextStyle {
+  public static fromJson(setting: PCTextStyleObject): TextStyle {
     const getValue = (newValue: any, defaultValue: any): any => {
       return typeof newValue !== 'undefined' && newValue !== null ? newValue : defaultValue;
     };
@@ -181,7 +181,7 @@ class TextStyle {
     return textStyle;
   }
 
-  public static toJson(text: TextStyle): PKTextStyleObject {
+  public static toJson(text: TextStyle): PCTextStyleObject {
     return {
       fontEdge: text.fontEdge,
       fontSize: text.fontSize,

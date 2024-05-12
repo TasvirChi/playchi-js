@@ -1,2 +1,2 @@
 // @flow
-declare type PKOrientationType = {[type: string]: string};
+declare type PCOrientationType = {[type: string]: string};

@@ -1,4 +1,4 @@
-export type PKStreamingConfigObject = {
+export type PCStreamingConfigObject = {
   forceBreakStall: boolean,
   lowLatencyMode: boolean,
   trackEmsgEvents: boolean,

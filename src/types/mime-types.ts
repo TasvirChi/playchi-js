@@ -1,1 +1,1 @@
-export type PKMimeTypes = {[mime: string]: Array<string>};
+export type PCMimeTypes = {[mime: string]: Array<string>};

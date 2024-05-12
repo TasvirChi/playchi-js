@@ -1,4 +1,4 @@
-declare type PKThumbnailVttCue = {
+declare type PCThumbnailVttCue = {
   startTime: number,
   endTime: number,
   imgUrl: string,

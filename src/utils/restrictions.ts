@@ -1,14 +1,14 @@
 import VideoTrack from '../track/video-track';
-import {PKABRRestrictionObject} from '../types';
+import {PCABRRestrictionObject} from '../types';
 
 /**
  * Filter the video tracks which not in the range
  * @function filterVideoTracksByRestriction
- * @param {Array<PKVideoTrack>} tracks - The tracks to filter
- * @param {PKABRRestrictionObject} restriction - The restriction
- * @returns {Array<PKVideoTrack>} - The relevant video tracks after restrictions.
+ * @param {Array<PCVideoTrack>} tracks - The tracks to filter
+ * @param {PCABRRestrictionObject} restriction - The restriction
+ * @returns {Array<PCVideoTrack>} - The relevant video tracks after restrictions.
  */
-function _filterVideoTracksByRestriction(tracks: Array<VideoTrack>, restriction: PKABRRestrictionObject): Array<VideoTrack> {
+function _filterVideoTracksByRestriction(tracks: Array<VideoTrack>, restriction: PCABRRestrictionObject): Array<VideoTrack> {
   const MIN_DEFAULT_VALUE = 0;
   const MAX_DEFAULT_VALUE = Infinity;
   const inRange = (x, min, max): boolean => {
@@ -28,11 +28,11 @@ function _filterVideoTracksByRestriction(tracks: Array<VideoTrack>, restriction:
 /**
  * Filter the video tracks which not in the range
  * @function filterVideoTracksByRestriction
- * @param {Array<PKVideoTrack>} videoTracks - The tracks to filter
- * @param {PKABRRestrictionObject} restriction - The restriction
- * @returns {Array<PKVideoTrack>} - The relevant video tracks after restrictions.
+ * @param {Array<PCVideoTrack>} videoTracks - The tracks to filter
+ * @param {PCABRRestrictionObject} restriction - The restriction
+ * @returns {Array<PCVideoTrack>} - The relevant video tracks after restrictions.
  */
-function filterTracksByRestriction(videoTracks: VideoTrack[], restriction: PKABRRestrictionObject): VideoTrack[] {
+function filterTracksByRestriction(videoTracks: VideoTrack[], restriction: PCABRRestrictionObject): VideoTrack[] {
   const filterVideoTracks = _filterVideoTracksByRestriction(videoTracks, restriction);
   return filterVideoTracks.length ? filterVideoTracks : [];
 }

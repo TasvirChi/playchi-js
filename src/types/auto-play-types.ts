@@ -1,1 +1,1 @@
-export type PKAutoPlayTypes = {[type: string]: string | boolean};
+export type PCAutoPlayTypes = {[type: string]: string | boolean};

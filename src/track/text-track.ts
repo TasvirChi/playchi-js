@@ -23,7 +23,7 @@ export default class TextTrack extends Track {
     CAPTIONS: 'captions'
   };
 
-  public static EXTERNAL_TRACK_ID = 'playkit-external-track';
+  public static EXTERNAL_TRACK_ID = 'playchi-external-track';
   private static _tracksCount: number = 0;
 
   private _kind: string;
@@ -110,4 +110,4 @@ function getActiveCues(textTrackCueList: TextTrackCueList): Array<VTTCue> {
   return normalizedCues;
 }
 
-export { getActiveCues, TextTrack as PKTextTrack };
+export { getActiveCues, TextTrack as PCTextTrack };

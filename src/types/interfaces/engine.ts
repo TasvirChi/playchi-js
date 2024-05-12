@@ -4,18 +4,18 @@ import AudioTrack from '../../track/audio-track';
 import { FakeEventTarget } from '../../event/fake-event-target';
 import {ThumbnailInfo} from '../../thumbnail/thumbnail-info';
 import ImageTrack from '../../track/image-track';
-import {PKMediaSourceObject} from '../media-source';
-import {PKDrmConfigObject} from '../drm-config';
-import {PKDrmDataObject} from '../drm-data';
-import {PKABRRestrictionObject} from '../restrictions-types';
+import {PCMediaSourceObject} from '../media-source';
+import {PCDrmConfigObject} from '../drm-config';
+import {PCDrmDataObject} from '../drm-data';
+import {PCABRRestrictionObject} from '../restrictions-types';
 import Track from '../../track/track';
-import {PKTextTrack} from '../../track/text-track';
+import {PCTextTrack} from '../../track/text-track';
 import {IMediaSourceAdapter} from '../../types';
 
 export interface IEngineStatic {
   id: string;
-  createEngine(source: PKMediaSourceObject, config: Object, playerId: string): IEngine;
-  canPlaySource(source: PKMediaSourceObject, preferNative: boolean, drmConfig: PKDrmConfigObject): boolean;
+  createEngine(source: PCMediaSourceObject, config: Object, playerId: string): IEngine;
+  canPlaySource(source: PCMediaSourceObject, preferNative: boolean, drmConfig: PCDrmConfigObject): boolean;
   runCapabilities(): void;
   getCapabilities(): Promise<any>;
   setCapabilities(capabilities: {[name: string]: any}): void;
@@ -24,7 +24,7 @@ export interface IEngineStatic {
 }
 
 export interface IEngine extends FakeEventTarget {
-  restore(source: PKMediaSourceObject, config: Object): void;
+  restore(source: PCMediaSourceObject, config: Object): void;
   destroy(): void;
   attach(): void;
   detach(): void;
@@ -34,7 +34,7 @@ export interface IEngine extends FakeEventTarget {
   reset(): void;
   selectVideoTrack(videoTrack: VideoTrack): void;
   selectAudioTrack(audioTrack: AudioTrack): void;
-  selectTextTrack(textTrack: PKTextTrack): void;
+  selectTextTrack(textTrack: PCTextTrack): void;
   selectImageTrack(imageTrack: ImageTrack): void;
   isPictureInPictureSupported(): boolean;
   enterPictureInPicture(): void;
@@ -42,7 +42,7 @@ export interface IEngine extends FakeEventTarget {
   hideTextTrack(): void;
   enableAdaptiveBitrate(): void;
   isAdaptiveBitrateEnabled(): boolean;
-  applyABRRestriction(restrictions: PKABRRestrictionObject): void;
+  applyABRRestriction(restrictions: PCABRRestrictionObject): void;
   seekToLiveEdge(): void;
   getStartTimeOfDvrWindow(): number;
   isLive(): boolean;
@@ -54,7 +54,7 @@ export interface IEngine extends FakeEventTarget {
   isOnLiveEdge(): boolean;
   addTextTrack(kind: TextTrackKind, label?: string, language?: string): TextTrack | undefined ;
   getNativeTextTracks(): TextTrack[];
-  getDrmInfo(): PKDrmDataObject | null;
+  getDrmInfo(): PCDrmDataObject | null;
   id: string;
   currentTime: number;
   duration: number;

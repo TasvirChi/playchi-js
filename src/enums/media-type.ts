@@ -1,6 +1,6 @@
-import {PKMediaTypes} from '../types/media-types';
+import {PCMediaTypes} from '../types/media-types';
 
-const MediaType: PKMediaTypes = {
+const MediaType: PCMediaTypes = {
   VOD: 'Vod',
   LIVE: 'Live',
   AUDIO: 'Audio',

@@ -1,5 +1,5 @@
 // @flow
-declare type PKStreamingConfigObject = {
+declare type PCStreamingConfigObject = {
   forceBreakStall: boolean,
   lowLatencyMode: boolean,
   trackEmsgEvents: boolean,

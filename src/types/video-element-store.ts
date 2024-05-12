@@ -1,1 +1,1 @@
-export type PKVideoElementStore = {[id: string]: HTMLVideoElement} | {};
+export type PCVideoElementStore = {[id: string]: HTMLVideoElement} | {};

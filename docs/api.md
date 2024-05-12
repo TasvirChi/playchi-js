@@ -2,7 +2,7 @@
 
 ### Table of Contents
 
-- [PKTextStyleObject][1]
+- [PCTextStyleObject][1]
   - [Properties][2]
 - [XML_PARSING_ERROR][3]
 - [VAST_SCHEMA_VALIDATION_ERROR][4]
@@ -914,7 +914,7 @@
 - [compare][910]
   - [Parameters][911]
 
-## PKTextStyleObject
+## PCTextStyleObject
 
 Type: [Object][912]
 
@@ -1206,8 +1206,8 @@ FairPlay is the configure key system.
 
 ### Parameters
 
-- `drmData` **[Array][915]&lt;PKDrmDataObject>** The drm data.
-- `drmConfig` **PKDrmConfigObject** The drm config.
+- `drmData` **[Array][915]&lt;PCDrmDataObject>** The drm data.
+- `drmConfig` **PCDrmConfigObject** The drm config.
 
 Returns **[boolean][916]** Whether FairPlay is the configure key system.
 
@@ -1219,7 +1219,7 @@ FairPlay playback supports in case 2 conditions are met:
 
 ### Parameters
 
-- `drmData` **[Array][915]&lt;PKDrmDataObject>** The drm data to check.
+- `drmData` **[Array][915]&lt;PCDrmDataObject>** The drm data to check.
 
 Returns **[boolean][916]** Whether FairPlay can be play on the current environment.
 
@@ -1230,7 +1230,7 @@ Checks if NativeAdapter can play a given drm data.
 ### Parameters
 
 - `drmData` **[Array][915]&lt;[Object][912]>** The drm data to check.
-- `drmConfig` **PKDrmConfigObject** The drm config.
+- `drmConfig` **PCDrmConfigObject** The drm config.
 
 Returns **[boolean][916]** Whether the native adapter can play a specific drm data.
 
@@ -1241,7 +1241,7 @@ Sets the FairPlay playback.
 ### Parameters
 
 - `config` **FairPlayDrmConfigType** The config to manipulate.
-- `drmData` **[Array][915]&lt;PKDrmDataObject>** The drm data.
+- `drmData` **[Array][915]&lt;PCDrmDataObject>** The drm data.
 
 Returns **void**
 
@@ -1352,7 +1352,7 @@ Html5 engine for playback.
 
 ### Parameters
 
-- `source` **PKMediaSourceObject** The selected source object.
+- `source` **PCMediaSourceObject** The selected source object.
 - `config` **[Object][912]** The player configuration.
 - `playerId` **[string][913]** The player id.
 
@@ -1362,7 +1362,7 @@ Restores the engine.
 
 #### Parameters
 
-- `source` **PKMediaSourceObject** The selected source object.
+- `source` **PCMediaSourceObject** The selected source object.
 - `config` **[Object][912]** The player configuration.
 
 Returns **void**
@@ -1441,7 +1441,7 @@ Select a new text track.
 
 #### Parameters
 
-- `textTrack` **PKTextTrack** The playkit text track object to set.
+- `textTrack` **PCTextTrack** The playchi text track object to set.
 
 Returns **void**
 
@@ -1898,7 +1898,7 @@ Type: [string][913]
 
 ### videoElementStore
 
-Type: PKVideoElementStore
+Type: PCVideoElementStore
 
 ### isSupported
 
@@ -1912,7 +1912,7 @@ Factory method to create an engine.
 
 #### Parameters
 
-- `source` **PKMediaSourceObject** The selected source object.
+- `source` **PCMediaSourceObject** The selected source object.
 - `config` **[Object][912]** The player configuration.
 - `playerId` **[string][913]** The player id.
 
@@ -1924,9 +1924,9 @@ Checks if the engine can play a given source.
 
 #### Parameters
 
-- `source` **PKMediaSourceObject** The source object to check.
+- `source` **PCMediaSourceObject** The source object to check.
 - `preferNative` **[boolean][916]** prefer native flag.
-- `drmConfig` **PKDrmConfigObject** The drm config.
+- `drmConfig` **PCDrmConfigObject** The drm config.
 
 Returns **[boolean][916]** Whether the engine can play the source.
 
@@ -2030,7 +2030,7 @@ Apply ABR restriction
 
 ### Parameters
 
-- `restriction` **PKABRRestrictionObject** abr restriction config
+- `restriction` **PCABRRestrictionObject** abr restriction config
 
 Returns **void**
 
@@ -2040,7 +2040,7 @@ Apply ABR restriction
 
 ### Parameters
 
-- `restrictions` **PKABRRestrictionObject** abr restrictions config
+- `restrictions` **PCABRRestrictionObject** abr restrictions config
 
 Returns **void**
 
@@ -2114,7 +2114,7 @@ An illustration of media source extension for progressive download
 ### Parameters
 
 - `videoElement` **[HTMLVideoElement][918]** The video element which bind to NativeAdapter
-- `source` **PKMediaSourceObject** The source object
+- `source` **PCMediaSourceObject** The source object
 - `config` **[Object][912]** The player configuration
 
 ### attachMediaSource
@@ -2164,7 +2164,7 @@ Factory method to create media source adapter.
 ### Parameters
 
 - `videoElement` **[HTMLVideoElement][918]** The video element that the media source adapter work with.
-- `source` **PKMediaSourceObject** The source Object.
+- `source` **PCMediaSourceObject** The source Object.
 - `config` **[Object][912]** The player configuration.
 
 Returns **IMediaSourceAdapter** New instance of the run time media source adapter.
@@ -2237,7 +2237,7 @@ Select a text track
 
 ### Parameters
 
-- `textTrack` **PKTextTrack** The playkit text track
+- `textTrack` **PCTextTrack** The playchi text track
 
 Returns **void**
 
@@ -2246,7 +2246,7 @@ Returns **void**
 ### Parameters
 
 - `videoElement` **[HTMLVideoElement][918]** The video element which bind to media source adapter.
-- `source` **PKMediaSourceObject** The source object.
+- `source` **PCMediaSourceObject** The source object.
 - `config` **[Object][912]** The media source adapter configuration. (optional, default `{}`)
 
 ## \_trigger
@@ -2299,9 +2299,9 @@ Returns **void**
 
 ## capabilities
 
-Type: PKMediaSourceCapabilities
+Type: PCMediaSourceCapabilities
 
-Returns **PKMediaSourceCapabilities** The adapter capabilities.
+Returns **PCMediaSourceCapabilities** The adapter capabilities.
 
 ## getLogger
 
@@ -2352,9 +2352,9 @@ Checks if the a media source adapter can play a given source.
 
 #### Parameters
 
-- `source` **PKMediaSourceObject** The source object to check.
+- `source` **PCMediaSourceObject** The source object to check.
 - `preferNative` **[boolean][916]** prefer native flag. (optional, default `true`)
-- `drmConfig` **PKDrmConfigObject** The drm config.
+- `drmConfig` **PCDrmConfigObject** The drm config.
 
 Returns **[boolean][916]** Whether a media source adapter can play the source.
 
@@ -2371,7 +2371,7 @@ Get the appropriate media source adapter to the video source.
 ### Parameters
 
 - `videoElement` **[HTMLVideoElement][918]** The video element which requires adapter for a given mimeType.
-- `source` **PKMediaSourceObject** The selected source object.
+- `source` **PCMediaSourceObject** The selected source object.
 - `config` **[Object][912]** The player configuration.
 
 Returns **(IMediaSourceAdapter | null)** The selected media source adapter, or null if such doesn't exists.
@@ -2502,7 +2502,7 @@ the file that the external captions handler is trying to download could not be d
 ## UNKNOWN_LANGUAGE
 
 The language key in the caption object is empty / does not exist. Language is a mandatory field.
-[https://github.com/kaltura/playkit-js/blob/master/docs/configuration.md#configsourcescaptions][924]
+[https://github.com/tasvirchi/playchi-js/blob/master/docs/configuration.md#configsourcescaptions][924]
 
 ## INVALID_VTT_THUMBNAILS_FILE
 
@@ -3901,7 +3901,7 @@ Configures the player metadata according to a given configuration.
 
 #### Parameters
 
-- `sourcesMetadata` **PKMetadataConfigObject** The sources metadata for the player instance.
+- `sourcesMetadata` **PCMetadataConfigObject** The sources metadata for the player instance.
 
 Returns **void**
 
@@ -3911,7 +3911,7 @@ Configures the player according to a given configuration.
 
 #### Parameters
 
-- `sources` **PKSourcesConfigObject** The sources for the player instance.
+- `sources` **PCSourcesConfigObject** The sources for the player instance.
 
 Returns **void**
 
@@ -3933,7 +3933,7 @@ Start/resume playback.
 
 #### Parameters
 
-- `playOptions` **PKPlayOptionsObject** additional options to control the play.
+- `playOptions` **PCPlayOptionsObject** additional options to control the play.
   - `playOptions.programmatic` **[boolean][916]** if true, the play call was not initiated by a user gesture and should be handled like auto play.
 
 Returns **void**
@@ -4156,11 +4156,11 @@ Returns **[string][913]?** The current source of the player.
 
 Sets the dimensions of the player.
 
-Type: PKDimensionsConfig
+Type: PCDimensionsConfig
 
 #### Parameters
 
-- `dimensions` **PKDimensionsConfig** the player dimensions config.
+- `dimensions` **PCDimensionsConfig** the player dimensions config.
 
 Returns **void**
 
@@ -4168,9 +4168,9 @@ Returns **void**
 
 Get the dimensions of the player.
 
-Type: PKPlayerDimensions
+Type: PCPlayerDimensions
 
-Returns **PKPlayerDimensions** The dimensions of the player.
+Returns **PCPlayerDimensions** The dimensions of the player.
 
 ### poster
 
@@ -4252,7 +4252,7 @@ Returns **[Object][912]** A copy of the player configuration.
 
 Get the current player sources object.
 
-Type: PKSourcesConfigObject
+Type: PCSourcesConfigObject
 
 Returns **[Object][912]** A copy of the player configuration.
 
@@ -4362,7 +4362,7 @@ update the text display settings
 
 #### Parameters
 
-- `settings` **PKTextTrackDisplaySettingObject** text cue display settings
+- `settings` **PCTextTrackDisplaySettingObject** text cue display settings
 
 Returns **void**
 
@@ -4476,7 +4476,7 @@ Calculates the aspect ratio of the player.
 #### Parameters
 
 - `targetElement` **[HTMLDivElement][938]** the player root element.
-- `dimensions` **PKDimensionsConfig** the player dimensions input.
+- `dimensions` **PCDimensionsConfig** the player dimensions input.
 
 Returns **void**
 
@@ -4484,9 +4484,9 @@ Returns **void**
 
 Gets the player event types.
 
-Type: PKEventTypes
+Type: PCEventTypes
 
-Returns **PKEventTypes** The event types of the player.
+Returns **PCEventTypes** The event types of the player.
 
 ### TextStyle
 
@@ -4500,9 +4500,9 @@ Returns **[TextStyle][937]** The TextStyle class
 
 Gets the player state types.
 
-Type: PKStateTypes
+Type: PCStateTypes
 
-Returns **PKStateTypes** The state types of the player.
+Returns **PCStateTypes** The state types of the player.
 
 ### Track
 
@@ -4516,73 +4516,73 @@ Returns **TrackType** The tracks types of the player.
 
 Gets the player log level types.
 
-Type: PKLogLevelTypes
+Type: PCLogLevelTypes
 
-Returns **PKLogLevelTypes** The log level types of the player.
+Returns **PCLogLevelTypes** The log level types of the player.
 
 ### LogLevel
 
 Gets the player log level objects.
 
-Type: PKLogLevels
+Type: PCLogLevels
 
-Returns **PKLogLevels** The log levels objects of the player.
+Returns **PCLogLevels** The log levels objects of the player.
 
 ### AbrMode
 
 Gets the player abr modes.
 
-Type: PKAbrModes
+Type: PCAbrModes
 
-Returns **PKAbrModes** The abr modes of the player.
+Returns **PCAbrModes** The abr modes of the player.
 
 ### MediaType
 
 Gets the player media types.
 
-Type: PKMediaTypes
+Type: PCMediaTypes
 
-Returns **PKMediaTypes** The media types of the player.
+Returns **PCMediaTypes** The media types of the player.
 
 ### StreamType
 
 Gets the player stream types.
 
-Type: PKStreamTypes
+Type: PCStreamTypes
 
-Returns **PKStreamTypes** The stream types of the player.
+Returns **PCStreamTypes** The stream types of the player.
 
 ### EngineType
 
 Gets the player engine types.
 
-Type: PKEngineTypes
+Type: PCEngineTypes
 
-Returns **PKEngineTypes** The engine types of the player.
+Returns **PCEngineTypes** The engine types of the player.
 
 ### CorsType
 
 Gets the player cors types.
 
-Type: PKCorsTypes
+Type: PCCorsTypes
 
-Returns **PKCorsTypes** The player cors types.
+Returns **PCCorsTypes** The player cors types.
 
 ### AdBreakType
 
 Gets the ad break types.
 
-Type: PKAdBreakTypes
+Type: PCAdBreakTypes
 
-Returns **PKAdBreakTypes** The ad break types of the player.
+Returns **PCAdBreakTypes** The ad break types of the player.
 
 ### AdTagType
 
 Gets the ad break tag types.
 
-Type: PKAdTagTypes
+Type: PCAdTagTypes
 
-Returns **PKAdTagTypes** The ad tag types of the player.
+Returns **PCAdTagTypes** The ad tag types of the player.
 
 ### Error
 
@@ -4590,7 +4590,7 @@ Gets the player static error class.
 
 Type: any
 
-Returns **PKError** The player static error class.
+Returns **PCError** The player static error class.
 
 ### runCapabilities
 
@@ -4750,7 +4750,7 @@ start the loading and parsing process of the vtt thumbnails file.
 
 ### Parameters
 
-- `thumbnailsConfig` **PKExternalThumbnailsConfig** the external vtt thumbnails config
+- `thumbnailsConfig` **PCExternalThumbnailsConfig** the external vtt thumbnails config
 
 Returns **void**
 
@@ -5292,7 +5292,7 @@ get the log level
 
 - `name` **[string][913]?** the logger name
 
-Returns **PKLogLevelObject** the log level
+Returns **PCLogLevelObject** the log level
 
 ## setLogLevel
 
@@ -5300,7 +5300,7 @@ sets the logger level
 
 ### Parameters
 
-- `level` **PKLogLevelObject** the log level
+- `level` **PCLogLevelObject** the log level
 - `name` **[string][913]?** the logger name
 
 Returns **void**
@@ -5489,7 +5489,7 @@ Filter the video tracks which not in the range
 ### Parameters
 
 - `tracks` **[Array][915]&lt;[VideoTrack][919]>** The tracks to filter
-- `restriction` **PKABRRestrictionObject** The restriction
+- `restriction` **PCABRRestrictionObject** The restriction
 
 Returns **[Array][915]&lt;[VideoTrack][919]>** The relevant video tracks after restrictions.
 
@@ -5500,7 +5500,7 @@ Filter the video tracks which not in the range
 ### Parameters
 
 - `videoTracks` **[Array][915]&lt;[VideoTrack][919]>** The tracks to filter
-- `restriction` **PKABRRestrictionObject** The restriction
+- `restriction` **PCABRRestrictionObject** The restriction
 
 Returns **[Array][915]&lt;[VideoTrack][919]>** The relevant video tracks after restrictions.
 
@@ -5862,7 +5862,7 @@ Returns **([number][914] \| [NaN][950])** 0 if the versions are equal- a negativ
 - a positive integer iff v1 > v2
 - NaN if either version string is in the wrong format
 
-[1]: #pktextstyleobject
+[1]: #pctextstyleobject
 [2]: #properties
 [3]: #xml_parsing_error
 [4]: #vast_schema_validation_error
@@ -6785,7 +6785,7 @@ Returns **([number][914] \| [NaN][950])** 0 if the versions are equal- a negativ
 [921]: #texttrack
 [922]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 [923]: https://developer.mozilla.org/docs/Web/API/Event
-[924]: https://github.com/kaltura/playkit-js/blob/master/docs/configuration.md#configsourcescaptions
+[924]: https://github.com/tasvirchi/playchi-js/blob/master/docs/configuration.md#configsourcescaptions
 [925]: https://goo.gl/EEhZqT
 [926]: https://goo.gl/eKVPPe
 [927]: https://developer.mozilla.org/docs/Web/API/EventTarget

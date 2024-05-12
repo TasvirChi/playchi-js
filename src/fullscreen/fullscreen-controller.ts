@@ -10,7 +10,7 @@ import {EngineType} from '../engines/engine-type';
  * @type {string}
  * @const
  */
-const IN_BROWSER_FULLSCREEN: string = 'playkit-in-browser-fullscreen-mode';
+const IN_BROWSER_FULLSCREEN: string = 'playchi-in-browser-fullscreen-mode';
 
 const EXIT_PIP_TIMEOUT: number = 1000;
 

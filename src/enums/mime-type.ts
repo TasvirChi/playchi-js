@@ -1,6 +1,6 @@
-import {PKMimeTypes} from '../types';
+import {PCMimeTypes} from '../types';
 
-const MimeType: PKMimeTypes = {
+const MimeType: PCMimeTypes = {
   HLS: ['application/x-mpegurl', 'application/vnd.apple.mpegurl'],
   DASH: ['application/dash+xml'],
   PROGRESSIVE: ['video/mp4'],

@@ -1,6 +1,6 @@
 import {FairPlayDrmHandler} from '../../../../../../src/engines/html5/media-source/adapters/fairplay-drm-handler';
 import {createElement, removeVideoElementsFromTestPage} from '../../../../../utils/test-utils';
-import {Utils} from '../../../../../../src/playkit';
+import {Utils} from '../../../../../../src/playchi';
 import Error from '../../../../../../src/error/error';
 import {RequestType} from '../../../../../../src/enums/request-type';
 

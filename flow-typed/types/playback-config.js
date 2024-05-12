@@ -1,5 +1,5 @@
 // @flow
-declare type PKPlaybackConfigObject = {
+declare type PCPlaybackConfigObject = {
   audioLanguage: string,
   textLanguage: string,
   captionsDisplay: boolean,
@@ -9,12 +9,12 @@ declare type PKPlaybackConfigObject = {
   playsinline: boolean,
   crossOrigin: string,
   preload: string,
-  autoplay: PKAutoPlayTypes,
+  autoplay: PCAutoPlayTypes,
   allowMutedAutoPlay: boolean,
   muted: boolean,
   pictureInPicture: boolean,
-  streamPriority: Array<PKStreamPriorityObject>,
-  preferNative: PKPreferNativeConfigObject,
+  streamPriority: Array<PCStreamPriorityObject>,
+  preferNative: PCPreferNativeConfigObject,
   inBrowserFullscreen: boolean,
   playAdsWithMSE: boolean,
   screenLockOrientionMode: string,

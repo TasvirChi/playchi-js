@@ -1,6 +1,6 @@
-import {PKAutoPlayTypes} from '../types/auto-play-types';
+import {PCAutoPlayTypes} from '../types/auto-play-types';
 
-const AutoPlayType: PKAutoPlayTypes = {
+const AutoPlayType: PCAutoPlayTypes = {
   TRUE: true,
   FALSE: false,
   IN_VIEW: 'inview'

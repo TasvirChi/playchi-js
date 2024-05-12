@@ -4,7 +4,7 @@ import * as Utils from '../../../../utils/util';
 import {RequestType} from '../../../../enums/request-type';
 import {DrmScheme} from '../../../../drm/drm-scheme';
 import { EventManager, ListenerType} from '../../../../event/event-manager';
-import {PKDrmDataObject, PKRequestObject, PKResponseObject} from '../../../../types';
+import {PCDrmDataObject, PCRequestObject, PCResponseObject} from '../../../../types';
 
 type WebkitEventsType = {[name: string]: string};
 
@@ -105,7 +105,7 @@ class FairPlayDrmHandler {
     this._eventManager.listen(this._keySession, WebkitEvents.KEY_ERROR, (e: Event) => this._onWebkitKeyError(e));
   }
 
-  public getDrmInfo(): PKDrmDataObject {
+  public getDrmInfo(): PCDrmDataObject {
     const {certificate, licenseUrl} = this._config;
     return {certificate, licenseUrl, scheme: DrmScheme.FAIRPLAY};
   }
@@ -122,7 +122,7 @@ class FairPlayDrmHandler {
     const request = new XMLHttpRequest();
     request.responseType = 'arraybuffer';
     this._eventManager.listenOnce(request, 'load', (e: Event) => this._licenseRequestLoaded(e));
-    const pkRequest: PKRequestObject = {
+    const pcRequest: PCRequestObject = {
       url: this._config.licenseUrl,
       body: FairPlayDrmHandler._base64EncodeUint8Array(message),
       headers: {}
@@ -132,12 +132,12 @@ class FairPlayDrmHandler {
     if (requestFilter) {
       this._logger.debug('Apply request filter');
       try {
-        requestFilterPromise = requestFilter(RequestType.LICENSE, pkRequest);
+        requestFilterPromise = requestFilter(RequestType.LICENSE, pcRequest);
       } catch (error) {
         requestFilterPromise = Promise.reject(error);
       }
     }
-    requestFilterPromise = requestFilterPromise || Promise.resolve(pkRequest);
+    requestFilterPromise = requestFilterPromise || Promise.resolve(pcRequest);
     requestFilterPromise
       .then(updatedRequest => {
         request.open('POST', updatedRequest.url, true);
@@ -205,15 +205,15 @@ class FairPlayDrmHandler {
     const originalUrl = this._config.licenseUrl;
     const headers = Utils.Http.convertHeadersToDictionary(request.getAllResponseHeaders());
 
-    const pkResponse: PKResponseObject = {url, originalUrl, data, headers};
+    const pcResponse: PCResponseObject = {url, originalUrl, data, headers};
     this._logger.debug('Apply response filter');
     let responseFilterPromise;
     try {
-      responseFilterPromise = this._config.network.responseFilter(RequestType.LICENSE, pkResponse);
+      responseFilterPromise = this._config.network.responseFilter(RequestType.LICENSE, pcResponse);
     } catch (error) {
       responseFilterPromise = Promise.reject(error);
     }
-    responseFilterPromise = responseFilterPromise || Promise.resolve(pkResponse);
+    responseFilterPromise = responseFilterPromise || Promise.resolve(pcResponse);
     responseFilterPromise
       .then(updatedResponse => {
         this._keySession.update(updatedResponse.data);

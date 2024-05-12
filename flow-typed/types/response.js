@@ -1,5 +1,5 @@
 // @flow
-declare type PKResponseObject = {
+declare type PCResponseObject = {
   url: string,
   originalUrl: string,
   data: ArrayBuffer,

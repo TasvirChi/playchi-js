@@ -1,12 +1,12 @@
 // @flow
 import {TextStyle} from '../../src/track/text-style';
 
-declare type PKTextConfigObject = {
+declare type PCTextConfigObject = {
   enableCEA708Captions: boolean,
   useShakaTextTrackDisplay: boolean,
   useNativeTextTrack: boolean,
-  textTrackDisplaySetting: PKTextTrackDisplaySettingObject,
-  textStyle: PKTextStyleObject,
+  textTrackDisplaySetting: PCTextTrackDisplaySettingObject,
+  textStyle: PCTextStyleObject,
   forceCenter: boolean,
   captionsTextTrack1Label: string,
   captionsTextTrack1LanguageCode: string,

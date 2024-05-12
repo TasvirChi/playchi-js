@@ -1,7 +1,7 @@
 // @flow
 
 /**
- * @typedef {Object} PKTextStyleObject
+ * @typedef {Object} PCTextStyleObject
  * @property {"50%" | "75%" | "100%" | "200%" | "300%" | "400%"} fontSize='100%' - Percentage unit relative to the parent element's font size.
  * @property {-2 | -1 | 0 | 2 | 3 | 4} fontScale=0 - - Integer number representing the scaling factor relative to the parent element's font size.
  * @property {string} fontFamily='sans-serif'
@@ -11,7 +11,7 @@
  * @property {[number, number, number]} backgroundColor=[0, 0, 0] - Color in RGB format.
  * @property {number} backgroundOpacity=1
  */
-declare type PKTextStyleObject = {
+declare type PCTextStyleObject = {
   fontSize?: '50%' | '75%' | '100%' | '200%' | '300%' | '400%',
   fontScale?: -2 | -1 | 0 | 2 | 3 | 4,
   fontFamily?: string,

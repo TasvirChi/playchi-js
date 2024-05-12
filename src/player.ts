@@ -12,7 +12,7 @@ import StateManager from './state/state-manager';
 import Track from './track/track';
 import VideoTrack from './track/video-track';
 import AudioTrack from './track/audio-track';
-import {PKTextTrack} from './track/text-track';
+import {PCTextTrack} from './track/text-track';
 import TextStyle from './track/text-style';
 import {processCues} from './track/text-track-display';
 import {StateType} from './state/state-type';
@@ -25,7 +25,7 @@ import {CorsType} from './engines/html5/cors-types';
 import PlaybackMiddleware from './middleware/playback-middleware';
 import {DefaultConfig, DefaultSources} from './player-config.js';
 import './assets/style.css';
-import PKError from './error/error';
+import PCError from './error/error';
 import {EngineProvider} from './engines/engine-provider';
 import {ExternalCaptionsHandler} from './track/external-captions-handler';
 import {AdBreakType} from './ads/ad-break-type';
@@ -41,11 +41,11 @@ import {EngineDecoratorManager} from './engines/engine-decorator-manager';
 import {filterTracksByRestriction} from './utils/restrictions';
 import {ExternalThumbnailsHandler} from './thumbnail/external-thumbnails-handler';
 import {
-  IEngineDecoratorProvider, PKDimensionsConfig, PKDrmDataObject,
-  PKEventTypes, PKMediaSourceObject,
-  PKMetadataConfigObject, PKPlayerDimensions, PKPlayOptionsObject,
-  PKSourcesConfigObject, PKStatsObject,
-  PKTextTrackDisplaySettingObject
+  IEngineDecoratorProvider, PCDimensionsConfig, PCDrmDataObject,
+  PCEventTypes, PCMediaSourceObject,
+  PCMetadataConfigObject, PCPlayerDimensions, PCPlayOptionsObject,
+  PCSourcesConfigObject, PCStatsObject,
+  PCTextTrackDisplaySettingObject
 } from './types';
 import {ILogger, ILogLevel} from 'js-logger';
 import {IEnv} from './types/ua-parser';
@@ -55,13 +55,13 @@ import {IEnv} from './types/ua-parser';
  * @type {string}
  * @const
  */
-const BLACK_COVER_CLASS_NAME: string = 'playkit-black-cover';
+const BLACK_COVER_CLASS_NAME: string = 'playchi-black-cover';
 /**
  * The player container class name.
  * @type {string}
  * @const
  */
-const CONTAINER_CLASS_NAME: string = 'playkit-container';
+const CONTAINER_CLASS_NAME: string = 'playchi-container';
 
 /**
  /**
@@ -69,21 +69,21 @@ const CONTAINER_CLASS_NAME: string = 'playkit-container';
  * @type {string}
  * @const
  */
-const POSTER_CLASS_NAME: string = 'playkit-poster';
+const POSTER_CLASS_NAME: string = 'playchi-poster';
 
 /**
  * The engine class name.
  * @type {string}
  * @const
  */
-const ENGINE_CLASS_NAME: string = 'playkit-engine';
+const ENGINE_CLASS_NAME: string = 'playchi-engine';
 
 /**
  * The subtitles class name.
  * @type {string}
  * @const
  */
-const SUBTITLES_CLASS_NAME: string = 'playkit-subtitles';
+const SUBTITLES_CLASS_NAME: string = 'playchi-subtitles';
 
 /**
  *  The auto string, for captions
@@ -192,10 +192,10 @@ export default class Player extends FakeEventTarget {
   private _config: any;
   /**
    * The current sources object.
-   * @type {PKSourcesConfigObject}
+   * @type {PCSourcesConfigObject}
    * @private
    */
-  private _sources: PKSourcesConfigObject = {} as PKSourcesConfigObject;
+  private _sources: PCSourcesConfigObject = {} as PCSourcesConfigObject;
   /**
    * The playback engine.
    * @type {IEngine}
@@ -213,7 +213,7 @@ export default class Player extends FakeEventTarget {
    * @type {Array<Track | TextTrack | AudioTrack | VideoTrack>}
    * @private
    */
-  private _tracks: Array<Track | PKTextTrack | AudioTrack | VideoTrack>;
+  private _tracks: Array<Track | PCTextTrack | AudioTrack | VideoTrack>;
   /**
    * The player ready promise
    * @type {Promise<*>}
@@ -282,10 +282,10 @@ export default class Player extends FakeEventTarget {
   private _activeTextCues: VTTCue[] = [];
   /**
    * The player text disaply settings
-   * @type {PKTextTrackDisplaySettingObject}
+   * @type {PCTextTrackDisplaySettingObject}
    * @private
    */
-  private _textDisplaySettings: PKTextTrackDisplaySettingObject = {} as PKTextTrackDisplaySettingObject;
+  private _textDisplaySettings: PCTextTrackDisplaySettingObject = {} as PCTextTrackDisplaySettingObject;
   /**
    * The player text style settings
    * @type {TextStyle}
@@ -470,10 +470,10 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Configures the player metadata according to a given configuration.
-   * @param {PKMetadataConfigObject} sourcesMetadata - The sources metadata for the player instance.
+   * @param {PCMetadataConfigObject} sourcesMetadata - The sources metadata for the player instance.
    * @returns {void}
    */
-  public setSourcesMetadata(sourcesMetadata: PKMetadataConfigObject): void {
+  public setSourcesMetadata(sourcesMetadata: PCMetadataConfigObject): void {
     if (this._sources) {
       if (!this._sources.metadata) {
         this._sources.metadata = {};
@@ -484,10 +484,10 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Configures the player according to a given configuration.
-   * @param {PKSourcesConfigObject} sources - The sources for the player instance.
+   * @param {PCSourcesConfigObject} sources - The sources for the player instance.
    * @returns {void}
    */
-  public setSources(sources: PKSourcesConfigObject): void {
+  public setSources(sources: PCSourcesConfigObject): void {
     if (this._hasSources(sources)) {
       this.reset();
       Utils.Object.mergeDeep(this._sources, sources);
@@ -510,10 +510,10 @@ export default class Player extends FakeEventTarget {
         this.dispatchEvent(
           new FakeEvent(
             Html5EventType.ERROR,
-            new PKError(
-              PKError.Severity.CRITICAL,
-              PKError.Category.PLAYER,
-              PKError.Code.NO_ENGINE_FOUND_TO_PLAY_THE_SOURCE,
+            new PCError(
+              PCError.Severity.CRITICAL,
+              PCError.Category.PLAYER,
+              PCError.Code.NO_ENGINE_FOUND_TO_PLAY_THE_SOURCE,
               'No Engine Found To Play The Source'
             )
           )
@@ -555,12 +555,12 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Start/resume playback.
-   * @param {PKPlayOptionsObject} playOptions - additional options to control the play.
+   * @param {PCPlayOptionsObject} playOptions - additional options to control the play.
    * @param {boolean} playOptions.programmatic - if true, the play call was not initiated by a user gesture and should be handled like auto play.
    * @returns {void}
    * @public
    */
-  public play(playOptions?: PKPlayOptionsObject): void {
+  public play(playOptions?: PCPlayOptionsObject): void {
     if (playOptions && playOptions.programmatic) {
       this._autoPlay();
       return;
@@ -583,7 +583,7 @@ export default class Player extends FakeEventTarget {
       this.dispatchEvent(
         new FakeEvent(
           Html5EventType.ERROR,
-          new PKError(PKError.Severity.CRITICAL, PKError.Category.PLAYER, PKError.Code.NO_SOURCE_PROVIDED, 'No Source Provided')
+          new PCError(PCError.Severity.CRITICAL, PCError.Category.PLAYER, PCError.Code.NO_SOURCE_PROVIDED, 'No Source Provided')
         )
       );
     }
@@ -661,7 +661,7 @@ export default class Player extends FakeEventTarget {
     this._activeTextCues = [];
     this._updateTextDisplay([]);
     this._tracks = [];
-    PKTextTrack.reset();
+    PCTextTrack.reset();
     this._resetStateFlags();
     this._engineType = '';
     this._streamType = '';
@@ -692,7 +692,7 @@ export default class Player extends FakeEventTarget {
     this._stateManager.destroy();
     this._fullscreenController.destroy();
     this._activeTextCues = [];
-    this._textDisplaySettings = {} as PKTextTrackDisplaySettingObject;
+    this._textDisplaySettings = {} as PCTextTrackDisplaySettingObject;
     this._config = {};
     this._tracks = [];
     this._engineType = '';
@@ -797,8 +797,8 @@ export default class Player extends FakeEventTarget {
     return null;
   }
 
-  public get stats(): PKStatsObject {
-    const statsObject: PKStatsObject = {
+  public get stats(): PCStatsObject {
+    const statsObject: PCStatsObject = {
       targetBuffer: NaN,
       availableBuffer: NaN
     };
@@ -979,11 +979,11 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Sets the dimensions of the player.
-   * @param {PKDimensionsConfig} dimensions - the player dimensions config.
+   * @param {PCDimensionsConfig} dimensions - the player dimensions config.
    * @returns {void}
    * @public
    */
-  public set dimensions(dimensions: PKDimensionsConfig) {
+  public set dimensions(dimensions: PCDimensionsConfig) {
     const targetElement = this._getTargetElement();
     if (!dimensions || Utils.Object.isEmptyObject(dimensions)) {
       this._aspectRatio = null;
@@ -1007,10 +1007,10 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Get the dimensions of the player.
-   * @returns {PKPlayerDimensions} - The dimensions of the player.
+   * @returns {PCPlayerDimensions} - The dimensions of the player.
    * @public
    */
-  public get dimensions(): PKPlayerDimensions {
+  public get dimensions(): PCPlayerDimensions {
     return {
       width: this._el.clientWidth,
       height: this._el.clientHeight
@@ -1109,7 +1109,7 @@ export default class Player extends FakeEventTarget {
    * @returns {Object} - A copy of the player configuration.
    * @public
    */
-  public get sources(): PKSourcesConfigObject {
+  public get sources(): PCSourcesConfigObject {
     return Utils.Object.mergeDeep({}, this._sources);
   }
 
@@ -1258,7 +1258,7 @@ export default class Player extends FakeEventTarget {
    * @returns {Array<T>} - The parsed tracks.
    * @public
    */
-  public getTracks<T extends Track | AudioTrack | PKTextTrack | VideoTrack | ImageTrack>(type?: TrackTypes): T[] {
+  public getTracks<T extends Track | AudioTrack | PCTextTrack | VideoTrack | ImageTrack>(type?: TrackTypes): T[] {
     switch (type) {
     case TrackType.VIDEO:
       return Utils.Object.copyDeep(this._getVideoTracks());
@@ -1277,7 +1277,7 @@ export default class Player extends FakeEventTarget {
    * Get an object includes the active video/audio/text tracks
    * @return {{video: VideoTrack, audio: AudioTrack, text: TextTrack}} - The active tracks object
    */
-  public getActiveTracks(): {video: VideoTrack, audio: AudioTrack, text: PKTextTrack} {
+  public getActiveTracks(): {video: VideoTrack, audio: AudioTrack, text: PCTextTrack} {
     return Utils.Object.copyDeep({
       video: this._getVideoTracks().find(track => track.active),
       audio: this._getAudioTracks().find(track => track.active),
@@ -1303,7 +1303,7 @@ export default class Player extends FakeEventTarget {
         }
       } else if (track instanceof AudioTrack) {
         this._engine.selectAudioTrack(track);
-      } else if (track instanceof PKTextTrack) {
+      } else if (track instanceof PCTextTrack) {
         this._resetTextDisplay();
         if (track.language === OFF) {
           this.hideTextTrack();
@@ -1357,12 +1357,12 @@ export default class Player extends FakeEventTarget {
     const userPreference = this._playbackAttributesState.textLanguage;
     const prevOrAutoTextLang =
       userPreference ||
-      this._getLanguage<PKTextTrack>(
+      this._getLanguage<PCTextTrack>(
         textTracks,
         AUTO,
         textTracks.find(textTrack => textTrack.default)
       );
-    this._setDefaultTrack<PKTextTrack>(textTracks, prevOrAutoTextLang);
+    this._setDefaultTrack<PCTextTrack>(textTracks, prevOrAutoTextLang);
   }
 
   /**
@@ -1508,11 +1508,11 @@ export default class Player extends FakeEventTarget {
 
   /**
    * update the text display settings
-   * @param {PKTextTrackDisplaySettingObject} settings - text cue display settings
+   * @param {PCTextTrackDisplaySettingObject} settings - text cue display settings
    * @public
    * @returns {void}
    */
-  public setTextDisplaySettings(settings: PKTextTrackDisplaySettingObject): void {
+  public setTextDisplaySettings(settings: PCTextTrackDisplaySettingObject): void {
     this._textDisplaySettings = Utils.Object.mergeDeep(this._textDisplaySettings, settings);
     this._updateCueDisplaySettings();
     for (let i = 0; i < this._activeTextCues.length; i++) {
@@ -1696,7 +1696,7 @@ export default class Player extends FakeEventTarget {
     setLogLevel(level, name);
   }
 
-  public getDrmInfo(): PKDrmDataObject | null {
+  public getDrmInfo(): PCDrmDataObject | null {
     return this._engine.getDrmInfo();
   }
 
@@ -1754,11 +1754,11 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Check if sources has been received.
-   * @param {PKSourcesConfigObject} sources - sources config.
+   * @param {PCSourcesConfigObject} sources - sources config.
    * @returns {boolean} - Whether sources has been received to the player.
    * @private
    */
-  private _hasSources(sources: PKSourcesConfigObject): boolean {
+  private _hasSources(sources: PCSourcesConfigObject): boolean {
     if (sources) {
       return !!Object.values(StreamType).find(type => sources[type] && sources[type].length > 0);
     }
@@ -1808,15 +1808,15 @@ export default class Player extends FakeEventTarget {
    * @returns {void}
    */
   private _appendDomElements(): void {
-    // Append playkit-black-cover
+    // Append playchi-black-cover
     this._blackCoverEl = Utils.Dom.createElement('div');
     Utils.Dom.addClassName(this._blackCoverEl, BLACK_COVER_CLASS_NAME);
     Utils.Dom.appendChild(this._el, this._blackCoverEl);
-    // Append playkit-poster
+    // Append playchi-poster
     const el = this._posterManager.getElement();
     Utils.Dom.addClassName(el, POSTER_CLASS_NAME);
     Utils.Dom.appendChild(this._el, el);
-    // Append playkit-subtitles
+    // Append playchi-subtitles
     this._textDisplayEl = Utils.Dom.createElement('div');
     Utils.Dom.addClassName(this._textDisplayEl, SUBTITLES_CLASS_NAME);
     Utils.Dom.appendChild(this._el, this._textDisplayEl);
@@ -1836,7 +1836,7 @@ export default class Player extends FakeEventTarget {
         resolve();
       });
       this._eventManager.listen(this, Html5EventType.ERROR, (event: FakeEvent) => {
-        if (event.payload.severity === PKError.Severity.CRITICAL) {
+        if (event.payload.severity === PCError.Severity.CRITICAL) {
           reject();
         }
       });
@@ -1892,11 +1892,11 @@ export default class Player extends FakeEventTarget {
   /**
    * Loads the selected engine.
    * @param {IEngineStatic} Engine - The selected engine.
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @private
    * @returns {void}
    */
-  private _loadEngine(Engine: IEngineStatic, source: PKMediaSourceObject): void {
+  private _loadEngine(Engine: IEngineStatic, source: PCMediaSourceObject): void {
     if (!this._engine) {
       this._createEngine(Engine, source);
       this._appendEngineEl();
@@ -1914,11 +1914,11 @@ export default class Player extends FakeEventTarget {
   /**
    * Creates an engine or an engine decorator.
    * @param {IEngine} Engine - The selected engine.
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @returns {void}
    * @private
    */
-  private _createEngine(Engine: IEngineStatic, source: PKMediaSourceObject): void {
+  private _createEngine(Engine: IEngineStatic, source: PCMediaSourceObject): void {
     const engine = Engine.createEngine(source, {...this._config, sources: this._sources}, this._playerId);
     this._engine = this._engineDecoratorManager ? new EngineDecorator(engine, this._engineDecoratorManager) as EngineDecoratorType : engine;
   }
@@ -2375,11 +2375,11 @@ export default class Player extends FakeEventTarget {
   /**
    * Calculates the aspect ratio of the player.
    * @param {HTMLDivElement} targetElement - the player root element.
-   * @param {PKDimensionsConfig} dimensions - the player dimensions input.
+   * @param {PCDimensionsConfig} dimensions - the player dimensions input.
    * @returns {void}
    * @public
    */
-  private _calcRatio(targetElement: HTMLDivElement, dimensions: PKDimensionsConfig): void {
+  private _calcRatio(targetElement: HTMLDivElement, dimensions: PCDimensionsConfig): void {
     if (typeof dimensions.ratio !== 'undefined') {
       this._aspectRatio = dimensions.ratio;
     }
@@ -2442,7 +2442,7 @@ export default class Player extends FakeEventTarget {
    * @returns {Array<T>} - The parsed tracks.
    * @private
    */
-  private _getTracksByType<T extends PKTextTrack | AudioTrack | VideoTrack | ImageTrack>(type: { new(...args: any[]): T }): T[] {
+  private _getTracksByType<T extends PCTextTrack | AudioTrack | VideoTrack | ImageTrack>(type: { new(...args: any[]): T }): T[] {
     return this._tracks.reduce((arr: T[], track) => {
       if (track instanceof type && track.available) {
         arr.push(track);
@@ -2467,8 +2467,8 @@ export default class Player extends FakeEventTarget {
    * @returns {Array<TextTrack>} - The text tracks.
    * @private
    */
-  public _getTextTracks(): Array<PKTextTrack> {
-    return this._getTracksByType<PKTextTrack>(PKTextTrack);
+  public _getTextTracks(): Array<PCTextTrack> {
+    return this._getTracksByType<PCTextTrack>(PCTextTrack);
   }
 
   /**
@@ -2504,7 +2504,7 @@ export default class Player extends FakeEventTarget {
       tracks = this._getVideoTracks();
     } else if (track instanceof AudioTrack) {
       tracks = this._getAudioTracks();
-    } else if (track instanceof PKTextTrack) {
+    } else if (track instanceof PCTextTrack) {
       tracks = this._getTextTracks();
     }
     if (tracks) {
@@ -2582,9 +2582,9 @@ export default class Player extends FakeEventTarget {
     const textTracks = this._getTextTracks();
     if (textTracks && textTracks.length) {
       this._tracks.push(
-        new PKTextTrack({
+        new PCTextTrack({
           active: false,
-          kind: PKTextTrack.KIND.SUBTITLES,
+          kind: PCTextTrack.KIND.SUBTITLES,
           label: 'Off',
           language: OFF
         })
@@ -2601,8 +2601,8 @@ export default class Player extends FakeEventTarget {
     const activeTracks = this.getActiveTracks();
     const defaultStreamTrack = this._getTextTracks().find(track => track.default);
     const playbackConfig = this.config.playback;
-    const offTextTrack: Track = this._getTextTracks().find(track => PKTextTrack.langComparer(OFF, track.language))! ;
-    const defaultLanguage = this._getLanguage<PKTextTrack>(this._getTextTracks(), playbackConfig.textLanguage, defaultStreamTrack);
+    const offTextTrack: Track = this._getTextTracks().find(track => PCTextTrack.langComparer(OFF, track.language))! ;
+    const defaultLanguage = this._getLanguage<PCTextTrack>(this._getTextTracks(), playbackConfig.textLanguage, defaultStreamTrack);
     const currentOrConfiguredTextLang =
       !this._playbackAttributesState.textLanguage || this.config.disableUserCache ? defaultLanguage : this._playbackAttributesState.textLanguage;
     const currentOrConfiguredAudioLang =
@@ -2610,12 +2610,12 @@ export default class Player extends FakeEventTarget {
       this._getLanguage<AudioTrack>(this._getAudioTracks(), playbackConfig.audioLanguage, activeTracks.audio);
     if (!playbackConfig.captionsDisplay) {
       this._playbackAttributesState.textLanguage = defaultLanguage;
-      this._setDefaultTrack<PKTextTrack>(this._getTextTracks(), OFF, offTextTrack);
+      this._setDefaultTrack<PCTextTrack>(this._getTextTracks(), OFF, offTextTrack);
     } else {
       if (currentOrConfiguredTextLang === playbackConfig.textLanguage) {
-        this._setDefaultTrack<PKTextTrack>(this._getTextTracks(), currentOrConfiguredTextLang, offTextTrack, playbackConfig.additionalTextLanguage);
+        this._setDefaultTrack<PCTextTrack>(this._getTextTracks(), currentOrConfiguredTextLang, offTextTrack, playbackConfig.additionalTextLanguage);
       } else {
-        this._setDefaultTrack<PKTextTrack>(this._getTextTracks(), currentOrConfiguredTextLang, offTextTrack);
+        this._setDefaultTrack<PCTextTrack>(this._getTextTracks(), currentOrConfiguredTextLang, offTextTrack);
       }
     }
     if (currentOrConfiguredAudioLang === playbackConfig.audioLanguage) {
@@ -2639,7 +2639,7 @@ export default class Player extends FakeEventTarget {
    * @private
    * @returns {string} - The track language to set by default.
    */
-  private _getLanguage<T extends PKTextTrack | AudioTrack>(tracks: T[], configuredLanguage: string, defaultTrack?: T): string {
+  private _getLanguage<T extends PCTextTrack | AudioTrack>(tracks: T[], configuredLanguage: string, defaultTrack?: T): string {
     let language = configuredLanguage;
     if (language === AUTO) {
       const localeTrack: T | undefined = tracks.find(track => Track.langComparer(Locale.language, track.language));
@@ -2664,7 +2664,7 @@ export default class Player extends FakeEventTarget {
    * @returns {void}
    * @private
    */
-  private _setDefaultTrack<T extends PKTextTrack | AudioTrack>(
+  private _setDefaultTrack<T extends PCTextTrack | AudioTrack>(
     tracks: T[],
     language: string,
     defaultTrack?: Track | null,
@@ -2743,7 +2743,7 @@ export default class Player extends FakeEventTarget {
    * @private
    * @returns {void}
    */
-  private _setTracksCustomLabels<T extends AudioTrack | PKTextTrack | VideoTrack>(tracks: T[], callback: (track: T) => string): void {
+  private _setTracksCustomLabels<T extends AudioTrack | PCTextTrack | VideoTrack>(tracks: T[], callback: (track: T) => string): void {
     tracks.forEach(track => {
       const result = callback(Utils.Object.copyDeep(track));
       if (result) {
@@ -2754,10 +2754,10 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player event types.
-   * @returns {PKEventTypes} - The event types of the player.
+   * @returns {PCEventTypes} - The event types of the player.
    * @public
    */
-  public get Event(): PKEventTypes {
+  public get Event(): PCEventTypes {
     return EventType;
   }
 
@@ -2772,7 +2772,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player state types.
-   * @returns {PKStateTypes} - The state types of the player.
+   * @returns {PCStateTypes} - The state types of the player.
    * @public
    */
   public get State(): typeof StateType {
@@ -2790,7 +2790,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player log level types.
-   * @returns {PKLogLevelTypes} - The log level types of the player.
+   * @returns {PCLogLevelTypes} - The log level types of the player.
    * @public
    */
   public get LogLevelType(): Record<keyof LoggerLevels, keyof LoggerLevels> {
@@ -2799,7 +2799,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player log level objects.
-   * @returns {PKLogLevels} - The log levels objects of the player.
+   * @returns {PCLogLevels} - The log levels objects of the player.
    * @public
    */
   public get LogLevel(): LoggerLevels {
@@ -2808,7 +2808,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player abr modes.
-   * @returns {PKAbrModes} - The abr modes of the player.
+   * @returns {PCAbrModes} - The abr modes of the player.
    * @public
    */
   public get AbrMode(): typeof AbrMode {
@@ -2817,7 +2817,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player media types.
-   * @returns {PKMediaTypes} - The media types of the player.
+   * @returns {PCMediaTypes} - The media types of the player.
    * @public
    */
   public get MediaType(): typeof MediaType {
@@ -2826,7 +2826,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player stream types.
-   * @returns {PKStreamTypes} - The stream types of the player.
+   * @returns {PCStreamTypes} - The stream types of the player.
    * @public
    */
   public get StreamType(): typeof StreamType {
@@ -2835,7 +2835,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player engine types.
-   * @returns {PKEngineTypes} - The engine types of the player.
+   * @returns {PCEngineTypes} - The engine types of the player.
    * @public
    */
   public get EngineType(): typeof EngineType {
@@ -2844,7 +2844,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player cors types.
-   * @returns {PKCorsTypes} - The player cors types.
+   * @returns {PCCorsTypes} - The player cors types.
    * @public
    */
   public get CorsType(): typeof CorsType {
@@ -2853,7 +2853,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the ad break types.
-   * @returns {PKAdBreakTypes} - The ad break types of the player.
+   * @returns {PCAdBreakTypes} - The ad break types of the player.
    * @public
    */
   public get AdBreakType(): typeof AdBreakType {
@@ -2862,7 +2862,7 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the ad break tag types.
-   * @returns {PKAdTagTypes} - The ad tag types of the player.
+   * @returns {PCAdTagTypes} - The ad tag types of the player.
    * @public
    */
   public get AdTagType(): typeof AdTagType{
@@ -2871,10 +2871,10 @@ export default class Player extends FakeEventTarget {
 
   /**
    * Gets the player static error class.
-   * @returns {PKError} - The player static error class.
+   * @returns {PCError} - The player static error class.
    * @public
    */
-  public get Error(): typeof PKError {
-    return PKError;
+  public get Error(): typeof PCError {
+    return PCError;
   }
 }

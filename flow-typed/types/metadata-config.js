@@ -1,5 +1,5 @@
 // @flow
-declare type PKMetadataConfigObject = {
+declare type PCMetadataConfigObject = {
   name?: string,
   description?: string,
   mediaType?: string,

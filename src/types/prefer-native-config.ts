@@ -1,4 +1,4 @@
-export type PKPreferNativeConfigObject = {
+export type PCPreferNativeConfigObject = {
   hls: boolean,
   dash: boolean
 };
