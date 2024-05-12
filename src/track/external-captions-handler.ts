@@ -10,7 +10,7 @@ import getLogger from '../utils/logger';
 import { EventManager } from '../event/event-manager';
 import { FakeEventTarget } from '../event/fake-event-target';
 import Player from '../player';
-import {PKExternalCaptionObject} from '../types/external-caption-object';
+import {PCExternalCaptionObject} from '../types/external-caption-object';
 
 type CueStatusType = {[status: string]: number};
 
@@ -146,13 +146,13 @@ class ExternalCaptionsHandler extends FakeEventTarget {
   /**
    * checking if there is already a track with the same language
    * @param {TextTrack} track - textTrack to be added text tracks array that will be returned to the player
-   * @param {PKExternalCaptionObject} caption - caption to be added to the model
+   * @param {PCExternalCaptionObject} caption - caption to be added to the model
    * @param {Array<Text>} playerTextTracks - player text tracks array
    * @param {Array<TextTrack>} newTextTracks - text track array that will be returned to the player
    * @returns {void}
    * @private
    */
-  public _maybeAddTrack(track: TextTrack, caption: PKExternalCaptionObject, playerTextTracks: Array<Track>, newTextTracks: Array<TextTrack>): void {
+  public _maybeAddTrack(track: TextTrack, caption: PCExternalCaptionObject, playerTextTracks: Array<Track>, newTextTracks: Array<TextTrack>): void {
     const sameLangTrack = playerTextTracks.find(textTrack => textTrack.available && Track.langComparer(caption.language, textTrack.language));
     if (!sameLangTrack) {
       newTextTracks.push(track);
@@ -164,11 +164,11 @@ class ExternalCaptionsHandler extends FakeEventTarget {
 
   /**
    * creates a new text track
-   * @param {PKExternalCaptionObject} caption - caption to create the text track with
+   * @param {PCExternalCaptionObject} caption - caption to create the text track with
    * @returns {TextTrack} - new text track
    * @private
    */
-  public _createTextTrack(caption: PKExternalCaptionObject): TextTrack {
+  public _createTextTrack(caption: PCExternalCaptionObject): TextTrack {
     return new TextTrack({
       active: !!caption.default,
       kind: TextTrack.KIND.SUBTITLES,
@@ -180,11 +180,11 @@ class ExternalCaptionsHandler extends FakeEventTarget {
 
   /**
    * adding the caption to the class texttracks model
-   * @param {PKExternalCaptionObject} caption - the caption to be added
+   * @param {PCExternalCaptionObject} caption - the caption to be added
    * @returns {void}
    * @private
    */
-  public _updateTextTracksModel(caption: PKExternalCaptionObject): void {
+  public _updateTextTracksModel(caption: PCExternalCaptionObject): void {
     this._textTrackModel[caption.language] = {
       cuesStatus: CuesStatus.NOT_DOWNLOADED,
       cues: [],

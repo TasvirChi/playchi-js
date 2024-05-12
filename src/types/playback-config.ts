@@ -1,8 +1,8 @@
-import {PKAutoPlayTypes} from './auto-play-types';
-import {PKStreamPriorityObject} from './stream-priority';
-import {PKPreferNativeConfigObject} from './prefer-native-config';
+import {PCAutoPlayTypes} from './auto-play-types';
+import {PCStreamPriorityObject} from './stream-priority';
+import {PCPreferNativeConfigObject} from './prefer-native-config';
 
-export type PKPlaybackConfigObject = {
+export type PCPlaybackConfigObject = {
   audioLanguage: string,
   textLanguage: string,
   captionsDisplay: boolean,
@@ -12,12 +12,12 @@ export type PKPlaybackConfigObject = {
   playsinline: boolean,
   crossOrigin: string,
   preload: string,
-  autoplay: PKAutoPlayTypes,
+  autoplay: PCAutoPlayTypes,
   allowMutedAutoPlay: boolean,
   muted: boolean,
   pictureInPicture: boolean,
-  streamPriority: Array<PKStreamPriorityObject>,
-  preferNative: PKPreferNativeConfigObject,
+  streamPriority: Array<PCStreamPriorityObject>,
+  preferNative: PCPreferNativeConfigObject,
   inBrowserFullscreen: boolean,
   playAdsWithMSE: boolean,
   screenLockOrientionMode: string

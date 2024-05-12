@@ -1,1 +1,1 @@
-export type PKTrackTypes = {[track: string]: string};
+export type PCTrackTypes = {[track: string]: string};

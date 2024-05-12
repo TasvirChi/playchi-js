@@ -1,23 +1,23 @@
-import {PKMediaSourceObject} from './media-source';
-import {PKExternalCaptionObject} from './external-caption-object';
-import {PKExternalThumbnailsConfig} from './exteranl-thumbnails-object';
-import {PKMediaSourceOptionsObject} from './media-source-options';
-import {PKMetadataConfigObject} from './metadata-config';
+import {PCMediaSourceObject} from './media-source';
+import {PCExternalCaptionObject} from './external-caption-object';
+import {PCExternalThumbnailsConfig} from './exteranl-thumbnails-object';
+import {PCMediaSourceOptionsObject} from './media-source-options';
+import {PCMetadataConfigObject} from './metadata-config';
 import {ImageSourceOptions} from './image-player-options';
-import {PKMediaTypes} from "./media-types";
+import {PCMediaTypes} from "./media-types";
 
-export type PKSourcesConfigObject = {
-  hls: Array<PKMediaSourceObject>,
-  dash: Array<PKMediaSourceObject>,
-  progressive: Array<PKMediaSourceObject>,
-  image: Array<PKMediaSourceObject>,
-  document: Array<PKMediaSourceObject>,
-  captions?: Array<PKExternalCaptionObject>,
-  thumbnails?: PKExternalThumbnailsConfig,
-  options: PKMediaSourceOptionsObject,
+export type PCSourcesConfigObject = {
+  hls: Array<PCMediaSourceObject>,
+  dash: Array<PCMediaSourceObject>,
+  progressive: Array<PCMediaSourceObject>,
+  image: Array<PCMediaSourceObject>,
+  document: Array<PCMediaSourceObject>,
+  captions?: Array<PCExternalCaptionObject>,
+  thumbnails?: PCExternalThumbnailsConfig,
+  options: PCMediaSourceOptionsObject,
   type: string,
   dvr: boolean,
-  metadata: PKMetadataConfigObject,
+  metadata: PCMetadataConfigObject,
   id?: string,
   poster?: string,
   duration?: number,
@@ -26,5 +26,5 @@ export type PKSourcesConfigObject = {
   imageSourceOptions?: ImageSourceOptions,
   seekFrom?: number,
   clipTo?: number,
-  mediaEntryType?: PKMediaTypes
+  mediaEntryType?: PCMediaTypes
 };

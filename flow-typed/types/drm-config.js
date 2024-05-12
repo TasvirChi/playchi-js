@@ -1,4 +1,4 @@
 // @flow
-declare type PKDrmConfigObject = {
+declare type PCDrmConfigObject = {
   keySystem: string
 };

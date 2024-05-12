@@ -1,3 +1,3 @@
-export type PKDrmConfigObject = {
+export type PCDrmConfigObject = {
   keySystem: string
 };

@@ -1,4 +1,4 @@
 // @flow
-declare type PKPlayOptionsObject = {
+declare type PCPlayOptionsObject = {
   programmatic: boolean
 };

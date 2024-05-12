@@ -1,4 +1,4 @@
 // @flow
-declare type PKMediaSourceCapabilities = {
+declare type PCMediaSourceCapabilities = {
   [fpsControl: string]: boolean
 };

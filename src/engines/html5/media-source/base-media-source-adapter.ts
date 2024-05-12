@@ -7,12 +7,12 @@ import Track from '../../../track/track';
 import TextStyle from '../../../track/text-style';
 import VideoTrack from '../../../track/video-track';
 import AudioTrack from '../../../track/audio-track';
-import PKTextTrack from '../../../track/text-track';
+import PCTextTrack from '../../../track/text-track';
 import { EventManager } from '../../../event/event-manager';
 import ImageTrack from '../../../track/image-track';
 import { ThumbnailInfo } from '../../../thumbnail/thumbnail-info';
 import { IMediaSourceAdapter } from '../../../types';
-import { PKABRRestrictionObject, PKDrmDataObject, PKMediaSourceCapabilities, PKMediaSourceObject } from '../../../types';
+import { PCABRRestrictionObject, PCDrmDataObject, PCMediaSourceCapabilities, PCMediaSourceObject } from '../../../types';
 import { ILogger } from 'js-logger';
 
 const CURRENT_OR_NEXT_SEGMENT_COUNT: number = 2;
@@ -43,10 +43,10 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
 
   /**
    * The source object.
-   * @member {PKMediaSourceObject} _sourceObj
+   * @member {PCMediaSourceObject} _sourceObj
    * @private
    */
-  protected _sourceObj?: PKMediaSourceObject;
+  protected _sourceObj?: PCMediaSourceObject;
 
   /**
    * The dom video element.
@@ -59,7 +59,7 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
    * The adapter capabilities
    * @private
    */
-  protected _capabilities: PKMediaSourceCapabilities = { fpsControl: false };
+  protected _capabilities: PCMediaSourceCapabilities = { fpsControl: false };
 
   /**
    * The event manager of the adapter.
@@ -109,10 +109,10 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
   /**
    * @constructor
    * @param {HTMLVideoElement} videoElement - The video element which bind to media source adapter.
-   * @param {PKMediaSourceObject} source - The source object.
+   * @param {PCMediaSourceObject} source - The source object.
    * @param {Object} config - The media source adapter configuration.
    */
-  constructor(videoElement: HTMLVideoElement, source: PKMediaSourceObject, config: any = {}) {
+  constructor(videoElement: HTMLVideoElement, source: PCMediaSourceObject, config: any = {}) {
     super();
     this._videoElement = videoElement;
     this._sourceObj = source;
@@ -146,14 +146,14 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
    * @private
    * @returns {void}
    */
-  protected _onTrackChanged(track: VideoTrack | AudioTrack | PKTextTrack | ImageTrack): void {
+  protected _onTrackChanged(track: VideoTrack | AudioTrack | PCTextTrack | ImageTrack): void {
     if (track instanceof VideoTrack) {
       BaseMediaSourceAdapter._logger.debug('Video track changed', track);
       this._trigger(CustomEventType.VIDEO_TRACK_CHANGED, { selectedVideoTrack: track });
     } else if (track instanceof AudioTrack) {
       BaseMediaSourceAdapter._logger.debug('Audio track changed', track);
       this._trigger(CustomEventType.AUDIO_TRACK_CHANGED, { selectedAudioTrack: track });
-    } else if (track instanceof PKTextTrack) {
+    } else if (track instanceof PCTextTrack) {
       BaseMediaSourceAdapter._logger.debug('Text track changed', track);
       this._trigger(CustomEventType.TEXT_TRACK_CHANGED, { selectedTextTrack: track });
     } else if (track instanceof ImageTrack) {
@@ -195,7 +195,7 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
     BaseMediaSourceAdapter._throwNotImplementedError('selectAudioTrack');
   }
   // eslint-disable-next-line
-  public selectTextTrack(textTrack: PKTextTrack): void {
+  public selectTextTrack(textTrack: PCTextTrack): void {
     BaseMediaSourceAdapter._throwNotImplementedError('selectTextTrack');
   }
   // eslint-disable-next-line
@@ -213,7 +213,7 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
     return BaseMediaSourceAdapter._throwNotImplementedError('isAdaptiveBitrateEnabled');
   }
   // eslint-disable-next-line
-  public applyABRRestriction(restrictions: PKABRRestrictionObject): void {
+  public applyABRRestriction(restrictions: PCABRRestrictionObject): void {
     return BaseMediaSourceAdapter._throwNotImplementedError('applyABRRestriction');
   }
 
@@ -262,8 +262,8 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
    */
   public disableNativeTextTracks(): void {
     Array.from(this._videoElement.textTracks).forEach((track) => {
-      if (PKTextTrack.isNativeTextTrack(track) && !PKTextTrack.isExternalTrack(track)) {
-        track.mode = PKTextTrack.MODE.DISABLED;
+      if (PCTextTrack.isNativeTextTrack(track) && !PCTextTrack.isExternalTrack(track)) {
+        track.mode = PCTextTrack.MODE.DISABLED;
       }
     });
   }
@@ -331,9 +331,9 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
 
   /**
    * @public
-   * @return {PKMediaSourceCapabilities} - The adapter capabilities.
+   * @return {PCMediaSourceCapabilities} - The adapter capabilities.
    */
-  public get capabilities(): PKMediaSourceCapabilities {
+  public get capabilities(): PCMediaSourceCapabilities {
     return this._capabilities;
   }
 
@@ -341,7 +341,7 @@ export default class BaseMediaSourceAdapter extends FakeEventTarget implements I
     return NaN;
   }
 
-  public getDrmInfo(): PKDrmDataObject | null {
+  public getDrmInfo(): PCDrmDataObject | null {
     return null;
   }
 }

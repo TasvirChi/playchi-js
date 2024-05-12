@@ -232,7 +232,7 @@ date: Wed, 25 Mar 2020 12:48:28 GMT
 expires: Sun, 19 Nov 2000 08:52:00 GMT
 pragma: no-cache
 server: Apache/2.4.18 (Ubuntu)
-x-kaltura-session: 2089078255
+x-tasvirchi-session: 2089078255
 x-me: qa-apache-php7, qa-apache-php7
     `;
         const headerMap = Utils.Http.convertHeadersToDictionary(headerRow);
@@ -243,7 +243,7 @@ x-me: qa-apache-php7, qa-apache-php7
         headerMap['expires'].should.equal('Sun, 19 Nov 2000 08:52:00 GMT');
         headerMap['pragma'].should.equal('no-cache');
         headerMap['server'].should.equal('Apache/2.4.18 (Ubuntu)');
-        headerMap['x-kaltura-session'].should.equal('2089078255');
+        headerMap['x-tasvirchi-session'].should.equal('2089078255');
         headerMap['x-me'].should.equal('qa-apache-php7, qa-apache-php7');
       });
 

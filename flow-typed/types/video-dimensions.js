@@ -1,5 +1,5 @@
 // @flow
-declare type PKVideoDimensionsObject = {
+declare type PCVideoDimensionsObject = {
   videoHeight: number,
   videoWidth: number
 };

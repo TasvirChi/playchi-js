@@ -9,7 +9,7 @@ import Track from './track/track';
 import ImageTrack from './track/image-track';
 import VideoTrack from './track/video-track';
 import AudioTrack from './track/audio-track';
-import TextTrack, {PKTextTrack} from './track/text-track';
+import TextTrack, {PCTextTrack} from './track/text-track';
 import {TimedMetadata, createTextTrackCue, createTimedMetadata} from './track/timed-metadata';
 import TextStyle from './track/text-style';
 import Env from './utils/env';
@@ -56,7 +56,7 @@ export {registerMediaSourceAdapter, BaseMediaSourceAdapter};
 export {BaseMiddleware};
 
 // Export the tracks classes
-export {Track, VideoTrack, AudioTrack, TextTrack, PKTextTrack, ImageTrack, TextStyle};
+export {Track, VideoTrack, AudioTrack, TextTrack, PCTextTrack, ImageTrack, TextStyle};
 
 // Export the timed metadata class and function
 export {TimedMetadata, createTextTrackCue, createTimedMetadata};

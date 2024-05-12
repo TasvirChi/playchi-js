@@ -1,7 +1,7 @@
 import NativeAdapter from './adapters/native-adapter';
 import getLogger from '../../../utils/logger';
 import {IMediaSourceAdapter, IMediaSourceAdapterStatic} from '../../../types/interfaces/media-source-adapter';
-import {PKDrmConfigObject, PKMediaSourceObject} from '../../../types';
+import {PCDrmConfigObject, PCMediaSourceObject} from '../../../types';
 
 /**
  * Media source provider
@@ -65,14 +65,14 @@ export default class MediaSourceProvider {
 
   /**
    * Checks if the a media source adapter can play a given source.
-   * @param {PKMediaSourceObject} source - The source object to check.
+   * @param {PCMediaSourceObject} source - The source object to check.
    * @param {boolean} [preferNative=true] - prefer native flag.
-   * @param {PKDrmConfigObject} drmConfig - The drm config.
+   * @param {PCDrmConfigObject} drmConfig - The drm config.
    * @returns {boolean} - Whether a media source adapter can play the source.
    * @public
    * @static
    */
-  public static canPlaySource(source: PKMediaSourceObject, preferNative: boolean = true, drmConfig: PKDrmConfigObject): boolean {
+  public static canPlaySource(source: PCMediaSourceObject, preferNative: boolean = true, drmConfig: PCDrmConfigObject): boolean {
     MediaSourceProvider._orderMediaSourceAdapters(preferNative);
     const mediaSourceAdapters = MediaSourceProvider._mediaSourceAdapters;
     if (source && source.mimetype) {
@@ -109,12 +109,12 @@ export default class MediaSourceProvider {
    * Get the appropriate media source adapter to the video source.
    * @function getMediaSourceAdapter
    * @param {HTMLVideoElement} videoElement - The video element which requires adapter for a given mimeType.
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @param {Object} config - The player configuration.
    * @returns {IMediaSourceAdapter|null} - The selected media source adapter, or null if such doesn't exists.
    * @static
    */
-  public static getMediaSourceAdapter(videoElement: HTMLVideoElement, source: PKMediaSourceObject, config: any): IMediaSourceAdapter | null {
+  public static getMediaSourceAdapter(videoElement: HTMLVideoElement, source: PCMediaSourceObject, config: any): IMediaSourceAdapter | null {
     if (videoElement && source && config) {
       if (!MediaSourceProvider._selectedAdapter) {
         MediaSourceProvider.canPlaySource(source, true, config.drm);

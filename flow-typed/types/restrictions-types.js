@@ -1,5 +1,5 @@
 // @flow
-declare type PKABRRestrictionObject = {
+declare type PCABRRestrictionObject = {
   minHeight: number,
   maxHeight: number,
   minWidth: number,

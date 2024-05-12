@@ -1,4 +1,4 @@
-export type PKTextTrackDisplaySettingObject = {
+export type PCTextTrackDisplaySettingObject = {
   line: string | number,
   lineAlign: string,
   align: string,

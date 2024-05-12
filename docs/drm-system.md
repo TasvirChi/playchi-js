@@ -20,11 +20,11 @@ Setting the desired DRM system is done by setting the DRM configuration. For exa
 ```ecmascript 6
 var config = {
   drm: {
-    keySystem: playkit.core.DrmScheme.PLAYREADY // "com.microsoft.playready"
+    keySystem: playchi.core.DrmScheme.PLAYREADY // "com.microsoft.playready"
   },
   sources: {...}
 };
-var player = playkit.core.loadPlayer(config);
+var player = playchi.core.loadPlayer(config);
 ```
 
 **Important**:  

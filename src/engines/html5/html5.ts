@@ -5,7 +5,7 @@ import {CustomEventType, Html5EventType} from '../../event/event-type';
 import MediaSourceProvider from './media-source/media-source-provider';
 import VideoTrack from '../../track/video-track';
 import AudioTrack from '../../track/audio-track';
-import {PKTextTrack, getActiveCues}  from '../../track/text-track';
+import {PCTextTrack, getActiveCues}  from '../../track/text-track';
 import ImageTrack from '../../track/image-track';
 import {createTimedMetadata} from '../../track/timed-metadata';
 import * as Utils from '../../utils/util';
@@ -16,7 +16,7 @@ import {DroppedFramesWatcher} from '../dropped-frames-watcher';
 import {ThumbnailInfo} from '../../thumbnail/thumbnail-info';
 import {IMediaSourceAdapter} from '../../types';
 import {CapabilityResult, ICapability} from '../../types';
-import {PKABRRestrictionObject, PKDrmConfigObject, PKDrmDataObject, PKMediaSourceObject, PKVideoElementStore} from '../../types';
+import {PCABRRestrictionObject, PCDrmConfigObject, PCDrmDataObject, PCMediaSourceObject, PCVideoElementStore} from '../../types';
 import {IEngine} from '../../types';
 import Track from '../../track/track';
 
@@ -82,9 +82,9 @@ export default class Html5 extends FakeEventTarget implements IEngine {
   public static id: string = 'html5';
 
   /**
-   * @type {PKVideoElementStore} - Store object which maps between playerId to its video element.
+   * @type {PCVideoElementStore} - Store object which maps between playerId to its video element.
    */
-  public static videoElementStore: PKVideoElementStore = {};
+  public static videoElementStore: PCVideoElementStore = {};
 
   /**
    * Checks if html5 is supported.
@@ -102,27 +102,27 @@ export default class Html5 extends FakeEventTarget implements IEngine {
 
   /**
    * Factory method to create an engine.
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @param {Object} config - The player configuration.
    * @param {string} playerId - The player id.
    * @returns {IEngine} - New instance of the run time engine.
    * @public
    * @static
    */
-  public static createEngine(source: PKMediaSourceObject, config: any, playerId: string): IEngine {
+  public static createEngine(source: PCMediaSourceObject, config: any, playerId: string): IEngine {
     return new this(source, config, playerId);
   }
 
   /**
    * Checks if the engine can play a given source.
-   * @param {PKMediaSourceObject} source - The source object to check.
+   * @param {PCMediaSourceObject} source - The source object to check.
    * @param {boolean} preferNative - prefer native flag.
-   * @param {PKDrmConfigObject} drmConfig - The drm config.
+   * @param {PCDrmConfigObject} drmConfig - The drm config.
    * @returns {boolean} - Whether the engine can play the source.
    * @public
    * @static
    */
-  public static canPlaySource(source: PKMediaSourceObject, preferNative: boolean, drmConfig: PKDrmConfigObject): boolean {
+  public static canPlaySource(source: PCMediaSourceObject, preferNative: boolean, drmConfig: PCDrmConfigObject): boolean {
     return MediaSourceProvider.canPlaySource(source, preferNative, drmConfig);
   }
 
@@ -188,11 +188,11 @@ export default class Html5 extends FakeEventTarget implements IEngine {
 
   /**
    * @constructor
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @param {Object} config - The player configuration.
    * @param {string} playerId - The player id.
    */
-  constructor(source: PKMediaSourceObject, config: any, playerId: string) {
+  constructor(source: PCMediaSourceObject, config: any, playerId: string) {
     super();
     this._eventManager = new EventManager();
     this._canLoadMediaSourceAdapterPromise = Promise.resolve();
@@ -202,11 +202,11 @@ export default class Html5 extends FakeEventTarget implements IEngine {
 
   /**
    * Restores the engine.
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @param {Object} config - The player configuration.
    * @returns {void}
    */
-  public restore(source: PKMediaSourceObject, config: any): void {
+  public restore(source: PCMediaSourceObject, config: any): void {
     this.reset();
     this._init(source, config);
   }
@@ -319,7 +319,7 @@ export default class Html5 extends FakeEventTarget implements IEngine {
     this._eventManager.listen(this._el, Html5EventType.WAITING, () => this._handleWaiting());
     this._handleMetadataTrackEvents();
     this._eventManager.listen(this._el.textTracks, 'addtrack', (event: any) => {
-      if (PKTextTrack.isNativeTextTrack(event.track)) {
+      if (PCTextTrack.isNativeTextTrack(event.track)) {
         this.dispatchEvent(new FakeEvent(CustomEventType.TEXT_TRACK_ADDED, {track: event.track}));
       }
     });
@@ -397,10 +397,10 @@ export default class Html5 extends FakeEventTarget implements IEngine {
 
   /**
    * Select a new text track.
-   * @param {PKTextTrack} textTrack - The playkit text track object to set.
+   * @param {PCTextTrack} textTrack - The playchi text track object to set.
    * @returns {void}
    */
-  public selectTextTrack(textTrack: PKTextTrack): void {
+  public selectTextTrack(textTrack: PCTextTrack): void {
     this._removeCueChangeListeners();
     if (this._mediaSourceAdapter) {
       this._mediaSourceAdapter.selectTextTrack(textTrack);
@@ -461,11 +461,11 @@ export default class Html5 extends FakeEventTarget implements IEngine {
   /**
    * Apply ABR restriction
    * @function applyABRRestriction
-   * @param {PKABRRestrictionObject} restriction - abr restriction config
+   * @param {PCABRRestrictionObject} restriction - abr restriction config
    * @returns {void}
    * @public
    */
-  public applyABRRestriction(restriction: PKABRRestrictionObject): void {
+  public applyABRRestriction(restriction: PCABRRestrictionObject): void {
     if (this._mediaSourceAdapter) {
       return this._mediaSourceAdapter.applyABRRestriction(restriction);
     }
@@ -1047,12 +1047,12 @@ export default class Html5 extends FakeEventTarget implements IEngine {
 
   /**
    * Initializes the engine.
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @param {Object} config - The player configuration.
    * @private
    * @returns {void}
    */
-  private _init(source: PKMediaSourceObject, config: any): void {
+  private _init(source: PCMediaSourceObject, config: any): void {
     this._config = config;
     this._reset = false;
     this._loadMediaSourceAdapter(source);
@@ -1073,11 +1073,11 @@ export default class Html5 extends FakeEventTarget implements IEngine {
 
   /**
    * Loads the appropriate media source extension adapter.
-   * @param {PKMediaSourceObject} source - The selected source object.
+   * @param {PCMediaSourceObject} source - The selected source object.
    * @private
    * @returns {void}
    */
-  private _loadMediaSourceAdapter(source: PKMediaSourceObject): void {
+  private _loadMediaSourceAdapter(source: PCMediaSourceObject): void {
     this._mediaSourceAdapter = MediaSourceProvider.getMediaSourceAdapter(this.getVideoElement(), source, this._config);
     if (this._mediaSourceAdapter) {
       this._droppedFramesWatcher = new DroppedFramesWatcher(this._mediaSourceAdapter, this._config.abr, this._el);
@@ -1090,7 +1090,7 @@ export default class Html5 extends FakeEventTarget implements IEngine {
    * @private
    */
   private _addCueChangeListener(): void {
-    const textTrackEl = Array.from(this._el.textTracks).find(track => PKTextTrack.isNativeTextTrack(track) && track.mode !== PKTextTrack.MODE.DISABLED);
+    const textTrackEl = Array.from(this._el.textTracks).find(track => PCTextTrack.isNativeTextTrack(track) && track.mode !== PCTextTrack.MODE.DISABLED);
     if (textTrackEl) {
       this._eventManager.listen(textTrackEl, 'cuechange', (e: FakeEvent) => this._onCueChange(e));
     }
@@ -1103,7 +1103,7 @@ export default class Html5 extends FakeEventTarget implements IEngine {
    */
   private _removeCueChangeListeners(): void {
     Array.from(this._el.textTracks)
-      .filter(track => !PKTextTrack.isMetaDataTrack(track))
+      .filter(track => !PCTextTrack.isMetaDataTrack(track))
       .forEach(track => {
         this._eventManager.unlisten(track, 'cuechange');
       });
@@ -1127,7 +1127,7 @@ export default class Html5 extends FakeEventTarget implements IEngine {
    */
   public resetAllCues(): void {
     const activeTextTrack = Array.from(this._el.textTracks).find(
-      track => PKTextTrack.isNativeTextTrack(track) && track.mode !== PKTextTrack.MODE.DISABLED
+      track => PCTextTrack.isNativeTextTrack(track) && track.mode !== PCTextTrack.MODE.DISABLED
     );
     if (activeTextTrack) {
       for (let i = 0; i < activeTextTrack.cues!.length; i++) {
@@ -1199,11 +1199,11 @@ export default class Html5 extends FakeEventTarget implements IEngine {
 
   private _handleMetadataTrackEvents(): void {
     const listenToCueChange = (metadataTrack: any): void => {
-      metadataTrack.mode = PKTextTrack.MODE.HIDDEN;
+      metadataTrack.mode = PCTextTrack.MODE.HIDDEN;
       this._eventManager.listen(metadataTrack, 'cuechange', () => {
         let activeCues: VTTCue[] = [];
         Array.from(this._el.textTracks).forEach((track: TextTrack) => {
-          if (PKTextTrack.isMetaDataTrack(track)) {
+          if (PCTextTrack.isMetaDataTrack(track)) {
             activeCues = activeCues.concat(getActiveCues(track.activeCues!));
           }
         });
@@ -1220,21 +1220,21 @@ export default class Html5 extends FakeEventTarget implements IEngine {
     };
 
     Array.from(this._el.textTracks).forEach((track: TextTrack) => {
-      if (PKTextTrack.isMetaDataTrack(track)) {
+      if (PCTextTrack.isMetaDataTrack(track)) {
         listenToCueChange(track);
       }
     });
 
     this._eventManager.listen(this._el.textTracks, 'addtrack', (event: any) => {
-      if (PKTextTrack.isMetaDataTrack(event.track)) {
+      if (PCTextTrack.isMetaDataTrack(event.track)) {
         listenToCueChange(event.track);
       }
     });
 
     this._eventManager.listen(this._el.textTracks, 'change', () => {
       Array.from(this._el.textTracks).forEach((track: TextTrack) => {
-        if (PKTextTrack.isMetaDataTrack(track) && track.mode !== PKTextTrack.MODE.HIDDEN) {
-          track.mode = PKTextTrack.MODE.HIDDEN;
+        if (PCTextTrack.isMetaDataTrack(track) && track.mode !== PCTextTrack.MODE.HIDDEN) {
+          track.mode = PCTextTrack.MODE.HIDDEN;
         }
       });
     });
@@ -1274,7 +1274,7 @@ export default class Html5 extends FakeEventTarget implements IEngine {
     return Array.from(this._el.textTracks);
   }
 
-  public getDrmInfo(): PKDrmDataObject | null {
+  public getDrmInfo(): PCDrmDataObject | null {
     return this._mediaSourceAdapter ? this._mediaSourceAdapter.getDrmInfo() : null;
   }
 }

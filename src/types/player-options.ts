@@ -1,15 +1,15 @@
-import {PKLogConfigObject} from './log-level';
-import {PKPlaybackConfigObject} from './playback-config';
-import {PKStreamingConfigObject} from './streaming-config';
-import {PKSessionConfigObject} from './session-config';
-import {PKNetworkConfigObject} from './network-config';
-import {PKCustomLabelsConfigObject} from './custom-labels-config';
+import {PCLogConfigObject} from './log-level';
+import {PCPlaybackConfigObject} from './playback-config';
+import {PCStreamingConfigObject} from './streaming-config';
+import {PCSessionConfigObject} from './session-config';
+import {PCNetworkConfigObject} from './network-config';
+import {PCCustomLabelsConfigObject} from './custom-labels-config';
 
-export type PKPlayerOptionsObject = {
-  log?: PKLogConfigObject,
-  playback?: PKPlaybackConfigObject,
-  streaming?: PKStreamingConfigObject,
-  session?: PKSessionConfigObject,
-  network?: PKNetworkConfigObject,
-  customLabels?: PKCustomLabelsConfigObject
+export type PCPlayerOptionsObject = {
+  log?: PCLogConfigObject,
+  playback?: PCPlaybackConfigObject,
+  streaming?: PCStreamingConfigObject,
+  session?: PCSessionConfigObject,
+  network?: PCNetworkConfigObject,
+  customLabels?: PCCustomLabelsConfigObject
 };

@@ -4,7 +4,7 @@ import {CustomEventType} from '../event/event-type';
 import { EventManager } from '../event/event-manager';
 import { FakeEvent } from '../event/fake-event';
 import {IMediaSourceAdapter} from '../types';
-import {PKAbrConfigObject} from '../types';
+import {PCAbrConfigObject} from '../types';
 
 const NOT_SUPPORTED: number = -1;
 
@@ -14,13 +14,13 @@ class DroppedFramesWatcher extends FakeEventTarget {
   private _lastDecodedFrames: number = 0;
   private _lastTime: number = 0;
   private _mediaSourceAdapter: IMediaSourceAdapter;
-  private _config: PKAbrConfigObject;
+  private _config: PCAbrConfigObject;
   private _videoElement: HTMLVideoElement;
   private _currentBitrate: number = 0;
   private _eventManager: EventManager;
   private static _logger: any = getLogger('droppedFramesWatcher');
 
-  constructor(mediaSourceAdapter: IMediaSourceAdapter, config: PKAbrConfigObject, videoElement: HTMLVideoElement) {
+  constructor(mediaSourceAdapter: IMediaSourceAdapter, config: PCAbrConfigObject, videoElement: HTMLVideoElement) {
     super();
     this._eventManager = new EventManager();
     this._mediaSourceAdapter = mediaSourceAdapter;

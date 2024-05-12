@@ -1,5 +1,5 @@
 // @flow
-declare type PKAdBreakOptions = {
+declare type PCAdBreakOptions = {
   type?: string,
   position?: number,
   numAds?: number

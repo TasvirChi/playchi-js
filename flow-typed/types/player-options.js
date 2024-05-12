@@ -1,9 +1,9 @@
 // @flow
-declare type PKPlayerOptionsObject = {
-  log?: PKLogConfigObject,
-  playback?: PKPlaybackConfigObject,
-  streaming?: PKStreamingConfigObject,
-  session?: PKSessionConfigObject,
-  network?: PKNetworkConfigObject,
-  customLabels?: PKCustomLabelsConfigObject
+declare type PCPlayerOptionsObject = {
+  log?: PCLogConfigObject,
+  playback?: PCPlaybackConfigObject,
+  streaming?: PCStreamingConfigObject,
+  session?: PCSessionConfigObject,
+  network?: PCNetworkConfigObject,
+  customLabels?: PCCustomLabelsConfigObject
 };

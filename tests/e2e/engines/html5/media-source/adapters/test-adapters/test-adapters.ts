@@ -1,6 +1,6 @@
 import { FakeEventTarget } from '../../../../../../../src/event/fake-event-target';
 import {IMediaSourceAdapter} from '../../../../../../../src/types';
-import {PKDrmConfigObject} from '../../../../../../../lib/types';
+import {PCDrmConfigObject} from '../../../../../../../lib/types';
 
 class FakeNativeAdapter implements IMediaSourceAdapter {
   static get id() {
@@ -29,7 +29,7 @@ class Adapter1 implements IMediaSourceAdapter {
     return ['mimeType0', 'mimeType1'].includes(mimeType);
   }
 
-  static canPlayDrm(drmData: Array<Object>, drmConfig: PKDrmConfigObject): boolean {
+  static canPlayDrm(drmData: Array<Object>, drmConfig: PCDrmConfigObject): boolean {
     return !!((drmData.length && drmData[0].scheme === 's1') || drmConfig.keySystem === 's1');
   }
 
@@ -77,7 +77,7 @@ class Adapter3 implements IMediaSourceAdapter {
     return !!document.createElement('video').canPlayType(mimeType);
   }
 
-  static canPlayDrm(drmData: Array<Object>, drmConfig: PKDrmConfigObject): boolean {
+  static canPlayDrm(drmData: Array<Object>, drmConfig: PCDrmConfigObject): boolean {
     return !!((drmData.length && drmData[0].scheme === 's3') || drmConfig.keySystem === 's3');
   }
 

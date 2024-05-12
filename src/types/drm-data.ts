@@ -1,4 +1,4 @@
-export type PKDrmDataObject = {
+export type PCDrmDataObject = {
   licenseUrl: string,
   scheme: string,
   certificate?: string

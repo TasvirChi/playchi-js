@@ -7,7 +7,7 @@ import {ThumbnailInfo} from './thumbnail-info';
 import Error from '../error/error';
 import { FakeEvent } from '../event/fake-event';
 import {Html5EventType} from '../event/event-type';
-import {PKExternalThumbnailsConfig, PKThumbnailVttCue} from '../types';
+import {PCExternalThumbnailsConfig, PCThumbnailVttCue} from '../types';
 
 const VTT_INCLUDES_SIZE_ONLY: RegExp = /#wh=/i;
 const VTT_INCLUDES_SIZE_AND_COORDS: RegExp = /#xywh=/i;
@@ -40,7 +40,7 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
    * @type {Array<Cue>}
    * @private
    */
-  private _cues: Array<PKThumbnailVttCue> = [];
+  private _cues: Array<PCThumbnailVttCue> = [];
 
   /**
    * computed img dimensions based on its natural ratio
@@ -51,11 +51,11 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
 
   /**
    * start the loading and parsing process of the vtt thumbnails file.
-   * @param {PKExternalThumbnailsConfig} thumbnailsConfig - the external vtt thumbnails config
+   * @param {PCExternalThumbnailsConfig} thumbnailsConfig - the external vtt thumbnails config
    * @returns {void}
    * @public
    */
-  public async load(thumbnailsConfig: PKExternalThumbnailsConfig): Promise<void> {
+  public async load(thumbnailsConfig: PCExternalThumbnailsConfig): Promise<void> {
     if (!thumbnailsConfig) {
       return;
     }
@@ -70,7 +70,7 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
    * @public
    */
   public getThumbnail(time: number): ThumbnailInfo | null {
-    const cue: PKThumbnailVttCue | null = this._findCue(time, this._cues);
+    const cue: PCThumbnailVttCue | null = this._findCue(time, this._cues);
     if (cue) {
       const {imgUrl} = cue;
       let {size, coordinates} = cue;
@@ -93,11 +93,11 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
 
   /**
    * download and parse the vtt file
-   * @param {PKExternalThumbnailsConfig} thumbnailsConfig - the thumbnails user config
+   * @param {PCExternalThumbnailsConfig} thumbnailsConfig - the thumbnails user config
    * @returns {Promise<void>} - resolve when the loading and parsing process is complete
    * @private
    */
-  private async _downloadAndParseCues(thumbnailsConfig: PKExternalThumbnailsConfig): Promise<void> {
+  private async _downloadAndParseCues(thumbnailsConfig: PCExternalThumbnailsConfig): Promise<void> {
     try {
       const VttStr: string = await this._downloadVttFile(thumbnailsConfig);
       const cuesArray: Array<VTTCue> = await this._processVtt(VttStr);
@@ -109,11 +109,11 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
 
   /**
    * Make a request to download the vtt file.
-   * @param {PKExternalThumbnailsConfig} thumbnailsConfig - the thumbnails config object.
+   * @param {PCExternalThumbnailsConfig} thumbnailsConfig - the thumbnails config object.
    * @returns {Promise<string>} - resolves with the vtt string.
    * @private
    */
-  private async _downloadVttFile(thumbnailsConfig: PKExternalThumbnailsConfig): Promise<string> {
+  private async _downloadVttFile(thumbnailsConfig: PCExternalThumbnailsConfig): Promise<string> {
     try {
       return await Utils.Http.execute(thumbnailsConfig.vttUrl, {}, 'GET');
     } catch (error) {
@@ -145,18 +145,18 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
   /**
    * format vtt text track cues into thumbnails track cues.
    * @param {Array<Cue>} cues - array of VTTCues in the vtt text track format
-   * @param {PKExternalThumbnailsConfig} thumbnailsConfig - the external vtt thumbnails config
-   * @returns {Array<PKThumbnailVttCue>} - cues contains the thumbnails metadata.
+   * @param {PCExternalThumbnailsConfig} thumbnailsConfig - the external vtt thumbnails config
+   * @returns {Array<PCThumbnailVttCue>} - cues contains the thumbnails metadata.
    * @private
    */
-  private async _formatIntoThumbnailCues(cues: Array<VTTCue>, thumbnailsConfig: PKExternalThumbnailsConfig): Promise<PKThumbnailVttCue[]> {
+  private async _formatIntoThumbnailCues(cues: Array<VTTCue>, thumbnailsConfig: PCExternalThumbnailsConfig): Promise<PCThumbnailVttCue[]> {
     if (!this.validateThumbnailsVTTFormat(cues)) {
       throw new Error(Error.Severity.RECOVERABLE, Error.Category.TEXT, Error.Code.INVALID_VTT_THUMBNAILS_FILE, {
         message: 'invalid thumbnail vtt format',
         vttUrl: thumbnailsConfig.vttUrl
       });
     } else {
-      const sampleProcessedCue: PKThumbnailVttCue = this._extractCueMetadata(cues[0], thumbnailsConfig);
+      const sampleProcessedCue: PCThumbnailVttCue = this._extractCueMetadata(cues[0], thumbnailsConfig);
       if (!(await this.validateImgUrl(sampleProcessedCue.imgUrl))) {
         throw new Error(Error.Severity.RECOVERABLE, Error.Category.TEXT, Error.Code.INVALID_VTT_THUMBNAILS_FILE, {
           message: 'failed loading the image - invalid image url',
@@ -164,9 +164,9 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
         });
       } else {
         this._naturalImgSize = await this.extractImgNaturalDimensions(sampleProcessedCue.imgUrl);
-        const thumbnailCues: Array<PKThumbnailVttCue> = [];
+        const thumbnailCues: Array<PCThumbnailVttCue> = [];
         for (const cue of cues) {
-          const processedCue: PKThumbnailVttCue = this._extractCueMetadata(cue, thumbnailsConfig);
+          const processedCue: PCThumbnailVttCue = this._extractCueMetadata(cue, thumbnailsConfig);
           thumbnailCues.push(processedCue);
         }
         return thumbnailCues;
@@ -215,11 +215,11 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
   /**
    * format vtt cue into thumbnail cue - by extracting the img options metadata.
    * @param {VTTCue} vttCue - a parsed VTTCue in the vtt text cue format
-   * @param {PKExternalThumbnailsConfig} thumbnailsConfig - the thumbnails config
-   * @returns {PKThumbnailVttCue} - cue object contains the img metadata.
+   * @param {PCExternalThumbnailsConfig} thumbnailsConfig - the thumbnails config
+   * @returns {PCThumbnailVttCue} - cue object contains the img metadata.
    * @private
    */
-  private _extractCueMetadata(vttCue: VTTCue, thumbnailsConfig: PKExternalThumbnailsConfig): PKThumbnailVttCue {
+  private _extractCueMetadata(vttCue: VTTCue, thumbnailsConfig: PCExternalThumbnailsConfig): PCThumbnailVttCue {
     const {startTime, endTime, text} = vttCue;
     const imgBaseUrl = thumbnailsConfig.vttUrl.substring(0, thumbnailsConfig.vttUrl.lastIndexOf('/'));
     const isVTTIncludesImgSizeOnly: boolean = VTT_INCLUDES_SIZE_ONLY.test(text);
@@ -266,16 +266,16 @@ class ExternalThumbnailsHandler extends FakeEventTarget {
   /**
    * search the cue that matches the requested timing in the timeline - in the cues array.
    * @param {number} time - timing in th playback timeline in milliseconds.
-   * @param {Array<PKThumbnailVttCue>} cues - the thumbnails cues array.
-   * @returns {PKThumbnailVttCue | null} - the thumbnail cue linked to that timing.
+   * @param {Array<PCThumbnailVttCue>} cues - the thumbnails cues array.
+   * @returns {PCThumbnailVttCue | null} - the thumbnail cue linked to that timing.
    * @private
    */
-  private _findCue(time: number, cues: Array<PKThumbnailVttCue>): PKThumbnailVttCue | null {
+  private _findCue(time: number, cues: Array<PCThumbnailVttCue>): PCThumbnailVttCue | null {
     let left = 0;
     let right = cues.length - 1;
     while (left <= right) {
       const middle = Math.floor((left + right) / 2);
-      const potentialCueMatch: PKThumbnailVttCue = cues[middle];
+      const potentialCueMatch: PCThumbnailVttCue = cues[middle];
       if (time >= potentialCueMatch.startTime && time < potentialCueMatch.endTime) {
         return cues[middle];
       } else if (time < potentialCueMatch.startTime) {

@@ -1,5 +1,5 @@
 // @flow
-declare type PKPlaybackOptionsObject = {
+declare type PCPlaybackOptionsObject = {
   html5: {
     hls: Object,
     dash: Object

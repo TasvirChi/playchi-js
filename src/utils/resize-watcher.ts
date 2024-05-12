@@ -56,7 +56,7 @@ class ResizeWatcher extends FakeEventTarget {
   }
 }
 
-const IFRAME_CLASS_NAME: string = 'playkit-size-iframe';
+const IFRAME_CLASS_NAME: string = 'playchi-size-iframe';
 
 /**
  * This class mimics the API of the ResizeObserver API (currently available only in Chrome).

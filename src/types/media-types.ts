@@ -1,1 +1,1 @@
-export type PKMediaTypes = {[type: string]: string};
+export type PCMediaTypes = {[type: string]: string};

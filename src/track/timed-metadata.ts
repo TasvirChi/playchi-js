@@ -1,4 +1,4 @@
-import {PKTextTrackCue} from '../types';
+import {PCTextTrackCue} from '../types';
 
 class TimedMetadata {
   public static TYPE: {[type: string]: string};
@@ -38,14 +38,14 @@ TimedMetadata.TYPE = {
  * @returns {TextTrackCue} - the created text track cue
  * @private
  */
-function createTextTrackCue(timedMetadata: TimedMetadata): PKTextTrackCue | null {
+function createTextTrackCue(timedMetadata: TimedMetadata): PCTextTrackCue | null {
   try {
     const {startTime, endTime, id, type, metadata} = timedMetadata;
     const cue = new VTTCue(startTime, endTime, '');
     const cueValue = {key: type, data: metadata};
     cue.id = id;
     cue['value'] = cueValue;
-    return cue as unknown as PKTextTrackCue;
+    return cue as unknown as PCTextTrackCue;
   } catch (e) {
     return null;
   }
@@ -76,7 +76,7 @@ function createTimedMetadata(cue: TextTrackCue): TimedMetadata | null {
  * @return {Object} - type and data
  * @private
  */
-function _getTypeAndMetadata(cue: TextTrackCue | PKTextTrackCue): { metadata: any; type: string } | null {
+function _getTypeAndMetadata(cue: TextTrackCue | PCTextTrackCue): { metadata: any; type: string } | null {
   if (cue) {
     if ('value' in cue && cue.value) {
       const {type, value, track} = cue;

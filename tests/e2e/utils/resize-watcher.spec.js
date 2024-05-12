@@ -26,7 +26,7 @@ describe('ResizeWatcher', () => {
     rw._createIframeObserver();
     let iframe = rw._observer._createIframe();
     iframe.should.be.instanceOf(HTMLElement);
-    iframe.className.should.be.equal('playkit-size-iframe');
+    iframe.className.should.be.equal('playchi-size-iframe');
     rw.destroy();
   });
 

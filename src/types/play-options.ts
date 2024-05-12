@@ -1,3 +1,3 @@
-export type PKPlayOptionsObject = {
+export type PCPlayOptionsObject = {
   programmatic: boolean
 };

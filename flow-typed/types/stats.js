@@ -1,5 +1,5 @@
 // @flow
-declare type PKStatsObject = {
+declare type PCStatsObject = {
   targetBuffer: number,
   availableBuffer: number
 };

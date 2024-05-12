@@ -5,7 +5,7 @@ import * as Utils from './util';
  * @type {string}
  * @const
  */
-const SUBTITLES_STYLE_CLASS_NAME: string = 'playkit-subtitles-style';
+const SUBTITLES_STYLE_CLASS_NAME: string = 'playchi-subtitles-style';
 
 export const getSubtitleStyleSheet = (playerId: string): CSSStyleSheet => {
   let element = Utils.Dom.getElementBySelector(`.${playerId}.${SUBTITLES_STYLE_CLASS_NAME}`);

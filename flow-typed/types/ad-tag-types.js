@@ -1,2 +1,2 @@
 // @flow
-declare type PKAdTagTypes = {[type: string]: string};
+declare type PCAdTagTypes = {[type: string]: string};

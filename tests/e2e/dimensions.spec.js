@@ -1,10 +1,10 @@
 import {createElement, getConfigStructure, removeElement, removeVideoElementsFromTestPage} from '../utils/test-utils';
 import Player from '../../src/player';
-import {Object as PKObject} from '../../src/utils';
+import {Object as PCObject} from '../../src/utils';
 import SourcesConfig from '../configs/sources.json';
 
 const targetId = 'player-placeholder_dimensions.spec';
-const sourcesConfig = PKObject.copyDeep(SourcesConfig);
+const sourcesConfig = PCObject.copyDeep(SourcesConfig);
 
 describe('Dimensions API ', function () {
   const origConfig = getConfigStructure(targetId);
@@ -22,7 +22,7 @@ describe('Dimensions API ', function () {
   };
 
   beforeEach(() => {
-    config = PKObject.copyDeep(origConfig);
+    config = PCObject.copyDeep(origConfig);
   });
 
   afterEach(() => {

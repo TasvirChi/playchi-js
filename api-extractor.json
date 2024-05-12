@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
-  "mainEntryPointFilePath": "<projectFolder>/lib/playkit.d.ts",
+  "mainEntryPointFilePath": "<projectFolder>/lib/playchi.d.ts",
   "bundledPackages": [],
   "compiler": {},
   "apiReport": {

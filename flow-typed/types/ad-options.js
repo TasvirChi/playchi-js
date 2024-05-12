@@ -1,5 +1,5 @@
 // @flow
-declare type PKAdOptions = {
+declare type PCAdOptions = {
   system?: string,
   url?: string,
   contentType?: string,

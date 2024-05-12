@@ -1,4 +1,4 @@
-export type PKMetadataConfigObject = {
+export type PCMetadataConfigObject = {
   name?: string,
   description?: string,
   mediaType?: string,

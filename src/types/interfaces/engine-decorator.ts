@@ -2,12 +2,12 @@ import VideoTrack from '../../track/video-track';
 import AudioTrack from '../../track/audio-track';
 import TextTrack from '../../track/text-track';
 import { FakeEvent } from '../../event/fake-event';
-import {PKMediaSourceObject} from '../media-source';
+import {PCMediaSourceObject} from '../media-source';
 
 export interface IEngineDecorator {
   active: boolean;
   dispatchEvent(event: FakeEvent): boolean;
-  restore?: (source: PKMediaSourceObject, config: any) => void;
+  restore?: (source: PCMediaSourceObject, config: any) => void;
   reset?: () => void;
   destroy?: () => void;
   attach?: () => void;

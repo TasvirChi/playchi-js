@@ -1,5 +1,5 @@
 // @flow
-declare type PKMediaSourceOptionsObject = {
+declare type PCMediaSourceOptionsObject = {
   forceRedirectExternalStreams: boolean,
   redirectExternalStreamsHandler: ?Function,
   redirectExternalStreamsTimeout: ?number

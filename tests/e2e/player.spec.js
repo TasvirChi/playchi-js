@@ -13,7 +13,7 @@ import {createElement, getConfigStructure, removeElement, removeVideoElementsFro
 import Locale from '../../src/utils/locale';
 import Html5 from '../../src/engines/html5/html5';
 import Error from '../../src/error/error';
-import {Object as PKObject} from '../../src/utils/util';
+import {Object as PCObject} from '../../src/utils/util';
 import {LabelOptions} from '../../src/track/label-options';
 import {EngineProvider} from '../../src/engines/engine-provider';
 import { FakeEvent } from '../../src/event/fake-event';
@@ -22,7 +22,7 @@ import * as Utils from '../../src/utils/util';
 import {TrackType} from '../../src/track/track-type';
 
 const targetId = 'player-placeholder_player.spec';
-let sourcesConfig = PKObject.copyDeep(SourcesConfig);
+let sourcesConfig = PCObject.copyDeep(SourcesConfig);
 
 describe('Player', function () {
   before(() => {});
@@ -30,7 +30,7 @@ describe('Player', function () {
   beforeEach(() => {
     EngineProvider.destroy();
     EngineProvider.register(Html5.id, Html5);
-    sourcesConfig = PKObject.copyDeep(SourcesConfig);
+    sourcesConfig = PCObject.copyDeep(SourcesConfig);
   });
 
   describe('load', function () {
@@ -2254,7 +2254,7 @@ describe('Player', function () {
 
       beforeEach(() => {
         sandbox = sinon.createSandbox();
-        config = PKObject.mergeDeep(getConfigStructure(), {
+        config = PCObject.mergeDeep(getConfigStructure(), {
           sources: sourcesConfig.Mp4,
           playback: {
             autoplay: true
