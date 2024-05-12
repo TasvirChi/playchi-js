@@ -306,8 +306,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKAutoPlayTypes",
-              "canonicalReference": "@playchi-js/playchi-js!~PKAutoPlayTypes:type"
+              "text": "PCAutoPlayTypes",
+              "canonicalReference": "@playchi-js/playchi-js!~PCAutoPlayTypes:type"
             }
           ],
           "fileUrlPath": "src/enums/auto-play-type.ts",
@@ -364,8 +364,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceCapabilities",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceCapabilities:type"
+                  "text": "PCMediaSourceCapabilities",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceCapabilities:type"
                 },
                 {
                   "kind": "Content",
@@ -589,7 +589,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrack",
+                  "text": "PCTextTrack",
                   "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
@@ -639,7 +639,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!BaseMediaSourceAdapter#_sourceObj:member",
-              "docComment": "/**\n * The source object.  @member {PKMediaSourceObject} _sourceObj  @private\n */\n",
+              "docComment": "/**\n * The source object.  @member {PCMediaSourceObject} _sourceObj  @private\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -647,8 +647,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -782,8 +782,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -839,8 +839,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKABRRestrictionObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKABRRestrictionObject:type"
+                  "text": "PCABRRestrictionObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCABRRestrictionObject:type"
                 },
                 {
                   "kind": "Content",
@@ -876,6 +876,104 @@
               "isOptional": false,
               "isAbstract": false,
               "name": "applyABRRestriction"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@playchi-js/playchi-js!BaseMediaSourceAdapter#applyTextTrackStyles:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "applyTextTrackStyles(sheet: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CSSStyleSheet",
+                  "canonicalReference": "!CSSStyleSheet:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", styles: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TextStyle",
+                  "canonicalReference": "@playchi-js/playchi-js!TextStyle:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", containerId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", engineClassName?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 10
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "sheet",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "styles",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "containerId",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "engineClassName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "applyTextTrackStyles"
             },
             {
               "kind": "Method",
@@ -975,7 +1073,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!BaseMediaSourceAdapter#capabilities:member",
-              "docComment": "/**\n * @return {PKMediaSourceCapabilities} - The adapter capabilities.\n *\n * @public\n */\n",
+              "docComment": "/**\n * @return {PCMediaSourceCapabilities} - The adapter capabilities.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -983,8 +1081,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceCapabilities",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceCapabilities:type"
+                  "text": "PCMediaSourceCapabilities",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceCapabilities:type"
                 },
                 {
                   "kind": "Content",
@@ -1143,8 +1241,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmDataObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type"
+                  "text": "PCDrmDataObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type"
                 },
                 {
                   "kind": "Content",
@@ -1798,7 +1896,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrack",
+                  "text": "PCTextTrack",
                   "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
@@ -2171,8 +2269,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKTextTrackCue",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextTrackCue:interface"
+              "text": "PCTextTrackCue",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextTrackCue:interface"
             },
             {
               "kind": "Content",
@@ -2517,7 +2615,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    readonly HTML5: \"html5\";\n    readonly FLASH: \"flash\";\n    readonly SILVERLIGHT: \"silverlight\";\n    readonly CAST: \"cast\";\n    readonly YOUTUBE: \"youtube\";\n    readonly IMAGE: \"image\";\n}"
+              "text": "{\n    readonly HTML5: \"html5\";\n    readonly FLASH: \"flash\";\n    readonly SILVERLIGHT: \"silverlight\";\n    readonly CAST: \"cast\";\n    readonly YOUTUBE: \"youtube\";\n    readonly IMAGE: \"image\";\n    readonly DOCUMENT: \"document\";\n}"
             }
           ],
           "fileUrlPath": "src/engines/engine-type.ts",
@@ -2572,7 +2670,7 @@
             {
               "kind": "Constructor",
               "canonicalReference": "@playchi-js/playchi-js!Error_2:constructor(1)",
-              "docComment": "/**\n * @constructor Constructs a new instance of the `Error` class\n *\n * @param severity - error's severity\n *\n * @param category - error's category.\n *\n * @param code - error's code.\n *\n * @param data - additional data for the error.\n */\n",
+              "docComment": "/**\n * @constructor Constructs a new instance of the `Error` class\n *\n * @param severity - error's severity\n *\n * @param category - error's category.\n *\n * @param code - error's code.\n *\n * @param data - additional data for the error.\n *\n * @param errorDetails - error details including title and message - optional.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -2601,6 +2699,14 @@
                 {
                   "kind": "Content",
                   "text": ", data?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", errorDetails?: "
                 },
                 {
                   "kind": "Content",
@@ -2644,6 +2750,14 @@
                   "parameterTypeTokenRange": {
                     "startIndex": 7,
                     "endIndex": 8
+                  },
+                  "isOptional": true
+                },
+                {
+                  "parameterName": "errorDetails",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 9,
+                    "endIndex": 10
                   },
                   "isOptional": true
                 }
@@ -2793,6 +2907,36 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "data",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@playchi-js/playchi-js!Error_2#errorDetails:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "errorDetails: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorDetails",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -3272,8 +3416,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKEventTypes",
-              "canonicalReference": "@playchi-js/playchi-js!PKEventTypes:type"
+              "text": "PCEventTypes",
+              "canonicalReference": "@playchi-js/playchi-js!PCEventTypes:type"
             }
           ],
           "fileUrlPath": "src/event/event-type.ts",
@@ -3974,7 +4118,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@playchi-js/playchi-js!filterTracksByRestriction:function(1)",
-          "docComment": "/**\n * Filter the video tracks which not in the range  @function filterVideoTracksByRestriction\n *\n * @param videoTracks - The tracks to filter\n *\n * @param restriction - The restriction\n *\n * @returns {Array<PKVideoTrack>} - The relevant video tracks after restrictions.\n */\n",
+          "docComment": "/**\n * Filter the video tracks which not in the range  @function filterVideoTracksByRestriction\n *\n * @param videoTracks - The tracks to filter\n *\n * @param restriction - The restriction\n *\n * @returns {Array<PCVideoTrack>} - The relevant video tracks after restrictions.\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -3995,8 +4139,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKABRRestrictionObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKABRRestrictionObject:type"
+              "text": "PCABRRestrictionObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCABRRestrictionObject:type"
             },
             {
               "kind": "Content",
@@ -4042,6 +4186,32 @@
             }
           ],
           "name": "filterTracksByRestriction"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@playchi-js/playchi-js!FontAlignmentOptions:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type FontAlignmentOptions = "
+            },
+            {
+              "kind": "Content",
+              "text": "'default' | 'left' | 'center' | 'right'"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/types/text-style.ts",
+          "releaseTag": "Public",
+          "name": "FontAlignmentOptions",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
         },
         {
           "kind": "TypeAlias",
@@ -4172,7 +4342,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@playchi-js/playchi-js!getLogLevel:function(1)",
-          "docComment": "/**\n * get the log level\n *\n * @param name - the logger name\n *\n * @returns {PKLogLevelObject} - the log level\n */\n",
+          "docComment": "/**\n * get the log level\n *\n * @param name - the logger name\n *\n * @returns {PCLogLevelObject} - the log level\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -4406,8 +4576,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmDataObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type"
+                  "text": "PCDrmDataObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type"
                 },
                 {
                   "kind": "Content",
@@ -4465,8 +4635,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmDataObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type"
+                  "text": "PCDrmDataObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type"
                 },
                 {
                   "kind": "Content",
@@ -4478,8 +4648,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmConfigObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmConfigObject:type"
+                  "text": "PCDrmConfigObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmConfigObject:type"
                 },
                 {
                   "kind": "Content",
@@ -4687,8 +4857,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKABRRestrictionObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKABRRestrictionObject:type"
+                  "text": "PCABRRestrictionObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCABRRestrictionObject:type"
                 },
                 {
                   "kind": "Content",
@@ -5260,8 +5430,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmDataObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type"
+                  "text": "PCDrmDataObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type"
                 },
                 {
                   "kind": "Content",
@@ -5731,6 +5901,38 @@
             },
             {
               "kind": "PropertySignature",
+              "canonicalReference": "@playchi-js/playchi-js!IEngine#mediaSourceAdapter:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "mediaSourceAdapter: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IMediaSourceAdapter",
+                  "canonicalReference": "@playchi-js/playchi-js!IMediaSourceAdapter:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "mediaSourceAdapter",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
               "canonicalReference": "@playchi-js/playchi-js!IEngine#muted:member",
               "docComment": "",
               "excerptTokens": [
@@ -6133,8 +6335,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -6371,7 +6573,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrack",
+                  "text": "PCTextTrack",
                   "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
@@ -7881,8 +8083,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -8366,8 +8568,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -8383,8 +8585,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmConfigObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmConfigObject:type"
+                  "text": "PCDrmConfigObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmConfigObject:type"
                 },
                 {
                   "kind": "Content",
@@ -8445,8 +8647,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -9118,8 +9320,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKABRRestrictionObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKABRRestrictionObject:type"
+                  "text": "PCABRRestrictionObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCABRRestrictionObject:type"
                 },
                 {
                   "kind": "Content",
@@ -9152,6 +9354,101 @@
                 }
               ],
               "name": "applyABRRestriction"
+            },
+            {
+              "kind": "MethodSignature",
+              "canonicalReference": "@playchi-js/playchi-js!IMediaSourceAdapter#applyTextTrackStyles:member(1)",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "applyTextTrackStyles(sheet: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CSSStyleSheet",
+                  "canonicalReference": "!CSSStyleSheet:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", styles: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "TextStyle",
+                  "canonicalReference": "@playchi-js/playchi-js!TextStyle:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", containerId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", engineClassName?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isOptional": false,
+              "returnTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 10
+              },
+              "releaseTag": "Public",
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "sheet",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "styles",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "containerId",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "engineClassName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 7,
+                    "endIndex": 8
+                  },
+                  "isOptional": true
+                }
+              ],
+              "name": "applyTextTrackStyles"
             },
             {
               "kind": "MethodSignature",
@@ -9192,8 +9489,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceCapabilities",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceCapabilities:type"
+                  "text": "PCMediaSourceCapabilities",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceCapabilities:type"
                 },
                 {
                   "kind": "Content",
@@ -9337,8 +9634,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmDataObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type"
+                  "text": "PCDrmDataObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type"
                 },
                 {
                   "kind": "Content",
@@ -9840,7 +10137,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrack",
+                  "text": "PCTextTrack",
                   "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
@@ -10076,8 +10373,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmConfigObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmConfigObject:type"
+                  "text": "PCDrmConfigObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmConfigObject:type"
                 },
                 {
                   "kind": "Content",
@@ -10184,8 +10481,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -10577,8 +10874,9 @@
               "text": "MediaType: "
             },
             {
-              "kind": "Content",
-              "text": "{\n    readonly VOD: \"Vod\";\n    readonly LIVE: \"Live\";\n    readonly AUDIO: \"Audio\";\n    readonly IMAGE: \"Image\";\n    readonly UNKNOWN: \"Unknown\";\n}"
+              "kind": "Reference",
+              "text": "PCMediaTypes",
+              "canonicalReference": "@playchi-js/playchi-js!~PCMediaTypes:type"
             }
           ],
           "fileUrlPath": "src/enums/media-type.ts",
@@ -10601,8 +10899,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKMimeTypes",
-              "canonicalReference": "@playchi-js/playchi-js!PKMimeTypes:type"
+              "text": "PCMimeTypes",
+              "canonicalReference": "@playchi-js/playchi-js!PCMimeTypes:type"
             }
           ],
           "fileUrlPath": "src/enums/mime-type.ts",
@@ -10639,12 +10937,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKAbrConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCAbrConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKAbrConfigObject = "
+              "text": "export type PCAbrConfigObject = "
             },
             {
               "kind": "Content",
@@ -10657,7 +10955,7 @@
           ],
           "fileUrlPath": "src/types/abr-config.ts",
           "releaseTag": "Public",
-          "name": "PKAbrConfigObject",
+          "name": "PCAbrConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -10665,12 +10963,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKABRRestrictionObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCABRRestrictionObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKABRRestrictionObject = "
+              "text": "export type PCABRRestrictionObject = "
             },
             {
               "kind": "Content",
@@ -10683,7 +10981,7 @@
           ],
           "fileUrlPath": "src/types/restrictions-types.ts",
           "releaseTag": "Public",
-          "name": "PKABRRestrictionObject",
+          "name": "PCABRRestrictionObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -10691,12 +10989,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKAdBreakOptions:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCAdBreakOptions:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKAdBreakOptions = "
+              "text": "export type PCAdBreakOptions = "
             },
             {
               "kind": "Content",
@@ -10709,7 +11007,7 @@
           ],
           "fileUrlPath": "src/types/ad-break-options.ts",
           "releaseTag": "Public",
-          "name": "PKAdBreakOptions",
+          "name": "PCAdBreakOptions",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -10717,12 +11015,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKAdOptions:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCAdOptions:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKAdOptions = "
+              "text": "export type PCAdOptions = "
             },
             {
               "kind": "Content",
@@ -10762,7 +11060,7 @@
           ],
           "fileUrlPath": "src/types/ad-options.ts",
           "releaseTag": "Public",
-          "name": "PKAdOptions",
+          "name": "PCAdOptions",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 8
@@ -10770,12 +11068,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKCustomLabelsConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCCustomLabelsConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKCustomLabelsConfigObject = "
+              "text": "export type PCCustomLabelsConfigObject = "
             },
             {
               "kind": "Content",
@@ -10815,7 +11113,7 @@
           ],
           "fileUrlPath": "src/types/custom-labels-config.ts",
           "releaseTag": "Public",
-          "name": "PKCustomLabelsConfigObject",
+          "name": "PCCustomLabelsConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 8
@@ -10823,12 +11121,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKDimensionsConfig:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCDimensionsConfig:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKDimensionsConfig = "
+              "text": "export type PCDimensionsConfig = "
             },
             {
               "kind": "Content",
@@ -10841,7 +11139,7 @@
           ],
           "fileUrlPath": "src/types/dimensions.ts",
           "releaseTag": "Public",
-          "name": "PKDimensionsConfig",
+          "name": "PCDimensionsConfig",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -10849,12 +11147,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKDrmConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCDrmConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKDrmConfigObject = "
+              "text": "export type PCDrmConfigObject = "
             },
             {
               "kind": "Content",
@@ -10867,7 +11165,7 @@
           ],
           "fileUrlPath": "src/types/drm-config.ts",
           "releaseTag": "Public",
-          "name": "PKDrmConfigObject",
+          "name": "PCDrmConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -10875,12 +11173,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKDrmDataObject = "
+              "text": "export type PCDrmDataObject = "
             },
             {
               "kind": "Content",
@@ -10893,7 +11191,7 @@
           ],
           "fileUrlPath": "src/types/drm-data.ts",
           "releaseTag": "Public",
-          "name": "PKDrmDataObject",
+          "name": "PCDrmDataObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -10901,12 +11199,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKEventTypes:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCEventTypes:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKEventTypes = "
+              "text": "export type PCEventTypes = "
             },
             {
               "kind": "Content",
@@ -10942,7 +11240,7 @@
           ],
           "fileUrlPath": "src/types/event-types.ts",
           "releaseTag": "Public",
-          "name": "PKEventTypes",
+          "name": "PCEventTypes",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 7
@@ -10950,12 +11248,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKExternalThumbnailsConfig:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCExternalThumbnailsConfig:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKExternalThumbnailsConfig = "
+              "text": "export type PCExternalThumbnailsConfig = "
             },
             {
               "kind": "Content",
@@ -10968,7 +11266,7 @@
           ],
           "fileUrlPath": "src/types/exteranl-thumbnails-object.ts",
           "releaseTag": "Public",
-          "name": "PKExternalThumbnailsConfig",
+          "name": "PCExternalThumbnailsConfig",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -10976,12 +11274,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKLogConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCLogConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKLogConfigObject = "
+              "text": "export type PCLogConfigObject = "
             },
             {
               "kind": "Content",
@@ -11003,7 +11301,7 @@
           ],
           "fileUrlPath": "src/types/log-level.ts",
           "releaseTag": "Public",
-          "name": "PKLogConfigObject",
+          "name": "PCLogConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
@@ -11011,12 +11309,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceCapabilities:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceCapabilities:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKMediaSourceCapabilities = "
+              "text": "export type PCMediaSourceCapabilities = "
             },
             {
               "kind": "Content",
@@ -11029,7 +11327,7 @@
           ],
           "fileUrlPath": "src/types/media-source-capabilities.ts",
           "releaseTag": "Public",
-          "name": "PKMediaSourceCapabilities",
+          "name": "PCMediaSourceCapabilities",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11037,12 +11335,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKMediaSourceObject = "
+              "text": "export type PCMediaSourceObject = "
             },
             {
               "kind": "Content",
@@ -11059,8 +11357,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKDrmDataObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type"
+              "text": "PCDrmDataObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type"
             },
             {
               "kind": "Content",
@@ -11073,7 +11371,7 @@
           ],
           "fileUrlPath": "src/types/media-source.ts",
           "releaseTag": "Public",
-          "name": "PKMediaSourceObject",
+          "name": "PCMediaSourceObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
@@ -11081,12 +11379,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceOptionsObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceOptionsObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKMediaSourceOptionsObject = "
+              "text": "export type PCMediaSourceOptionsObject = "
             },
             {
               "kind": "Content",
@@ -11108,7 +11406,7 @@
           ],
           "fileUrlPath": "src/types/media-source-options.ts",
           "releaseTag": "Public",
-          "name": "PKMediaSourceOptionsObject",
+          "name": "PCMediaSourceOptionsObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
@@ -11116,12 +11414,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKMetadataConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCMetadataConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKMetadataConfigObject = "
+              "text": "export type PCMetadataConfigObject = "
             },
             {
               "kind": "Content",
@@ -11152,7 +11450,7 @@
           ],
           "fileUrlPath": "src/types/metadata-config.ts",
           "releaseTag": "Public",
-          "name": "PKMetadataConfigObject",
+          "name": "PCMetadataConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
@@ -11160,12 +11458,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKMimeTypes:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCMimeTypes:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKMimeTypes = "
+              "text": "export type PCMimeTypes = "
             },
             {
               "kind": "Content",
@@ -11187,7 +11485,7 @@
           ],
           "fileUrlPath": "src/types/mime-types.ts",
           "releaseTag": "Public",
-          "name": "PKMimeTypes",
+          "name": "PCMimeTypes",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
@@ -11195,12 +11493,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKNetworkConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCNetworkConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKNetworkConfigObject = "
+              "text": "export type PCNetworkConfigObject = "
             },
             {
               "kind": "Content",
@@ -11231,7 +11529,7 @@
           ],
           "fileUrlPath": "src/types/network-config.ts",
           "releaseTag": "Public",
-          "name": "PKNetworkConfigObject",
+          "name": "PCNetworkConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
@@ -11239,12 +11537,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKOrientationType:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCOrientationType:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKOrientationType = "
+              "text": "export type PCOrientationType = "
             },
             {
               "kind": "Content",
@@ -11257,7 +11555,7 @@
           ],
           "fileUrlPath": "src/types/screen-orientation-type.ts",
           "releaseTag": "Public",
-          "name": "PKOrientationType",
+          "name": "PCOrientationType",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11265,21 +11563,21 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKPlaybackConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCPlaybackConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKPlaybackConfigObject = "
+              "text": "export type PCPlaybackConfigObject = "
             },
             {
               "kind": "Content",
-              "text": "{\n    audioLanguage: string;\n    textLanguage: string;\n    captionsDisplay: boolean;\n    additionalAudioLanguage: string;\n    additionalTextLanguage: string;\n    volume: number;\n    playsinline: boolean;\n    crossOrigin: string;\n    preload: string;\n    autoplay: "
+              "text": "{\n    audioLanguage: string;\n    textLanguage: string;\n    captionsDisplay: boolean;\n    additionalAudioLanguage: string | [string];\n    additionalTextLanguage: string | [string];\n    volume: number;\n    playsinline: boolean;\n    crossOrigin: string;\n    preload: string;\n    autoplay: "
             },
             {
               "kind": "Reference",
-              "text": "PKAutoPlayTypes",
-              "canonicalReference": "@playchi-js/playchi-js!~PKAutoPlayTypes:type"
+              "text": "PCAutoPlayTypes",
+              "canonicalReference": "@playchi-js/playchi-js!~PCAutoPlayTypes:type"
             },
             {
               "kind": "Content",
@@ -11296,8 +11594,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKStreamPriorityObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKStreamPriorityObject:type"
+              "text": "PCStreamPriorityObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCStreamPriorityObject:type"
             },
             {
               "kind": "Content",
@@ -11305,8 +11603,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKPreferNativeConfigObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKPreferNativeConfigObject:type"
+              "text": "PCPreferNativeConfigObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCPreferNativeConfigObject:type"
             },
             {
               "kind": "Content",
@@ -11319,7 +11617,7 @@
           ],
           "fileUrlPath": "src/types/playback-config.ts",
           "releaseTag": "Public",
-          "name": "PKPlaybackConfigObject",
+          "name": "PCPlaybackConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 10
@@ -11327,34 +11625,16 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKPlaybackOptionsObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCPlaybackOptionsObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKPlaybackOptionsObject = "
+              "text": "export type PCPlaybackOptionsObject = "
             },
             {
               "kind": "Content",
-              "text": "{\n    html5: {\n        hls: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Object",
-              "canonicalReference": "!Object:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n        dash: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Object",
-              "canonicalReference": "!Object:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n    };\n}"
+              "text": "{\n    html5: {\n        hls: any;\n        dash: any;\n    };\n}"
             },
             {
               "kind": "Content",
@@ -11363,20 +11643,20 @@
           ],
           "fileUrlPath": "src/types/playback-options.ts",
           "releaseTag": "Public",
-          "name": "PKPlaybackOptionsObject",
+          "name": "PCPlaybackOptionsObject",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 6
+            "endIndex": 2
           }
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKPlayerDimensions:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCPlayerDimensions:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKPlayerDimensions = "
+              "text": "export type PCPlayerDimensions = "
             },
             {
               "kind": "Content",
@@ -11389,7 +11669,7 @@
           ],
           "fileUrlPath": "src/types/dimensions.ts",
           "releaseTag": "Public",
-          "name": "PKPlayerDimensions",
+          "name": "PCPlayerDimensions",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11397,12 +11677,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKPlayOptionsObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCPlayOptionsObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKPlayOptionsObject = "
+              "text": "export type PCPlayOptionsObject = "
             },
             {
               "kind": "Content",
@@ -11415,7 +11695,7 @@
           ],
           "fileUrlPath": "src/types/play-options.ts",
           "releaseTag": "Public",
-          "name": "PKPlayOptionsObject",
+          "name": "PCPlayOptionsObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11423,12 +11703,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKPreferNativeConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCPreferNativeConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKPreferNativeConfigObject = "
+              "text": "export type PCPreferNativeConfigObject = "
             },
             {
               "kind": "Content",
@@ -11441,7 +11721,7 @@
           ],
           "fileUrlPath": "src/types/prefer-native-config.ts",
           "releaseTag": "Public",
-          "name": "PKPreferNativeConfigObject",
+          "name": "PCPreferNativeConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11449,12 +11729,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKRequestObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCRequestObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKRequestObject = "
+              "text": "export type PCRequestObject = "
             },
             {
               "kind": "Content",
@@ -11485,7 +11765,7 @@
           ],
           "fileUrlPath": "src/types/request.ts",
           "releaseTag": "Public",
-          "name": "PKRequestObject",
+          "name": "PCRequestObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
@@ -11493,12 +11773,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKRequestType:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCRequestType:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKRequestType = "
+              "text": "export type PCRequestType = "
             },
             {
               "kind": "Content",
@@ -11511,7 +11791,7 @@
           ],
           "fileUrlPath": "src/types/request-types.ts",
           "releaseTag": "Public",
-          "name": "PKRequestType",
+          "name": "PCRequestType",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11519,12 +11799,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKResponseObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCResponseObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKResponseObject = "
+              "text": "export type PCResponseObject = "
             },
             {
               "kind": "Content",
@@ -11555,7 +11835,7 @@
           ],
           "fileUrlPath": "src/types/response.ts",
           "releaseTag": "Public",
-          "name": "PKResponseObject",
+          "name": "PCResponseObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 6
@@ -11563,16 +11843,16 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKSessionConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCSessionConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKSessionConfigObject = "
+              "text": "export type PCSessionConfigObject = "
             },
             {
               "kind": "Content",
-              "text": "{\n    id?: string;\n    ks?: string;\n    isAnonymous?: boolean;\n    partnerId?: number;\n    uiConfId?: number;\n}"
+              "text": "{\n    id?: string;\n    ts?: string;\n    isAnonymous?: boolean;\n    partnerId?: number;\n    uiConfId?: number;\n}"
             },
             {
               "kind": "Content",
@@ -11581,7 +11861,7 @@
           ],
           "fileUrlPath": "src/types/session-config.ts",
           "releaseTag": "Public",
-          "name": "PKSessionConfigObject",
+          "name": "PCSessionConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11589,12 +11869,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKSourcesConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCSourcesConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKSourcesConfigObject = "
+              "text": "export type PCSourcesConfigObject = "
             },
             {
               "kind": "Content",
@@ -11611,8 +11891,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKMediaSourceObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+              "text": "PCMediaSourceObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
             },
             {
               "kind": "Content",
@@ -11629,8 +11909,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKMediaSourceObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+              "text": "PCMediaSourceObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
             },
             {
               "kind": "Content",
@@ -11647,8 +11927,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKMediaSourceObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+              "text": "PCMediaSourceObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
             },
             {
               "kind": "Content",
@@ -11665,8 +11945,26 @@
             },
             {
               "kind": "Reference",
-              "text": "PKMediaSourceObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceObject:type"
+              "text": "PCMediaSourceObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n    document: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "PCMediaSourceObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
             },
             {
               "kind": "Content",
@@ -11683,8 +11981,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKExternalCaptionObject",
-              "canonicalReference": "@playchi-js/playchi-js!~PKExternalCaptionObject:type"
+              "text": "PCExternalCaptionObject",
+              "canonicalReference": "@playchi-js/playchi-js!~PCExternalCaptionObject:type"
             },
             {
               "kind": "Content",
@@ -11692,8 +11990,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKExternalThumbnailsConfig",
-              "canonicalReference": "@playchi-js/playchi-js!PKExternalThumbnailsConfig:type"
+              "text": "PCExternalThumbnailsConfig",
+              "canonicalReference": "@playchi-js/playchi-js!PCExternalThumbnailsConfig:type"
             },
             {
               "kind": "Content",
@@ -11701,8 +11999,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKMediaSourceOptionsObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKMediaSourceOptionsObject:type"
+              "text": "PCMediaSourceOptionsObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceOptionsObject:type"
             },
             {
               "kind": "Content",
@@ -11710,8 +12008,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKMetadataConfigObject",
-              "canonicalReference": "@playchi-js/playchi-js!PKMetadataConfigObject:type"
+              "text": "PCMetadataConfigObject",
+              "canonicalReference": "@playchi-js/playchi-js!PCMetadataConfigObject:type"
             },
             {
               "kind": "Content",
@@ -11724,7 +12022,16 @@
             },
             {
               "kind": "Content",
-              "text": ";\n    seekFrom?: number;\n    clipTo?: number;\n}"
+              "text": ";\n    seekFrom?: number;\n    clipTo?: number;\n    mediaEntryType?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PCMediaTypes",
+              "canonicalReference": "@playchi-js/playchi-js!~PCMediaTypes:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
             },
             {
               "kind": "Content",
@@ -11733,20 +12040,20 @@
           ],
           "fileUrlPath": "src/types/sources-config.ts",
           "releaseTag": "Public",
-          "name": "PKSourcesConfigObject",
+          "name": "PCSourcesConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 30
+            "endIndex": 36
           }
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKStatsObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCStatsObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKStatsObject = "
+              "text": "export type PCStatsObject = "
             },
             {
               "kind": "Content",
@@ -11759,7 +12066,7 @@
           ],
           "fileUrlPath": "src/types/stats.ts",
           "releaseTag": "Public",
-          "name": "PKStatsObject",
+          "name": "PCStatsObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11767,12 +12074,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKStreamingConfigObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCStreamingConfigObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKStreamingConfigObject = "
+              "text": "export type PCStreamingConfigObject = "
             },
             {
               "kind": "Content",
@@ -11785,7 +12092,7 @@
           ],
           "fileUrlPath": "src/types/streaming-config.ts",
           "releaseTag": "Public",
-          "name": "PKStreamingConfigObject",
+          "name": "PCStreamingConfigObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11793,12 +12100,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKStreamPriorityObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCStreamPriorityObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKStreamPriorityObject = "
+              "text": "export type PCStreamPriorityObject = "
             },
             {
               "kind": "Content",
@@ -11811,7 +12118,7 @@
           ],
           "fileUrlPath": "src/types/stream-priority.ts",
           "releaseTag": "Public",
-          "name": "PKStreamPriorityObject",
+          "name": "PCStreamPriorityObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -11819,12 +12126,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKStreamTypes:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCStreamTypes:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKStreamTypes = "
+              "text": "export type PCStreamTypes = "
             },
             {
               "kind": "Reference",
@@ -11833,7 +12140,7 @@
             },
             {
               "kind": "Content",
-              "text": "<'DASH' | 'HLS' | 'PROGRESSIVE' | 'IMAGE', "
+              "text": "<'DASH' | 'HLS' | 'PROGRESSIVE' | 'IMAGE' | 'DOCUMENT', "
             },
             {
               "kind": "Reference",
@@ -11851,7 +12158,7 @@
           ],
           "fileUrlPath": "src/types/stream-types.ts",
           "releaseTag": "Public",
-          "name": "PKStreamTypes",
+          "name": "PCStreamTypes",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 5
@@ -11859,22 +12166,22 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject:interface",
+          "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject:interface",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface PKTextConfigObject "
+              "text": "export interface PCTextConfigObject "
             }
           ],
           "fileUrlPath": "src/types/text-config.ts",
           "releaseTag": "Public",
-          "name": "PKTextConfigObject",
+          "name": "PCTextConfigObject",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#captionsTextTrack1Label:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#captionsTextTrack1Label:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -11901,7 +12208,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#captionsTextTrack1LanguageCode:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#captionsTextTrack1LanguageCode:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -11928,7 +12235,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#captionsTextTrack2Label:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#captionsTextTrack2Label:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -11955,7 +12262,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#captionsTextTrack2LanguageCode:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#captionsTextTrack2LanguageCode:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -11982,7 +12289,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#enableCEA708Captions:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#enableCEA708Captions:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12009,7 +12316,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#forceCenter:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#forceCenter:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12036,7 +12343,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#textStyle:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#textStyle:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12045,8 +12352,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextStyleObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKTextStyleObject:type"
+                  "text": "PCTextStyleObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCTextStyleObject:type"
                 },
                 {
                   "kind": "Content",
@@ -12064,7 +12371,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#textTrackDisplaySetting:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#textTrackDisplaySetting:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12073,8 +12380,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrackDisplaySettingObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKTextTrackDisplaySettingObject:type"
+                  "text": "PCTextTrackDisplaySettingObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCTextTrackDisplaySettingObject:type"
                 },
                 {
                   "kind": "Content",
@@ -12092,7 +12399,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#useNativeTextTrack:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#useNativeTextTrack:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12119,7 +12426,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextConfigObject#useShakaTextTrackDisplay:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextConfigObject#useShakaTextTrackDisplay:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12149,12 +12456,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKTextStyleObject:type",
-          "docComment": "/**\n * @typedef {Object} PKTextStyleObject  @property {\"50%\" | \"75%\" | \"100%\" | \"200%\" | \"300%\" | \"400%\"} fontSize='100%' - Percentage unit relative to the parent element's font size.  @property {-2 | -1 | 0 | 2 | 3 | 4} fontScale=0 - - Integer number representing the scaling factor relative to the parent element's font size.  @property {string} fontFamily='sans-serif'  @property {[number, number, number]} fontColor=[255, 255, 255] - Color in RGB format.  @property {number} fontOpacity=1  @property {Array<[number, number, number, number, number, number]>} fontEdge=[]  @property {[number, number, number]} backgroundColor=[0, 0, 0] - Color in RGB format.  @property {number} backgroundOpacity=1\n */\n",
+          "canonicalReference": "@playchi-js/playchi-js!PCTextStyleObject:type",
+          "docComment": "/**\n * @typedef {Object} PCTextStyleObject  @property {\"50%\" | \"75%\" | \"100%\" | \"200%\" | \"300%\" | \"400%\"} fontSize='100%' - Percentage unit relative to the parent element's font size.  @property {-2 | -1 | 0 | 2 | 3 | 4} fontScale=0 - - Integer number representing the scaling factor relative to the parent element's font size.  @property {string} fontFamily='sans-serif'  @property {[number, number, number]} fontColor=[255, 255, 255] - Color in RGB format.  @property {number} fontOpacity=1  @property {Array<[number, number, number, number, number, number]>} fontEdge=[]  @property {[number, number, number]} backgroundColor=[0, 0, 0] - Color in RGB format.  @property {number} backgroundOpacity=1\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKTextStyleObject = "
+              "text": "export type PCTextStyleObject = "
             },
             {
               "kind": "Content",
@@ -12164,6 +12471,15 @@
               "kind": "Reference",
               "text": "FontSizeOptions",
               "canonicalReference": "@playchi-js/playchi-js!FontSizeOptions:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n    textAlign: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FontAlignmentOptions",
+              "canonicalReference": "@playchi-js/playchi-js!FontAlignmentOptions:type"
             },
             {
               "kind": "Content",
@@ -12194,20 +12510,20 @@
           ],
           "fileUrlPath": "src/types/text-style.ts",
           "releaseTag": "Public",
-          "name": "PKTextStyleObject",
+          "name": "PCTextStyleObject",
           "typeTokenRange": {
             "startIndex": 1,
-            "endIndex": 8
+            "endIndex": 10
           }
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@playchi-js/playchi-js!PKTextTrackCue:interface",
+          "canonicalReference": "@playchi-js/playchi-js!PCTextTrackCue:interface",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export interface PKTextTrackCue extends "
+              "text": "export interface PCTextTrackCue extends "
             },
             {
               "kind": "Reference",
@@ -12221,12 +12537,12 @@
           ],
           "fileUrlPath": "src/types/text-track-cue.ts",
           "releaseTag": "Public",
-          "name": "PKTextTrackCue",
+          "name": "PCTextTrackCue",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextTrackCue#type:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextTrackCue#type:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12253,7 +12569,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@playchi-js/playchi-js!PKTextTrackCue#value:member",
+              "canonicalReference": "@playchi-js/playchi-js!PCTextTrackCue#value:member",
               "docComment": "",
               "excerptTokens": [
                 {
@@ -12288,12 +12604,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKTextTrackDisplaySettingObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCTextTrackDisplaySettingObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKTextTrackDisplaySettingObject = "
+              "text": "export type PCTextTrackDisplaySettingObject = "
             },
             {
               "kind": "Content",
@@ -12306,7 +12622,7 @@
           ],
           "fileUrlPath": "src/types/text-track-display-setting.ts",
           "releaseTag": "Public",
-          "name": "PKTextTrackDisplaySettingObject",
+          "name": "PCTextTrackDisplaySettingObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -12314,12 +12630,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKThumbnailVttCue:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCThumbnailVttCue:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKThumbnailVttCue = "
+              "text": "export type PCThumbnailVttCue = "
             },
             {
               "kind": "Content",
@@ -12332,7 +12648,7 @@
           ],
           "fileUrlPath": "src/types/thumbnail-vtt-cue.ts",
           "releaseTag": "Public",
-          "name": "PKThumbnailVttCue",
+          "name": "PCThumbnailVttCue",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -12340,12 +12656,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKTrackTypes:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCTrackTypes:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKTrackTypes = "
+              "text": "export type PCTrackTypes = "
             },
             {
               "kind": "Content",
@@ -12358,7 +12674,7 @@
           ],
           "fileUrlPath": "src/types/track-types.ts",
           "releaseTag": "Public",
-          "name": "PKTrackTypes",
+          "name": "PCTrackTypes",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -12366,12 +12682,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKVideoDimensionsObject:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCVideoDimensionsObject:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKVideoDimensionsObject = "
+              "text": "export type PCVideoDimensionsObject = "
             },
             {
               "kind": "Content",
@@ -12384,7 +12700,7 @@
           ],
           "fileUrlPath": "src/types/video-dimensions.ts",
           "releaseTag": "Public",
-          "name": "PKVideoDimensionsObject",
+          "name": "PCVideoDimensionsObject",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 2
@@ -12392,12 +12708,12 @@
         },
         {
           "kind": "TypeAlias",
-          "canonicalReference": "@playchi-js/playchi-js!PKVideoElementStore:type",
+          "canonicalReference": "@playchi-js/playchi-js!PCVideoElementStore:type",
           "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "export type PKVideoElementStore = "
+              "text": "export type PCVideoElementStore = "
             },
             {
               "kind": "Content",
@@ -12419,7 +12735,7 @@
           ],
           "fileUrlPath": "src/types/video-element-store.ts",
           "releaseTag": "Public",
-          "name": "PKVideoElementStore",
+          "name": "PCVideoElementStore",
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 4
@@ -12500,7 +12816,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrack",
+                  "text": "PCTextTrack",
                   "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
@@ -12702,7 +13018,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#AbrMode:member",
-              "docComment": "/**\n * Gets the player abr modes.\n *\n * @returns {PKAbrModes} - The abr modes of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player abr modes.\n *\n * @returns {PCAbrModes} - The abr modes of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -12737,7 +13053,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#AdBreakType:member",
-              "docComment": "/**\n * Gets the ad break types.\n *\n * @returns {PKAdBreakTypes} - The ad break types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the ad break types.\n *\n * @returns {PCAdBreakTypes} - The ad break types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -12858,7 +13174,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#AdTagType:member",
-              "docComment": "/**\n * Gets the ad break tag types.\n *\n * @returns {PKAdTagTypes} - The ad tag types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the ad break tag types.\n *\n * @returns {PCAdTagTypes} - The ad tag types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13037,7 +13353,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#CorsType:member",
-              "docComment": "/**\n * Gets the player cors types.\n *\n * @returns {PKCorsTypes} - The player cors types.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player cors types.\n *\n * @returns {PCCorsTypes} - The player cors types.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13224,7 +13540,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#dimensions:member",
-              "docComment": "/**\n * Get the dimensions of the player.\n *\n * @returns {PKPlayerDimensions} - The dimensions of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Get the dimensions of the player.\n *\n * @returns {PCPlayerDimensions} - The dimensions of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13232,8 +13548,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDimensionsConfig",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDimensionsConfig:type"
+                  "text": "PCDimensionsConfig",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDimensionsConfig:type"
                 },
                 {
                   "kind": "Content",
@@ -13376,7 +13692,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#EngineType:member",
-              "docComment": "/**\n * Gets the player engine types.\n *\n * @returns {PKEngineTypes} - The engine types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player engine types.\n *\n * @returns {PCEngineTypes} - The engine types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13521,7 +13837,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#Error:member",
-              "docComment": "/**\n * Gets the player static error class.\n *\n * @returns {PKError} - The player static error class.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player static error class.\n *\n * @returns {PCError} - The player static error class.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13533,7 +13849,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKError",
+                  "text": "PCError",
                   "canonicalReference": "@playchi-js/playchi-js!Error_2:class"
                 },
                 {
@@ -13556,7 +13872,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#Event:member",
-              "docComment": "/**\n * Gets the player event types.\n *\n * @returns {PKEventTypes} - The event types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player event types.\n *\n * @returns {PCEventTypes} - The event types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -13564,8 +13880,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKEventTypes",
-                  "canonicalReference": "@playchi-js/playchi-js!PKEventTypes:type"
+                  "text": "PCEventTypes",
+                  "canonicalReference": "@playchi-js/playchi-js!PCEventTypes:type"
                 },
                 {
                   "kind": "Content",
@@ -13679,7 +13995,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrack",
+                  "text": "PCTextTrack",
                   "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
@@ -13768,8 +14084,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKDrmDataObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKDrmDataObject:type"
+                  "text": "PCDrmDataObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCDrmDataObject:type"
                 },
                 {
                   "kind": "Content",
@@ -14000,7 +14316,7 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrack",
+                  "text": "PCTextTrack",
                   "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
@@ -14611,7 +14927,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#LogLevel:member",
-              "docComment": "/**\n * Gets the player log level objects.\n *\n * @returns {PKLogLevels} - The log levels objects of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player log level objects.\n *\n * @returns {PCLogLevels} - The log levels objects of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14642,7 +14958,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#LogLevelType:member",
-              "docComment": "/**\n * Gets the player log level types.\n *\n * @returns {PKLogLevelTypes} - The log level types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player log level types.\n *\n * @returns {PCLogLevelTypes} - The log level types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14695,7 +15011,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#MediaType:member",
-              "docComment": "/**\n * Gets the player media types.\n *\n * @returns {PKMediaTypes} - The media types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player media types.\n *\n * @returns {PCMediaTypes} - The media types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -14891,8 +15207,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKPlayOptionsObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKPlayOptionsObject:type"
+                  "text": "PCPlayOptionsObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCPlayOptionsObject:type"
                 },
                 {
                   "kind": "Content",
@@ -15530,8 +15846,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKSourcesConfigObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKSourcesConfigObject:type"
+                  "text": "PCSourcesConfigObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCSourcesConfigObject:type"
                 },
                 {
                   "kind": "Content",
@@ -15579,8 +15895,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMetadataConfigObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKMetadataConfigObject:type"
+                  "text": "PCMetadataConfigObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMetadataConfigObject:type"
                 },
                 {
                   "kind": "Content",
@@ -15628,8 +15944,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextTrackDisplaySettingObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKTextTrackDisplaySettingObject:type"
+                  "text": "PCTextTrackDisplaySettingObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCTextTrackDisplaySettingObject:type"
                 },
                 {
                   "kind": "Content",
@@ -15739,8 +16055,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKSourcesConfigObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKSourcesConfigObject:type"
+                  "text": "PCSourcesConfigObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCSourcesConfigObject:type"
                 },
                 {
                   "kind": "Content",
@@ -15792,7 +16108,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#State:member",
-              "docComment": "/**\n * Gets the player state types.\n *\n * @returns {PKStateTypes} - The state types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player state types.\n *\n * @returns {PCStateTypes} - The state types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -15835,8 +16151,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKStatsObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKStatsObject:type"
+                  "text": "PCStatsObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCStatsObject:type"
                 },
                 {
                   "kind": "Content",
@@ -15888,7 +16204,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@playchi-js/playchi-js!Player#StreamType:member",
-              "docComment": "/**\n * Gets the player stream types.\n *\n * @returns {PKStreamTypes} - The stream types of the player.\n *\n * @public\n */\n",
+              "docComment": "/**\n * Gets the player stream types.\n *\n * @returns {PCStreamTypes} - The stream types of the player.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -16159,7 +16475,7 @@
             },
             {
               "kind": "Content",
-              "text": "'dash' | 'hls' | 'progressive' | 'image'"
+              "text": "'dash' | 'hls' | 'progressive' | 'image' | 'document'"
             },
             {
               "kind": "Content",
@@ -16241,8 +16557,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKRequestType",
-              "canonicalReference": "@playchi-js/playchi-js!PKRequestType:type"
+              "text": "PCRequestType",
+              "canonicalReference": "@playchi-js/playchi-js!PCRequestType:type"
             }
           ],
           "fileUrlPath": "src/enums/request-type.ts",
@@ -16265,8 +16581,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PKOrientationType",
-              "canonicalReference": "@playchi-js/playchi-js!PKOrientationType:type"
+              "text": "PCOrientationType",
+              "canonicalReference": "@playchi-js/playchi-js!PCOrientationType:type"
             }
           ],
           "fileUrlPath": "src/enums/screen-orientation-type.ts",
@@ -16603,7 +16919,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n    readonly DASH: \"dash\";\n    readonly HLS: \"hls\";\n    readonly PROGRESSIVE: \"progressive\";\n    readonly IMAGE: \"image\";\n}"
+              "text": "{\n    readonly DASH: \"dash\";\n    readonly HLS: \"hls\";\n    readonly PROGRESSIVE: \"progressive\";\n    readonly IMAGE: \"image\";\n    readonly DOCUMENT: \"document\";\n}"
             }
           ],
           "fileUrlPath": "src/engines/stream-type.ts",
@@ -16754,6 +17070,45 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "EdgeStyles",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@playchi-js/playchi-js!TextStyle.FontAlignment:member",
+              "docComment": "/**\n * Possible font alignments are left, center, right\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static FontAlignment: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        label: string;\n        value: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FontAlignmentOptions",
+                  "canonicalReference": "@playchi-js/playchi-js!FontAlignmentOptions:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    }[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "FontAlignment",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 4
@@ -17036,8 +17391,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextStyleObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKTextStyleObject:type"
+                  "text": "PCTextStyleObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCTextStyleObject:type"
                 },
                 {
                   "kind": "Content",
@@ -17246,6 +17601,37 @@
               "isAbstract": false
             },
             {
+              "kind": "Property",
+              "canonicalReference": "@playchi-js/playchi-js!TextStyle#textAlign:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "textAlign: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FontAlignmentOptions",
+                  "canonicalReference": "@playchi-js/playchi-js!FontAlignmentOptions:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "textAlign",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
               "kind": "Method",
               "canonicalReference": "@playchi-js/playchi-js!TextStyle#toCSS:member(1)",
               "docComment": "/**\n * Compute the CSS text necessary to represent this TextStyle. Output does not contain any selectors.\n *\n * @return {string} - ::CUE CSS string\n */\n",
@@ -17296,8 +17682,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKTextStyleObject",
-                  "canonicalReference": "@playchi-js/playchi-js!PKTextStyleObject:type"
+                  "text": "PCTextStyleObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCTextStyleObject:type"
                 },
                 {
                   "kind": "Content",
@@ -18774,7 +19160,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "string"
+                  "text": "string | string[]"
                 },
                 {
                   "kind": "Content",
@@ -19292,6 +19678,34 @@
               "variableTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
+              }
+            },
+            {
+              "kind": "Variable",
+              "canonicalReference": "@playchi-js/playchi-js!Utils.getSubtitleStyleSheet:var",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getSubtitleStyleSheet: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(playerId: string) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CSSStyleSheet",
+                  "canonicalReference": "!CSSStyleSheet:interface"
+                }
+              ],
+              "fileUrlPath": "src/utils/styles.ts",
+              "isReadonly": true,
+              "releaseTag": "Public",
+              "name": "getSubtitleStyleSheet",
+              "variableTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
               }
             },
             {
@@ -19855,6 +20269,29 @@
               "variableTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 6
+              }
+            },
+            {
+              "kind": "Variable",
+              "canonicalReference": "@playchi-js/playchi-js!Utils.resetSubtitleStyleSheet:var",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "resetSubtitleStyleSheet: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(playerId: string) => void"
+                }
+              ],
+              "fileUrlPath": "src/utils/styles.ts",
+              "isReadonly": true,
+              "releaseTag": "Public",
+              "name": "resetSubtitleStyleSheet",
+              "variableTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
               }
             },
             {
